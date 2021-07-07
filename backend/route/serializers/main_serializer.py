@@ -63,7 +63,7 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
         return self.apply_calculations(obj)
 
     def get_time(self, obj):
-        time = self.get_distance(obj)/self.get_speed_in_m(obj)/86400
+        time = self.get_distance(obj)/self.get_speed_in_m(obj)/3600
         seconds = time * 60 * 60
         minutes, seconds = divmod(seconds, 60)
         hours, minutes = divmod(minutes, 60)
