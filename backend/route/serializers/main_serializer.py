@@ -3,9 +3,8 @@ from segment.models import Segment
 from route.models import Route
 from session.models import Session
 import math
-import sympy as sp
-from sympy.solvers import solve
-from sympy import Symbol
+from sympy import solve, simplify
+from sympy.abc import x
 import datetime
 
 
@@ -41,7 +40,6 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
              (elevation * rider_position * wind_adjust * wind_adjust ** 2)) / (elevation * rider_position)
         d = ((2 * pat * efficiency_ratio) / (elevation * rider_position)) * -1
 
-        x = Symbol('x')
         result = solve((a * x**3) + (b * x**2) + (c * x + d), x)
 
         return result
@@ -53,8 +51,8 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
         return float(self.apply_calculations(obj)[0])
 
     def get_time(self, obj):
-        time = self.get_distance(obj)/self.get_speed_in_m(obj)
-        seconds = time * 60 * 60/86400
+        time = self.get_distance(obj)/self.get_speed_in_m(obj)/86400
+        seconds = time * 60 * 60
         minutes, seconds = divmod(seconds, 60)
         hours, minutes = divmod(minutes, 60)
         return "%02d:%02d:%02d" % (hours, minutes, seconds)

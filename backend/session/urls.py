@@ -1,8 +1,8 @@
 from django.urls import path
 from django.views import View
-from .views import CreateNewSession
+from .views import ListAllSessions
 
 urlpatterns = [
-    path('sessions/new/', CreateNewSession.as_view())
+    path('sessions/', ListAllSessions.as_view())
 ]
 

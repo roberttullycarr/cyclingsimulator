@@ -1,9 +1,10 @@
-from rest_framework.generics import ListCreateAPIView
-
+from rest_framework.generics import ListCreateAPIView, ListAPIView
 from session.models import Session
+from session.permissions import IsCoach
 from session.serializers.main_serializer import SessionCreationSerializer
 
 
-class CreateNewSession(ListCreateAPIView):
+class ListAllSessions(ListAPIView):
     serializer_class = SessionCreationSerializer
+    permission_classes = [IsCoach]
     queryset = Session.objects.all()
