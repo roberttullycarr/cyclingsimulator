@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     # Models
     'user',
     'registration',
+    'route',
+    'segment',
+    'session',
     # DOCUMENTATION
     'drf_yasg'
 ]

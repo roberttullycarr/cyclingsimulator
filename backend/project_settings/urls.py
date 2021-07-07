@@ -9,9 +9,9 @@ from rest_framework_simplejwt import views as jwt_views
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Project Luna team Scorpio",
+      title="Energy Lab - cycling route simulator",
       default_version='v1',
-      description="Members: Sophia, Jonas, Jon, Karim  - all endpoints must be prepended with backend/api/",
+      description="All endpoints must be prepended with backend/api/",
       terms_of_service="https://www.google.com/policies/terms/",
       contact=openapi.Contact(email="learn@propulsionacademy.com"),
       license=openapi.License(name="BSD License"),
@@ -31,11 +31,10 @@ urlpatterns = [
     path('backend/api/auth/token/', include(jwt_views)),
     path('backend/api/', include('registration.urls')),
     path('backend/api/', include('user.urls')),
-    path('backend/api/', include('review.urls')),
-    path('backend/api/', include('comment.urls')),
+    path('backend/api/routes/', include('route.urls')),
+    path('backend/api/', include('session.urls')),
     path('backend/api/docs/', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui'),
-    path('backend/api/', include('restaurant.urls')),
 ]
 
 
