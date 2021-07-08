@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-size: 16px;
-        background-color: #E5E5E5;
+        //background-color: #E5E5E5;
         font-family: 'Mulish', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -19,6 +19,7 @@ export const defaultTheme = {
   ELGreen: "#016C1F",
   ELWhite: "#FFFFFF",
   BackgroundLightGrey: "#E5E5E5",
+  AccentGray: "#C5C5C5",
   TableBlue: "#659FD3",
 
   
