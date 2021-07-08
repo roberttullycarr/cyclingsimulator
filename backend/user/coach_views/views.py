@@ -26,7 +26,7 @@ class AddNewClient(CreateAPIView):
                 # Placeholder for username so that it's not empty
                 placeholder = email[:email.index("@")]
                 new_user = User.objects.create(email=email, username=placeholder, is_coach=True)
-                password = str(uuid.uuid1())
+                password = str(uuid.uuid4())
                 new_user.set_password(password)
                 new_user.save()
 

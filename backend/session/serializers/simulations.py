@@ -14,7 +14,9 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
     segment = serializers.SerializerMethodField()
 
     def apply_calculations(self, obj):
-        session = Session.objects.get(id=1)
+        session_id = self.context['request'].parser_context['kwargs']['pk']
+        session = Session.objects.get(id=session_id)
+
         cyclist_weight = session.weight
         bike_weight = session.bike_weight
         gravity = 9.81
@@ -40,32 +42,32 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
              (elevation * rider_position * wind_adjust * wind_adjust ** 2)) / (elevation * rider_position)
         d = ((2 * pat * efficiency_ratio) / (elevation * rider_position)) * -1
 
-        p = (c/a)-((b**2)/(3*a**2))
-        q = (d/a)+(((2*b**3)-(9*a*b*c))/(27*a**3))
+        p = (c / a) - ((b ** 2) / (3 * a ** 2))
+        q = (d / a) + (((2 * b ** 3) - (9 * a * b * c)) / (27 * a ** 3))
 
-        x = (b*-1)/(3*a)
-        y = (q*-1)/2
-        z = ((p**3)/27)+((q**2)/4)
+        x = (b * -1) / (3 * a)
+        y = (q * -1) / 2
+        z = ((p ** 3) / 27) + ((q ** 2) / 4)
 
         z_sqrt = math.sqrt(z)
         cd_plus = y + z_sqrt
         cd_minus = y - z_sqrt
 
-        cardano_one = cd_plus**(1/3)
-        cardano_two = cd_minus**(1/3)
+        cardano_one = cd_plus ** (1 / 3)
+        cardano_two = cd_minus ** (1 / 3)
 
         cardano = cardano_one + -cardano_two.real * 2 + x
 
         return cardano
 
     def get_speed_in_km(self, obj):
-        return self.apply_calculations(obj)*3.6
+        return self.apply_calculations(obj) * 3.6
 
     def get_speed_in_m(self, obj):
         return self.apply_calculations(obj)
 
     def get_time(self, obj):
-        time = self.get_distance(obj)/self.get_speed_in_m(obj)/3600
+        time = self.get_distance(obj) / self.get_speed_in_m(obj) / 3600
         seconds = time * 60 * 60
         minutes, seconds = divmod(seconds, 60)
         hours, minutes = divmod(minutes, 60)
@@ -95,5 +97,19 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Route
-        fields = '__all__'
+        fields = [
+            'id',
+            'name',
+            'average_grade',
+            'elevation',
+            'steepest_km',
+            'segments',
+        ]
 
+
+class SessionSimulationSerializer(serializers.ModelSerializer):
+    routes = RouteSimulationSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Session
+        fields = ['routes']

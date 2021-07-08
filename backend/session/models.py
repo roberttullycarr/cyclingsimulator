@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+from route.models import Route
+
 User = get_user_model()
 
 
@@ -41,6 +43,8 @@ class Session(models.Model):
                                        ], default=0)
 
     rider_position = models.FloatField(blank=False, default=0.29833857)
+
+    routes = models.ManyToManyField(to=Route, blank=True, related_name='sessions')
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
