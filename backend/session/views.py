@@ -1,7 +1,5 @@
 from django.db.models import Q
-from rest_framework import status
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView
-from rest_framework.response import Response
 from project_settings.permissions import IsCoach
 from session.models import Session
 from session.serializers.new_session import NewSessionSerializer

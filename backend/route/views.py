@@ -1,7 +1,5 @@
-from django.shortcuts import render
 from rest_framework import filters
 from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
-from rest_framework.response import Response
 from project_settings.permissions import IsCoach
 from route.models import Route
 from route.serializers.route_overview import RouteViewSerializer
