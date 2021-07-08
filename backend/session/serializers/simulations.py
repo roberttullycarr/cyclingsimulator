@@ -112,4 +112,16 @@ class SessionSimulationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Session
-        fields = ['routes']
+        fields = [
+            'id',
+            'weight',
+            'height',
+            'pat',
+            'bike_weight',
+            'bike_type',
+            'rider_position',
+            'wind_condition',
+            'tire_pressure',
+            'routes',
+        ]
+        read_only_fields = ['id']
