@@ -5,18 +5,23 @@ import avatar from "../../5_Assets/PNG/default_avatar.png"
 
 
 const AvatarRing = styled.div`
-height: ${props => `${props.height}px` || "50px"};
-width: ${props => `${props.height}px` || "50px"};
+aspect-ratio: 1 / 1;
+width: ${props => `${props.width}%`};
+height: auto;
 margin-left: ${props => props.marginLeft || "4%"};
 margin-right: ${props => props.marginRight || "4%"};
-border: 1px solid ${props => props.color || '#FFFFFF'};
-border-radius: ${props => `${props.height / 2}px` || "25px"};
+margin-top: ${props => `${props.marginTop}%` || "0%"};
+margin-bottom: ${props => props.marginBottom || "0%"};
+border: 1px solid ${props => props.color || '#E5E5E5'};
+border-radius: 50%;
 display: flex;
 justify-content: center;
 align-items: center;
+background: transparent;
 `
 
 export const BaseAvatar = styled.img`
+    aspect-ratio: 1 / 1;
     height: 90%;
     width: 90%;
     object-fit: cover;
@@ -38,7 +43,8 @@ const Avatar = (props) => {
 
     return (
         <AvatarRing height={props.height} width={props.width} marginLeft={props.marginLeft}
-                    marginRight={props.marginRight} color={props.color}>
+                    marginRight={props.marginRight} marginTop={props.marginTop} marginBottom={props.marginBottom}
+                    color={props.color}>
             <BaseAvatar  src={props.user ? props.user : avatar}
                      alt={props.alt}
                     onClick={() => location.pathname !== `/${props.user_id}` ?
