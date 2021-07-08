@@ -5,7 +5,8 @@ User = get_user_model()
 
 
 class Session(models.Model):
-    client = models.ForeignKey(to=User, related_name='sessions', blank=False, on_delete=models.CASCADE)
+    client = models.ForeignKey(to=User, related_name='client_sessions', blank=False, on_delete=models.CASCADE)
+    coach = models.ForeignKey(to=User, related_name='coach_sessions', blank=False, on_delete=models.CASCADE)
     weight = models.IntegerField(blank=False)
     height = models.IntegerField(blank=False)
     pat = models.IntegerField(blank=False)

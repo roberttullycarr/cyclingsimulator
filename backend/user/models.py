@@ -20,6 +20,7 @@ class User(AbstractUser):
     avatar = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     banner = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     is_coach = models.BooleanField(blank=False, null=False, default=False)
+    coach = models.ForeignKey('self', on_delete=models.CASCADE, related_name='clients', blank=True, null=True)
 
     def __str__(self):
         return self.username

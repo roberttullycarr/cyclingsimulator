@@ -23,9 +23,11 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
         tire_pressure = session.tire_pressure
         wind_adjust = session.wind_condition
         rider_position = session.rider_position
-        efficiency_ratio = 0.95
         grade = obj.average_grade / 100
         elevation = obj.elevation
+
+        # fixed values
+        efficiency_ratio = 0.95
         acceleration = 0
 
         frol = mass * gravity * tire_pressure * math.sqrt(1 - (grade ** 2))
@@ -49,8 +51,8 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
         cd_plus = y + z_sqrt
         cd_minus = y - z_sqrt
 
-        cardano_one = cd_plus**0.3333
-        cardano_two = cd_minus**0.3333
+        cardano_one = cd_plus**(1/3)
+        cardano_two = cd_minus**(1/3)
 
         cardano = cardano_one + -cardano_two.real * 2 + x
 
