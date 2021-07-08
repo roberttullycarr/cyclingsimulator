@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import EL_logo from '../../5_Assets/PNG/energylab_notext.png'
 import Avatar from "../7_Avatar";
-import profile_photo from "../../5_Assets/JPG/carr.jpg"
+
 
 const MenuBarMain = styled.div`
 position: fixed;
@@ -31,7 +31,7 @@ const MenuBar = () => {
         <MenuBarMain>
             <LogoImg src={EL_logo}/>
             <BorderLine />
-            <Avatar width={75} marginTop={20} user={profile_photo} />
+            <Avatar width={75} marginTop={20} />
         </MenuBarMain>
     )
 }
