@@ -1,5 +1,5 @@
 from django.db.models import Q
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from project_settings.permissions import IsCoach
 from session.models import Session
 from session.serializers.new_session import NewSessionSerializer
@@ -31,3 +31,8 @@ class ListRecentSessions(ListAPIView):
 
     def get_queryset(self):
         return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user)).order_by('-created')[:5]
+
+
+class RetrieveSessionByID(RetrieveAPIView):
+    serializer_class = RecentSessionSerializer
+    queryset = Session.objects.all()
