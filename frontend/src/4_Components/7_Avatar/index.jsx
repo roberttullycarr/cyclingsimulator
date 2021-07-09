@@ -12,7 +12,7 @@ margin-left: ${props => props.marginLeft || "4%"};
 margin-right: ${props => props.marginRight || "4%"};
 margin-top: ${props => `${props.marginTop}%` || "0%"};
 margin-bottom: ${props => props.marginBottom || "0%"};
-border: 1px solid ${props => props.color || '#E5E5E5'};
+border: 2px solid ${props => props.color || '#E5E5E5'};
 border-radius: 50%;
 display: flex;
 justify-content: center;
