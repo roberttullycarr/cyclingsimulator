@@ -1,10 +1,15 @@
-import {Main} from "../../../4_Components/1_Main";
+import {Body, Main} from "../../../4_Components/1_Main";
+import MenuBar from "../../../4_Components/3_MenuBar";
+import HeaderBar from "../../../4_Components/2_HeaderBar";
 
 
 const Sessions = () => {
     return (
         <Main>
-            <h1>Coach - sessions page</h1>
+            <MenuBar/>
+            <Body>
+                <HeaderBar title={'SESSIONS'}/>
+            </Body>
         </Main>
     )
 }
