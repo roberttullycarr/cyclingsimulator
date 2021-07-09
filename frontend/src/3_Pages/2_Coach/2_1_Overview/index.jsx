@@ -4,6 +4,7 @@ import {fetchCyclistData} from "../../../2_Store/Fetches/cyclist_data";
 import {useDispatch} from "react-redux";
 import Avatar from "../../../4_Components/7_Avatar";
 import MenuBar from "../../../4_Components/3_MenuBar";
+import SessionCard from "../../../4_Components/5_SessionCard";
 
 
 const Overview = () => {
@@ -18,6 +19,7 @@ const Overview = () => {
         <Main>
             <h1>Coach - Overview</h1>
             <MenuBar />
+            <SessionCard />
         </Main>
     )
 }
