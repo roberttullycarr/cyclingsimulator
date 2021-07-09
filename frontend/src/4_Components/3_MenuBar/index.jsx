@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import EL_logo from '../../5_Assets/PNG/energylab_notext.png'
 import Avatar from "../7_Avatar";
 import profile_photo from "../../5_Assets/PNG/carr_profile.jpg"
