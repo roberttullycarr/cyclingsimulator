@@ -3,7 +3,6 @@ from segment.models import Segment
 from route.models import Route
 from session.models import Session
 import math
-import datetime
 
 
 class NestedSegmentSerializer(serializers.ModelSerializer):

@@ -1,11 +1,9 @@
-from django.contrib.auth.hashers import make_password
-from django.core.mail import send_mail
-from rest_framework import status, filters
-from rest_framework.generics import ListAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
-from rest_framework.response import Response
-from project_settings.permissions import IsCoach, IsCoachOrClient, IsSuperUser
-from project_settings.settings import DEFAULT_FROM_EMAIL
-from session.models import Session
+# from django.core.mail import send_mail
+from rest_framework import filters
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
+from rest_framework.pagination import LimitOffsetPagination
+from project_settings.permissions import IsCoach, IsSuperUser
+# from project_settings.settings import DEFAULT_FROM_EMAIL
 from user.serializers.coach.coaches_list import CoachesListSerializer
 from user.serializers.coach.list_clients import ClientListSerializer
 from django.contrib.auth import get_user_model
@@ -19,15 +17,15 @@ class AddNewClient(CreateAPIView):
     """
     post: Add a new client
 
-    - This action can only be performed by a coach
-    - Request body includes:
-        - first_name:
-        - last_name:
-        - location:
-        - avatar:
-        - email:
-        - phone_number:
-        - username:
+    This action can only be performed by a coach
+    Request body includes:
+    - first_name: **required**
+    - last_name: **required**
+    - location:
+    - avatar:
+    - email: **required**
+    - phone_number:
+    - username:
     """
     permission_classes = [IsCoach]
     serializer_class = NewUserSerializer
@@ -63,11 +61,16 @@ class ListCoachClients(ListAPIView):
     """
     get: List clients of logged in coach
 
-    - Get all clients associated with logged in coach.
-    - Adding **/?search=searchText** to the URL will return results based on the filtering text. Filtering is done
+    Get all clients associated with logged in coach.
+
+    Adding **/?search=searchText** to the URL will return results based on the filtering text. Filtering is done
     based on username, first name, last name, email or location
+
+    Limit and Offset pagination example:
+    - **limit=25&offset=0**
     """
     permission_classes = [IsCoach]
+    pagination_class = LimitOffsetPagination
     serializer_class = ClientListSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['username', 'first_name', 'last_name', 'email', 'location']
@@ -77,6 +80,19 @@ class ListCoachClients(ListAPIView):
 
 
 class ListSpecificClient(RetrieveUpdateDestroyAPIView):
+    """
+    get: View a client's profile
+
+    Client ID must be passed in URL
+
+    patch: Update client details
+
+    Client ID must be passed in URL
+
+    delete: Remove a client's profile
+
+    Client ID must be passed in URL
+    """
     permission_classes = [IsCoach]
     serializer_class = ClientListSerializer
     queryset = User.objects.all()
@@ -92,10 +108,14 @@ class ListAllCoaches(ListAPIView):
     """
     get: List all coaches
 
-    - Adding **/?search=searchText** to the URL will return results based on the filtering text. Filtering is done
+    Adding **/?search=searchText** to the URL will return results based on the filtering text. Filtering is done
     based on username, first name, last name, email or location
+
+    Limit and Offset pagination example:
+    - **limit=25&offset=0**
     """
     permission_classes = [IsCoach]
+    pagination_class = LimitOffsetPagination
     serializer_class = CoachesListSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['username', 'first_name', 'last_name', 'email', 'location']

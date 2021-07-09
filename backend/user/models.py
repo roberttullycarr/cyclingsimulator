@@ -13,7 +13,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     about = models.TextField(max_length=500, blank=True)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
-                                 message="Phone number must be entered in the format: '+999999999'." 
+                                 message="Phone number must be entered in the format: '+999999999'."
                                          "From 9 up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     location = models.CharField(max_length=50, blank=True)

@@ -1,6 +1,5 @@
 from django.db.models import Q
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView
-from rest_framework.pagination import LimitOffsetPagination
 from project_settings.permissions import IsCoach
 from session.models import Session
 from session.serializers.new_session import NewSessionSerializer
@@ -14,6 +13,13 @@ User = get_user_model()
 class CreateNewSession(CreateAPIView):
     """
     post: Create a new session
+
+    **URL must include the client's ID**
+
+    Request body example:
+    - weight: **Integer field**
+    - height: **Integer field**
+    - pat: **Integer field**
     """
     permission_classes = [IsCoach]
     serializer_class = NewSessionSerializer
@@ -41,7 +47,6 @@ class ListRecentSessions(ListAPIView):
     Request body can be left empty.
     """
     serializer_class = RecentSessionSerializer
-    pagination_class = LimitOffsetPagination
 
     def get_queryset(self):
         return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user)).order_by('-created')[:5]
@@ -66,10 +71,18 @@ class SimulateRoutes(UpdateAPIView):
     For example, if you pass an array containing the IDs of the routes you want to simulate, you get the results
     for these routes only.
 
-    Other information can also be edited in the request body.
+    Request body example:
+    - weight: **Integer field**
+    - height: **Integer field**
+    - pat: **Integer field**
+    - bike_weight: **Integer field*** default is set to 7, if no weight is provided
+    - bike_type: **Float field** must either be **0.95** for a race bike, or **0.92** for a normal bike
+    - tire_pressure: **Float field**
+    - wind_condition: **Float field**
+    - rider_position: **Float field**
+    - routes: **This field must be an array, in which the IDs of the simulation routes are included**.
     """
     serializer_class = SessionSimulationSerializer
-    pagination_class = LimitOffsetPagination
     queryset = Session.objects.all()
 
     def perform_update(self, serializer):
