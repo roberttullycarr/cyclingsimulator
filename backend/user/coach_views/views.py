@@ -16,6 +16,19 @@ User = get_user_model()
 
 # commented section will be implemented based on client preference regarding client interaction
 class AddNewClient(CreateAPIView):
+    """
+    post: Add a new client
+
+    - This action can only be performed by a coach
+    - Request body includes:
+        - first_name:
+        - last_name:
+        - location:
+        - avatar:
+        - email:
+        - phone_number:
+        - username:
+    """
     permission_classes = [IsCoach]
     serializer_class = NewUserSerializer
 
@@ -47,6 +60,13 @@ class AddNewClient(CreateAPIView):
 
 
 class ListCoachClients(ListAPIView):
+    """
+    get: List clients of logged in coach
+
+    - Get all clients associated with logged in coach.
+    - Adding **/?search=searchText** to the URL will return results based on the filtering text. Filtering is done
+    based on username, first name, last name, email or location
+    """
     permission_classes = [IsCoach]
     serializer_class = ClientListSerializer
     filter_backends = [filters.SearchFilter]
@@ -69,6 +89,12 @@ class AddNewCoach(CreateAPIView):
 
 
 class ListAllCoaches(ListAPIView):
+    """
+    get: List all coaches
+
+    - Adding **/?search=searchText** to the URL will return results based on the filtering text. Filtering is done
+    based on username, first name, last name, email or location
+    """
     permission_classes = [IsCoach]
     serializer_class = CoachesListSerializer
     filter_backends = [filters.SearchFilter]

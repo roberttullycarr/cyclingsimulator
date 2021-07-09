@@ -13,7 +13,7 @@ class Session(models.Model):
     height = models.IntegerField(blank=False)
     pat = models.IntegerField(blank=False)
     bike_weight = models.IntegerField(blank=False)
-    bike_type = models.CharField(max_length=10, choices=[('race', 'Race Bike'), ('normal', 'Normal Bike')], default='race')
+    bike_type = models.FloatField(max_length=10, choices=[(0.95, 'Race Bike'), (0.92, 'Normal Bike')], default=0.95)
 
     tire_pressure = models.FloatField(blank=False,
                                       choices=[

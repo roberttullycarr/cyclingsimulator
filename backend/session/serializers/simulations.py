@@ -19,17 +19,18 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
 
         cyclist_weight = session.weight
         bike_weight = session.bike_weight
-        gravity = 9.81
+        efficiency_ratio = session.bike_type
         pat = session.pat
         mass = cyclist_weight + bike_weight
         tire_pressure = session.tire_pressure
         wind_adjust = session.wind_condition
         rider_position = session.rider_position
+
         grade = obj.average_grade / 100
         elevation = obj.elevation
 
         # fixed values
-        efficiency_ratio = 0.95
+        gravity = 9.81
         acceleration = 0
 
         frol = mass * gravity * tire_pressure * math.sqrt(1 - (grade ** 2))

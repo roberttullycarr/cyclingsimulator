@@ -5,6 +5,22 @@ User = get_user_model()
 
 
 class ClientListSerializer(serializers.ModelSerializer):
+    number_of_sessions = serializers.SerializerMethodField()
+
+    def get_number_of_sessions(self, obj):
+        return obj.client_sessions.count()
+
     class Meta:
         model = User
-        fields = '__all__'
+        fields = [
+            'id',
+            'first_name',
+            'last_name',
+            'coaches',
+            'email',
+            'about',
+            'location',
+            'phone_number',
+            'avatar',
+            'number_of_sessions'
+        ]
