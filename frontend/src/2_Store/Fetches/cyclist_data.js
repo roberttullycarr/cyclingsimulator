@@ -1,5 +1,3 @@
-import Axios from "../Axios/index"
-
 // export const fetchCyclistData = (data) => async dispatch => {
 //     const config = {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },

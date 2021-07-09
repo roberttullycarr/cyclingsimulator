@@ -1,9 +1,27 @@
+import styled from "styled-components"
 
-// THis is just code to make sure the file pushes to the repo.  Delete it as you need!
+const HeaderMain = styled.div`
+width: 100%;
+height: 5.395vw;
+background: ${props => props.theme.ELWhite};
+display: flex;
+align-items: center;
+padding: 0% 3%;
+margin-bottom: 2.6%;
+`
 
-const HeaderBar = () => {
+const PageHeader = styled.h1`
+font-weight: 800;
+font-family: roboto, sans-serif;
+font-size: 1.4vw;
+color: ${props => props.theme.ELGreen};
+`
+
+const HeaderBar = (props) => {
     return (
-        <h1>Header Bar</h1>
+        <HeaderMain>
+            <PageHeader>{props.title}</PageHeader>
+        </HeaderMain>
     )
 }
 
