@@ -17,8 +17,11 @@ export const defaultTheme = {
   ELBlue: "#006293",
   ELGreen: "#016C1F",
   ELWhite: "#FFFFFF",
+  AccentGray: "#C5C5C5",
   BackgroundLightGrey: "#F5F5F5",
   TableBlue: "#659FD3",
+  SlightlyBlack: "#474747",
+  BorderColor: "#BDBDBD",
 
   
 
