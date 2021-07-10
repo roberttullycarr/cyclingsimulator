@@ -11,14 +11,14 @@ export const RouteTitle = styled.h1`
 font-family: Roboto, sans-serif;
 color: ${props => props.theme.ELBlue};
 font-size: 1.8vw;
-margin-bottom: 9%;
+margin-bottom: 12%;
 text-align: center;
 `
 
 export const DataLine = styled.div`
 display: flex;
 width: 75%;
-height: 15%;
+height: 18%;
 `
 
 export const DataLineOne = styled(DataLine)`

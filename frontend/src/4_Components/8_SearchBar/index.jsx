@@ -4,12 +4,12 @@ import { ReactComponent as SearchIcon } from '../../5_Assets/SVG/40_search.svg'
 const Container = styled.div`
   margin-top: 2%;
   aspect-ratio: 25 / 1;
-  width: 87.5vw;
+  width: 85%;
   height: auto;
   display: flex;
   background: ${props => props.theme.ELWhite};
   border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};
   position: relative;
 `
@@ -21,6 +21,7 @@ const InputField = styled.input`
   z-index: 1;
   height: 100%;
   width: 100%;
+  border-radius: 5px;
   font-size: 1vw;
   :focus{
     outline: none;

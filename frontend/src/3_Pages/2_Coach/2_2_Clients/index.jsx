@@ -11,7 +11,7 @@ const Clients = () => {
         <Main>
             <MenuBar />
             <Body>
-                <HeaderBar title={'CLIENTS'}/>
+                <HeaderBar title={'Clients'}/>
                 <Masonry
                   breakpointCols={3}
                   className="my-masonry-grid"

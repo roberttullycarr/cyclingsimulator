@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BaseButton from "../4_Buttons";
+import BaseButton from "../4_ButtonsInputs/Button";
 
 const ClientCardMain = styled.div`
 width: 90%;
