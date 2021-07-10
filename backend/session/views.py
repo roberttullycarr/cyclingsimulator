@@ -5,6 +5,7 @@ from session.models import Session
 from session.serializers.new_session import NewSessionSerializer
 from session.serializers.recent_sessions import RecentSessionSerializer
 from django.contrib.auth import get_user_model
+
 from session.serializers.simulations import SessionSimulationSerializer
 
 User = get_user_model()

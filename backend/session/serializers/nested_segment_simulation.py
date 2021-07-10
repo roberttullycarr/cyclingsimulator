@@ -1,9 +1,8 @@
 from rest_framework import serializers
 from segment.models import Segment
-from route.models import Route
 from session.models import Session
 import math
-from session.serializers.time_functions import seconds_to_time, time_to_seconds
+from session.serializers.time_functions import seconds_to_time
 
 
 class NestedSegmentSerializer(serializers.ModelSerializer):
@@ -83,75 +82,3 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
             'speed_in_m',
             'time'
         ]
-
-
-class RouteSimulationSerializer(serializers.ModelSerializer):
-    segments = NestedSegmentSerializer(many=True)
-    
-    total_distance_in_km = serializers.SerializerMethodField()
-    total_time = serializers.SerializerMethodField()
-    average_speed = serializers.SerializerMethodField()
-    total_kcal = serializers.SerializerMethodField()
-
-    total_carbs_in_grams = serializers.SerializerMethodField()
-    carb_energy_value = serializers.SerializerMethodField()
-    number_of_drinks = serializers.SerializerMethodField()
-    carbs_from_drink_in_grams = serializers.SerializerMethodField()
-    carbs_needed_from_food = serializers.SerializerMethodField()
-    slices_of_gingerbread = serializers.SerializerMethodField()
-
-
-    def get_total_distance_in_km(self, obj):
-        data = NestedSegmentSerializer(obj.segments.all(), many=True, context=self.context).data
-        total_distance = sum(x['distance'] for x in data)/1000
-        return total_distance
-
-    def get_total_time(self, obj):
-        data = NestedSegmentSerializer(obj.segments.all(), many=True, context=self.context).data
-        time = sum(time_to_seconds(x['time']) for x in data)
-        return seconds_to_time(time)
-
-    def get_average_speed(self, obj):
-        return 3600 / (time_to_seconds(self.get_total_time(obj)) / self.get_total_distance_in_km(obj))
-
-    def get_total_kcal(self, obj):
-        session_id = self.context.get('view').kwargs.get('pk')
-        session_pat = Session.objects.get(id=session_id).pat
-        calories = (session_pat * (time_to_seconds(self.get_total_time(obj))) / 4180) * 4
-        return calories
-
-
-    class Meta:
-        model = Route
-        fields = [
-            'id',
-            'name',
-            'average_grade',
-            'elevation',
-            'steepest_km',
-            'total_distance_in_km',
-            'total_time',
-            'average_speed',
-            'total_kcal',
-            'segments'
-        ]
-
-
-class SessionSimulationSerializer(serializers.ModelSerializer):
-    routes = RouteSimulationSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Session
-        fields = [
-            'id',
-            'weight',
-            'height',
-            'pat',
-            'bike_weight',
-            'bike_type',
-            'rider_position',
-            'wind_condition',
-            'tire_pressure',
-            'routes',
-        ]
-        read_only_fields = ['id']
