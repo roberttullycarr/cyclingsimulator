@@ -13,7 +13,7 @@ margin-bottom: 2.6%;
 const PageHeader = styled.h1`
 font-weight: 800;
 font-family: roboto, sans-serif;
-font-size: 1.4vw;
+font-size: 1.7vw;
 color: ${props => props.theme.ELGreen};
 `
 

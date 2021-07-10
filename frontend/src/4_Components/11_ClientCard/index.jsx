@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BaseButton from "../4_ButtonsInputs/Button";
 
 const ClientCardMain = styled.div`
 width: 90%;
@@ -12,7 +13,6 @@ box-shadow: ${props => props.theme.BoxShadowWidget};
 const ClientCard = () => {
     return (
         <ClientCardMain>
-
         </ClientCardMain>
     )
 }

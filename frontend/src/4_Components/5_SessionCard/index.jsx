@@ -1,24 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-//import { useHistory, useLocation } from "react-router-dom";
 import ClockIcon from "../../5_Assets/SVG/24_clock.svg";
 import HeartRateIcon from "../../5_Assets/SVG/22_heartrate.svg";
 import PowerIcon from "../../5_Assets/SVG/21_power.svg";
 import DateIcon from "../../5_Assets/SVG/23_date.svg";
 import Avatar from "../7_Avatar";
+import nenad from '../../profilepicture.jpg'
 
 const ContentCard = styled.div`
-    width:90%;
+    width: 90%;
     background: white;
     box-shadow: ${props => props.theme.BoxShadowWidget};
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
-    padding: 1.7vh 0;
-    border-radius:5px;
+    padding: 1.2vw 0;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    margin-bottom: 1vw;
 `;
 const ImgSVG = styled.img`
     width: 3vh;
     filter: invert(.5);
+    fill: ${props => props.theme.AccentGray};
 `;
 const PowerSVG = styled.img`
     width: 1.6vh;
@@ -26,17 +29,19 @@ const PowerSVG = styled.img`
 `;
 const WrapperDiv = styled.div`
     display: flex;
-    align-items: center;
+    align-items: center; 
     flex-wrap: nowrap;
     justify-content: center;
 `;
-const TextCard = styled.p`
+const TextCard = styled.h1`
     margin-left: 14px;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
+    color: ${props => props.theme.SlightlyBlack};
 `;
-const PowerText = styled.p`
+const PowerText = styled.h1`
+    color: ${props => props.theme.SlightlyBlack};
     margin-left: 11px;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
 `;
 const DivImg = styled.div`
 `;
@@ -48,8 +53,8 @@ const SessionCard = (props) => {
     return (
     <ContentCard>
         <WrapperDiv>
-            <Avatar width={20} marginLeft={"0"} marginRight={"0"}/>
-            <TextCard>{props.username ? props.username : "no name"}</TextCard>
+            <Avatar width={20} marginLeft={"0"} marginRight={"0"} user={nenad}/>
+            <TextCard>{props.username ? props.username : "Thijs Dekiere"}</TextCard>
         </WrapperDiv>
         
         <WrapperDiv>

@@ -4,6 +4,7 @@ import HeaderBar from "../../../4_Components/2_HeaderBar";
 import './styles.css';
 import Masonry from "react-masonry-css";
 import RouteCardSmall from "../../../4_Components/9_RouteCardSmall";
+import SearchBar from "../../../4_Components/8_SearchBar";
 
 
 const Routes = () => {
@@ -11,7 +12,8 @@ const Routes = () => {
         <Main>
             <MenuBar />
             <Body>
-                <HeaderBar title={'ROUTES'}/>
+                <HeaderBar title={'Routes'}/>
+                <SearchBar placeholder={'Routes'}/>
                 <Masonry
                   breakpointCols={2}
                   className="my-masonry-grid"

@@ -9,13 +9,14 @@ import { ReactComponent as Session } from '../../5_Assets/SVG/25_datetime.svg'
 
 const Container = styled.div`
   aspect-ratio: 7.85 / 1;
-  width: 87.5vw;
+  width: 90%;
   height: auto;
   display: flex;
   background: ${props => props.theme.ELWhite};
   border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};
+  margin-bottom: 1vw;
 `
 
 const Athlete = styled.div`
