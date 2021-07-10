@@ -4,14 +4,21 @@
   display: flex;
   justify-content: center;
   margin: 40px 0px; /* gutter size offset */
-  width: 90%;
+  width: 85%;
 }
-.my-masonry-grid_column {
+.my-masonry-grid_column:first-child {
   /*padding-left: 30px; !* gutter size *!*/
   background-clip: padding-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.my-masonry-grid_column:last-child {
+  background-clip: padding-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 /* Style your items */
