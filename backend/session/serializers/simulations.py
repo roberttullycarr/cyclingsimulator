@@ -6,14 +6,14 @@ import math
 
 
 class NestedSegmentSerializer(serializers.ModelSerializer):
-    speed_in_km = serializers.SerializerMethodField()
-    speed_in_m = serializers.SerializerMethodField()
-    time = serializers.SerializerMethodField()
-    distance = serializers.SerializerMethodField()
-    segment = serializers.SerializerMethodField()
+    speed_in_km = serializers.SerializerMethodField(read_only=True)
+    speed_in_m = serializers.SerializerMethodField(read_only=True)
+    time = serializers.SerializerMethodField(read_only=True)
+    distance = serializers.SerializerMethodField(read_only=True)
+    segment = serializers.SerializerMethodField(read_only=True)
 
     def apply_calculations(self, obj):
-        session_id = self.context['request'].parser_context['kwargs']['pk']
+        session_id = self.context.get('view').kwargs.get('pk')
         session = Session.objects.get(id=session_id)
 
         cyclist_weight = session.weight
@@ -93,7 +93,13 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
 
 
 class RouteSimulationSerializer(serializers.ModelSerializer):
-    segments = NestedSegmentSerializer(many=True, read_only=True)
+    segments = NestedSegmentSerializer(many=True)
+    total_distance_in_km = serializers.SerializerMethodField()
+
+    def get_total_distance_in_km(self, obj):
+        data = NestedSegmentSerializer(obj.segments.all(), many=True, context=self.context).data
+        total_distance = sum(x['distance'] for x in data)/1000
+        return total_distance
 
     class Meta:
         model = Route
@@ -103,7 +109,8 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
             'average_grade',
             'elevation',
             'steepest_km',
-            'segments',
+            'total_distance_in_km',
+            'segments'
         ]
 
 
