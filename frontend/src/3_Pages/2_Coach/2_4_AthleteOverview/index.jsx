@@ -27,8 +27,8 @@ const AthleteOverview = props => {
                 <HeaderBar title={`ATHLETE - ${profile['full_name']}`}/>
                 { Object.keys(profile).length ?
                     <>
-                    <SessionCardLarge profile={profile}/>
-                    {recentSessions.map(session => <SessionCard session={session}/>)}
+                        <SessionCardLarge profile={profile}/>
+                        {recentSessions.map(session => <SessionCard session={session}/>)}
                     </>
                     : 'Loading...' }
             </Body>
