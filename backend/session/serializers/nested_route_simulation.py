@@ -6,7 +6,7 @@ from session.serializers.time_functions import seconds_to_time, time_to_seconds
 
 
 class RouteSimulationSerializer(serializers.ModelSerializer):
-    segments = NestedSegmentSerializer(many=True)
+    segments = NestedSegmentSerializer(many=True, read_only=True)
 
     total_distance_in_km = serializers.SerializerMethodField()
     total_time = serializers.SerializerMethodField()
