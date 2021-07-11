@@ -11,6 +11,7 @@ const Sessions = () => {
             <MenuBar/>
             <Body>
                 <HeaderBar title={'SESSIONS'}/>
+                <SearchBar placeholder={'Sessions'}/>
                 <SessionCard/>
                 <SessionCard/>
                 <SessionCard/>

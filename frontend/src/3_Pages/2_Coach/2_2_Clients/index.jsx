@@ -4,6 +4,7 @@ import HeaderBar from "../../../4_Components/2_HeaderBar";
 import Masonry from "react-masonry-css";
 import "./styles.css";
 import ClientCard from "../../../4_Components/11_ClientCard";
+import SearchBar from "../../../4_Components/8_SearchBar";
 
 
 const Clients = () => {
@@ -12,6 +13,7 @@ const Clients = () => {
             <MenuBar />
             <Body>
                 <HeaderBar title={'Clients'}/>
+                <SearchBar placeholder={"Clients"}/>
                 <Masonry
                   breakpointCols={3}
                   className="my-masonry-grid"

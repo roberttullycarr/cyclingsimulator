@@ -8,7 +8,7 @@ import Avatar from "../7_Avatar";
 import nenad from '../../profilepicture.jpg'
 
 const ContentCard = styled.div`
-    width: 90%;
+    width: 85%;
     background: white;
     box-shadow: ${props => props.theme.BoxShadowWidget};
     display: grid;
