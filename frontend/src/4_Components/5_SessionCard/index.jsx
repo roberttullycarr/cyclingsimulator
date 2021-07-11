@@ -5,7 +5,6 @@ import HeartRateIcon from "../../5_Assets/SVG/22_heartrate.svg";
 import PowerIcon from "../../5_Assets/SVG/21_power.svg";
 import DateIcon from "../../5_Assets/SVG/23_date.svg";
 import Avatar from "../7_Avatar";
-import nenad from '../../profilepicture.jpg'
 
 const ContentCard = styled.div`
     width: 85%;

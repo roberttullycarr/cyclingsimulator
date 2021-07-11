@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db.models import Q
 from rest_framework import filters
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView
@@ -58,11 +60,16 @@ class ListRecentSessions(ListAPIView):
 class ListAllSessions(ListAPIView):
     serializer_class = RecentSessionSerializer
     pagination_class = LimitOffsetPagination
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['id', 'created']
 
     def get_queryset(self):
-        return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user))
+        search = self.request.query_params.get('search')
+        if not search:
+            return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user))
+        else:
+            return Session.objects.filter(Q(client__first_name__icontains=search) |
+                                          Q(client__last_name__icontains=search) |
+                                          Q(coach__first_name__icontains=search) |
+                                          Q(coach__last_name__icontains=search))
 
 
 class RetrieveSessionByID(RetrieveAPIView):

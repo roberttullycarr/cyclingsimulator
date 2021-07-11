@@ -27,7 +27,7 @@ const Sessions = () => {
                     <div className="helper">
                         <SearchIcon/>
                     </div>
-                    <input placeholder="Search routes by name or location"
+                    <input placeholder="Search sessions by client name"
                            onChange={(e) => setKeyWord(e.target.value)}/>
                 </Container>
 
