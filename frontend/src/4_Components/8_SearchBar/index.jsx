@@ -3,6 +3,7 @@ import { ReactComponent as SearchIcon } from '../../5_Assets/SVG/40_search.svg'
 
 const Container = styled.div`
   margin-top: 2%;
+  margin-bottom: 2%;
   aspect-ratio: 25 / 1;
   width: 85%;
   height: auto;

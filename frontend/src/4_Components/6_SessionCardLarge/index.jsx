@@ -9,7 +9,7 @@ import { ReactComponent as Session } from '../../5_Assets/SVG/25_datetime.svg'
 
 const Container = styled.div`
   aspect-ratio: 7.85 / 1;
-  width: 90%;
+  width: 85%;
   height: auto;
   display: flex;
   background: ${props => props.theme.ELWhite};
