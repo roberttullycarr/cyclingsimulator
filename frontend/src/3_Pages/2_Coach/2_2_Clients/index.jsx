@@ -5,9 +5,17 @@ import Masonry from "react-masonry-css";
 import "./styles.css";
 import ClientCard from "../../../4_Components/11_ClientCard";
 import SearchBar from "../../../4_Components/8_SearchBar";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
 
 
 const Clients = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <Main>
             <MenuBar />

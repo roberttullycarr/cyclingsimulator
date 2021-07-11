@@ -49,29 +49,34 @@ const DivImg = styled.div`
 
 
 const SessionCard = (props) => {
+    // destructuring props
+    const { id, client, pat, heart_rate, created } = props.session
 
     return (
     <ContentCard>
         <WrapperDiv>
-            <Avatar width={20} marginLeft={"0"} marginRight={"0"} user={nenad}/>
-            <TextCard>{props.username ? props.username : "Thijs Dekiere"}</TextCard>
+            <Avatar width={20} marginLeft={"0"} marginRight={"0"} user={client.avatar}/>
+            <TextCard>{client['full_name'] ? client['full_name'] : "Client"}</TextCard>
         </WrapperDiv>
         
         <WrapperDiv>
             <DivImg><PowerSVG src={PowerIcon} alt="power icon"/></DivImg>
-            <PowerText>{props.power ? props.power : "300w"}</PowerText>
+            <PowerText>{pat ? `${pat}w` : "Anaebolic Threshold"}</PowerText>
         </WrapperDiv>
+
         <WrapperDiv>
             <DivImg><ImgSVG src={HeartRateIcon} alt="heartrate icon"/></DivImg>
-            <TextCard>{props.power ? props.power : "175 bpm"}</TextCard>
+            <TextCard>{heart_rate ? `${heart_rate} BPM` : "Heart Rate"}</TextCard>
         </WrapperDiv>
+
         <WrapperDiv>
             <DivImg><ImgSVG src={DateIcon} alt="date icon"/></DivImg>
-            <TextCard>{props.power ? props.power : "July 7th, 2021"}</TextCard>
+            <TextCard>{created ? created.substr(0, created.indexOf(' ')) : "July 7th, 2021"}</TextCard>
         </WrapperDiv>
+
         <WrapperDiv>
             <div><ImgSVG src={ClockIcon} alt="clock icon"/></div>
-            <TextCard>{props.power ? props.power : "9:39am"}</TextCard>
+            <TextCard>{created ? created.substr(created.indexOf(' ')) : "9:39am"}</TextCard>
         </WrapperDiv>
             
     </ContentCard>

@@ -10,8 +10,7 @@ class NestedUserSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'id',
-            'first_name',
-            'last_name',
+            'full_name',
             'avatar',
             'location',
             'is_coach',
@@ -22,7 +21,7 @@ class NestedUserSerializer(serializers.ModelSerializer):
 class RecentSessionSerializer(serializers.ModelSerializer):
     client = NestedUserSerializer(read_only=True)
     coach = NestedUserSerializer(read_only=True)
-    created = serializers.DateTimeField(format="%d-%m-%Y %H:%M", read_only=True)
+    created = serializers.DateTimeField(format="%d-%b-%Y %H:%M", read_only=True)
 
     class Meta:
         model = Session
@@ -30,8 +29,7 @@ class RecentSessionSerializer(serializers.ModelSerializer):
             'id',
             'coach',
             'client',
-            'weight',
-            'height',
+            'heart_rate',
             'pat',
             'created',
         ]

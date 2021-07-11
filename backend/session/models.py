@@ -14,6 +14,7 @@ class Session(models.Model):
     pat = models.IntegerField(blank=False)
     bike_weight = models.IntegerField(blank=True, default=7)
     bike_type = models.FloatField(max_length=10, choices=[(0.95, 'Race Bike'), (0.92, 'Normal Bike')], default=0.95)
+    heart_rate = models.IntegerField(default=175, blank=True)
 
     tire_pressure = models.FloatField(blank=False,
                                       choices=[
