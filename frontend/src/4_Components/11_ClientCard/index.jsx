@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import Avatar from "../7_Avatar";
 import BaseButton from "../4_ButtonsInputs/Button";
+import {useDispatch} from "react-redux";
+import {fetchClientDetails} from "../../2_Store/Fetches/client_details";
+import {useHistory} from "react-router";
 
 const ClientCardMain = styled.div`
   width: 90%;
@@ -80,6 +83,11 @@ const ClientCard = (props) => {
     // destructuring props
     const { id, full_name, email, location, latest_session, avatar, number_of_sessions } = props.client
     const { pat, heart_rate, weight, created } = latest_session
+    const history = useHistory();
+
+    const goToClientProfile = () => {
+        history.push(`/coach/athlete/${id}`)
+    }
     return (
         <ClientCardMain>
             <Avatar width={48} marginLeft={"auto"} marginRight={"auto"} marginBottom={"5%"} user={avatar}/>
@@ -116,11 +124,8 @@ const ClientCard = (props) => {
 
             <ClientText>{created ? created.substr(0, created.indexOf(' ')) : "Date"}
                 {created ? created.substr(created.indexOf(' ')) : "Time"}</ClientText>
-            <div className="button-container">
-                <BaseButton text={'Details'} width={75} height={"10%"} fontSize={1.4} marginLeft={"auto"}
-                        marginRight={"auto"} marginTop={"3vw"} marginBottom={"0"} />
-            </div>
-
+                <BaseButton action={goToClientProfile} text={'Details'} width={75} height={"10%"} fontSize={1.4}
+                            marginLeft={"auto"} marginRight={"auto"} marginTop={"3vw"} marginBottom={"0"} />
         </ClientCardMain>
     )
 }

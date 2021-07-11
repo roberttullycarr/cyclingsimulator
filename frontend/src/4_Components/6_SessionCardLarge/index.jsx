@@ -70,47 +70,51 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 
-const SessionCardLarge = () => {
+const SessionCardLarge = props => {
+    // destructuring props
+    const { avatar, full_name, latest_session } = props.profile
+    const { pat, heart_rate, weight, coach, created } = latest_session
+
     return (
         <Container>
             <Athlete>
                 <AthleteWrapper>
-                        <Avatar width={70} color={'#C5C5C5'} user={profilePicture}/>
-                        <h1>Thijs Deikere</h1>
+                        <Avatar width={70} color={'#C5C5C5'} user={avatar}/>
+                        <h1>{full_name}</h1>
                 </AthleteWrapper>
             </Athlete>
             <Stat>
                 <Wrapper>
                     <Power/>
-                    <h1>300W</h1>
+                    <h1>{`${pat} W`}</h1>
                     <h2>Power</h2>
                 </Wrapper>
             </Stat>
             <Stat>
                 <Wrapper>
                     <HeartRate/>
-                    <h1>175 BPM</h1>
+                    <h1>{`${heart_rate} BPM`}</h1>
                     <h2>Heart Rate</h2>
                 </Wrapper>
             </Stat>
             <Stat>
                 <Wrapper>
                     <Weight/>
-                    <h1>75 KG</h1>
+                    <h1>{`${weight} KG`}</h1>
                     <h2>Weight</h2>
                 </Wrapper>
             </Stat>
             <Stat>
                 <Wrapper>
                     <SessionNumber/>
-                    <h1>3</h1>
-                    <h2>Session Number</h2>
+                    <h1>{coach['full_name']}</h1>
+                    <h2>Coach</h2>
                 </Wrapper>
             </Stat>
             <Stat>
                 <Wrapper>
                     <Session/>
-                    <h1>July 7th, 2021 9:39 AM</h1>
+                    <h1>{created}</h1>
                     <h2>Session</h2>
                 </Wrapper>
             </Stat>

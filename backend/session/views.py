@@ -44,7 +44,7 @@ class CreateNewSession(CreateAPIView):
 
 class ListRecentSessions(ListAPIView):
     """
-    get: List most recent sessions
+    get: List most recent sessions for logged in user
 
     This view returns the last 5 sessions per user. It works for both coaches as well as clients, meaning
     it would return the last 5 sessions for a coach, or a client. This is determined by the sender of the request.
@@ -55,6 +55,18 @@ class ListRecentSessions(ListAPIView):
 
     def get_queryset(self):
         return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user)).order_by('-created')[:5]
+
+
+class RecentSessionsSpecificUser(ListAPIView):
+    """
+    get: List most recent sessions for a specific user
+
+    Pass user ID to the URL
+    """
+    serializer_class = RecentSessionSerializer
+
+    def get_queryset(self):
+        return Session.objects.filter(client_id=self.kwargs['pk']).order_by('-created')[1:4]
 
 
 class ListAllSessions(ListAPIView):
