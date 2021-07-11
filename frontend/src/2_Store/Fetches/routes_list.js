@@ -1,18 +1,18 @@
 import Axios from "../Axios";
 
 
-const clientList = (data) => {
+const routesList = (data) => {
     return {
-        type: 'MY_CLIENTS',
+        type: 'ROUTES',
         payload: data
     }
 }
 
-export const fetchMyClients = (keyword) => async dispatch => {
+export const fetchAllRoutes = (keyword) => async dispatch => {
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     };
-    const url = `/coach/clients/?search=${keyword}`;
+    const url = `/routes/?search=${keyword}`;
     const response = await Axios.get(url, config);
-    dispatch(clientList(response.data));
+    dispatch(routesList(response.data));
 }

@@ -13,7 +13,7 @@ const Overview = () => {
 
     useEffect(() => {
         dispatch(fetchRecentSessions())
-    }, [recentSessions])
+    }, [dispatch])
 
     return (
         <Main>

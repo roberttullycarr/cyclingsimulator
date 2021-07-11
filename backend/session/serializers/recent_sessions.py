@@ -31,5 +31,6 @@ class RecentSessionSerializer(serializers.ModelSerializer):
             'client',
             'heart_rate',
             'pat',
+            'weight',
             'created',
         ]

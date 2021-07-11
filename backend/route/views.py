@@ -37,7 +37,7 @@ class ListAllRoutes(ListAPIView):
     serializer_class = RouteViewSerializer
     queryset = Route.objects.all()
     filter_backends = [filters.SearchFilter]
-    search_fields = ['name']
+    search_fields = ['name', 'location']
 
 
 class ViewUpdateDeleteRoute(RetrieveUpdateDestroyAPIView):

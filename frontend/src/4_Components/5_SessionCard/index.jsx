@@ -71,12 +71,12 @@ const SessionCard = (props) => {
 
         <WrapperDiv>
             <DivImg><ImgSVG src={DateIcon} alt="date icon"/></DivImg>
-            <TextCard>{created ? created.substr(0, created.indexOf(' ')) : "July 7th, 2021"}</TextCard>
+            <TextCard>{created ? created.substr(0, created.indexOf(' ')) : "Date"}</TextCard>
         </WrapperDiv>
 
         <WrapperDiv>
             <div><ImgSVG src={ClockIcon} alt="clock icon"/></div>
-            <TextCard>{created ? created.substr(created.indexOf(' ')) : "9:39am"}</TextCard>
+            <TextCard>{created ? created.substr(created.indexOf(' ')) : "Time"}</TextCard>
         </WrapperDiv>
             
     </ContentCard>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as SearchIcon } from '../../5_Assets/SVG/40_search.svg'
 
-const Container = styled.div`
+export const Container = styled.div`
   margin-top: 2%;
   margin-bottom: 2%;
   aspect-ratio: 25 / 1;
@@ -13,31 +12,31 @@ const Container = styled.div`
   border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};
   position: relative;
-`
 
-const InputField = styled.input`
-  padding-left: 6.5%;
-  border: none;
-  position: absolute;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 1vw;
-  :focus{
-    outline: none;
+  input {
+    padding-left: 6.5%;
+    border: none;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1vw;
+    :focus{
+      outline: none;
+    }
   }
-`
 
-const Helper = styled.div`
-  height: 100%;
-  margin-left: 2.4%;
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  svg{
-    height: 55%;
+  .helper {
+    height: 100%;
+    margin-left: 2.4%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    svg{
+      height: 55%;
+    }
   }
 `
 
@@ -46,10 +45,10 @@ const Helper = styled.div`
 const SearchBar = (props) => {
     return (
         <Container>
-            <Helper>
-                <SearchIcon/>
-            </Helper>
-            <InputField placeholder={'Search ' + props.placeholder}/>
+            {/*<Helper>*/}
+            {/*    <SearchIcon/>*/}
+            {/*</Helper>*/}
+            {/*<InputField placeholder={'Search ' + props.placeholder}/>*/}
         </Container>
     )
 }

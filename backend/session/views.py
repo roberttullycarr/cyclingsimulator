@@ -1,5 +1,8 @@
 from django.db.models import Q
+from rest_framework import filters
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView
+from rest_framework.pagination import LimitOffsetPagination
+
 from project_settings.permissions import IsCoach
 from session.models import Session
 from session.serializers.new_session import NewSessionSerializer
@@ -50,6 +53,16 @@ class ListRecentSessions(ListAPIView):
 
     def get_queryset(self):
         return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user)).order_by('-created')[:5]
+
+
+class ListAllSessions(ListAPIView):
+    serializer_class = RecentSessionSerializer
+    pagination_class = LimitOffsetPagination
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['id', 'created']
+
+    def get_queryset(self):
+        return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user))
 
 
 class RetrieveSessionByID(RetrieveAPIView):

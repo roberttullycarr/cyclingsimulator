@@ -1,16 +1,19 @@
-import stelvio from "../../5_Assets/JPG/stelvio_06_hairpin.jpeg"
 import RouteDataSmall from "./RouteData";
 import {RouteCardMain, RouteImg, RouteImgMain} from "./styled";
 
 
 
-const RouteCardSmall = () => {
+const RouteCardSmall = props => {
+    // destructuring props
+    const { id, name, location, avatar, distance, elevation, steepest_km, average_grade } = props.route
     return (
         <RouteCardMain>
             <RouteImgMain>
-                <RouteImg src={stelvio}/>
+                <RouteImg src={avatar}/>
             </RouteImgMain>
-            <RouteDataSmall title={'Passo del Stelvio'} distance={21.5} avg_grade={7.4} elevation={1912} steep_grade={10.5}/>
+            <RouteDataSmall title={name}
+                            distance={distance} avg_grade={average_grade} elevation={elevation}
+                            steep_grade={steepest_km} location={location}/>
         </RouteCardMain>
     )
 }
