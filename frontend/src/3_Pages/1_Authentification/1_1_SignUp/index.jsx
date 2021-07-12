@@ -1,7 +1,8 @@
 import {Main} from "../../../4_Components/1_Main";
 import AuthHeader from "../../../4_Components/18_AuthHeader";
 import SignInUpContainer from "../../../4_Components/15_SignInContainer";
-import {AuthBody} from "../1_2_SignIn";
+import {AuthBody} from "../1_2_SignIn/styled";
+
 
 
 const SignUp = () => {

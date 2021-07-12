@@ -35,7 +35,7 @@ const BaseInput = (props) => {
     return (
         <BaseInputWrap width={props.width} marginTop={props.marginTop} marginBottom={props.marginBottom}>
             <InputTitle>{props.title}</InputTitle>
-            <BaseInputMain placeholder={props.title}/>
+            <BaseInputMain {...props.var(props.name)} placeholder={props.title} type={props.type}/>
         </BaseInputWrap>
     )
 }

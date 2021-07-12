@@ -2,6 +2,7 @@ import styled from "styled-components"
 import {useLocation} from "react-router-dom";
 import BaseInput from "../4_ButtonsInputs/Input";
 import BaseButton from "../4_ButtonsInputs/Button";
+import {useForm} from "react-hook-form";
 
 const SIUContainerMain = styled.div`
   display: flex;
@@ -27,7 +28,7 @@ color: ${props => props.theme.ELGreen};
   margin-top: 7%;
 `
 
-const InputWrapper = styled.div`
+const InputWrapper = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -36,16 +37,18 @@ const InputWrapper = styled.div`
   height: 80%;
 `
 
-const SignInUpContainer = () => {
+const SignInUpContainer = (props) => {
     const location = useLocation();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
 
     return (
         <SIUContainerMain>
             <ContainerTitle>{location.pathname.includes('signin') ? 'Sign In' : 'Sign Up'}</ContainerTitle>
-            <InputWrapper>
-                <BaseInput title={'Email'} width={65} marginTop={5} marginBottom={6}/>
-                {location.pathname.includes('signin') ? <BaseInput title={'Password'} width={65} marginBottom={5}/> : null}
-                <BaseButton text={location.pathname.includes('signin') ? 'Sign In' : 'Sign Up'} width={28} num={5} denom={2} fontSize={1.1}/>
+            <InputWrapper onSubmit={handleSubmit(onSubmit)}>
+                <BaseInput  var={register} name={'email'} title={'Email'} width={65} marginTop={5} marginBottom={6}/>
+                <BaseInput  var={register} name={'password'} type={'password'} title={'Password'} width={65} marginBottom={5}/>
+                <BaseButton type={'submit'} text={location.pathname.includes('signin') ? 'Sign In' : 'Sign Up'} width={28} num={5} denom={2} fontSize={1.1}/>
             </InputWrapper>
         </SIUContainerMain>
     )

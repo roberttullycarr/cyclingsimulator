@@ -6,6 +6,8 @@ import {defaultTheme, GlobalStyle} from "./6_Styles";
 import {Provider} from "react-redux";
 import index from "./2_Store"
 
+const token = localStorage.getItem('token')
+if(token) index.dispatch({type: 'TOKEN', payload: token})
 
 ReactDOM.render(
   <React.StrictMode>

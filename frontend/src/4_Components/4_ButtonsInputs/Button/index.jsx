@@ -27,7 +27,7 @@ const BaseButton = (props) => {
     return (
         <Button width={props.width} height={props.height} onClick={props.action} num={props.num} denom={props.denom}
                 marginLeft={props.marginLeft} marginRight={props.marginRight} marginTop={props.marginTop}
-                marginBottom={props.marginBottom} fontSize={props.fontSize}>{props.text}</Button>
+                marginBottom={props.marginBottom} fontSize={props.fontSize} type={props.type}>{props.text}</Button>
     )
 }
 
