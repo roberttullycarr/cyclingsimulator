@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Title from "../14_Title";
-import BaseButton from "../4_Buttons";
+import BaseButton from "../4_ButtonsInputs/Button";
 import stelvio from "../../5_Assets/JPG/stelvio_06_hairpin.jpeg"
 import StatField from "../15_StatsField";
 import { ReactComponent as Distance } from '../../5_Assets/SVG/26_distance.svg'
@@ -113,7 +113,7 @@ const RoutCardLarge = () => {
             <Card>
                 <WrapperTop>
                     <Name>Stelvio</Name>
-                    <BaseButton text={'Generate PDF'} height={'2.78vw'} width={'10.14vw'}/>
+                    <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10}/>
                 </WrapperTop>
                 <Wrapper>
                     <img src={stelvio}/>

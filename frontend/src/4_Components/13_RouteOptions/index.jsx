@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Title from "../14_Title";
 import OptionField from "./OptionField";
-import BaseButton from "../4_Buttons";
+import BaseButton from "../4_ButtonsInputs/Button";
 
 const Container = styled.div`
   margin-top: 2%;
@@ -74,7 +74,7 @@ const RouteOptions = () => {
                         <OptionField options={['test', 'test']} width={fieldWidth} height={fieldHeight}/>
                     </Wrapper>
                 </Options>
-                <BaseButton text={'Calculate'} height={'2.78vw'} width={'10.14vw'}/>
+                <BaseButton text={'Calculate'} height={'2.78vw'} width={10}/>
             </Card>
         </Container>
     )

@@ -12,10 +12,10 @@ export const Main = styled.div`
 
 
 export const Body = styled.div`
-margin-left: 4.5%;
-width: 95.5%;
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
+  margin-left: 4.5%;
+  width: 95.5%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

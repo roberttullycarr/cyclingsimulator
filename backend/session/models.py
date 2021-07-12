@@ -1,16 +1,20 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+from route.models import Route
+
 User = get_user_model()
 
 
 class Session(models.Model):
-    client = models.ForeignKey(to=User, related_name='sessions', blank=False, on_delete=models.CASCADE)
+    client = models.ForeignKey(to=User, related_name='client_sessions', blank=False, on_delete=models.CASCADE)
+    coach = models.ForeignKey(to=User, related_name='coach_sessions', blank=False, on_delete=models.CASCADE)
     weight = models.IntegerField(blank=False)
     height = models.IntegerField(blank=False)
     pat = models.IntegerField(blank=False)
-    bike_weight = models.IntegerField(blank=False)
-    bike_type = models.CharField(max_length=10, choices=[('race', 'Race Bike'), ('normal', 'Normal Bike')], default='race')
+    bike_weight = models.IntegerField(blank=True, default=7)
+    bike_type = models.FloatField(max_length=10, choices=[(0.95, 'Race Bike'), (0.92, 'Normal Bike')], default=0.95)
+    heart_rate = models.IntegerField(default=175, blank=True)
 
     tire_pressure = models.FloatField(blank=False,
                                       choices=[
@@ -40,6 +44,8 @@ class Session(models.Model):
                                        ], default=0)
 
     rider_position = models.FloatField(blank=False, default=0.29833857)
+
+    routes = models.ManyToManyField(to=Route, blank=True, related_name='sessions')
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
