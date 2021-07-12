@@ -124,7 +124,7 @@ const ClientCard = (props) => {
 
             <ClientText>{created ? created.substr(0, created.indexOf(' ')) : "Date"}
                 {created ? created.substr(created.indexOf(' ')) : "Time"}</ClientText>
-                <BaseButton action={goToClientProfile} text={'Details'} width={75} height={"10%"} fontSize={1.4}
+            <BaseButton action={goToClientProfile} text={'Details'} width={75} height={10} fontSize={1.4}
                             marginLeft={"auto"} marginRight={"auto"} marginTop={"3vw"} marginBottom={"0"} />
         </ClientCardMain>
     )
