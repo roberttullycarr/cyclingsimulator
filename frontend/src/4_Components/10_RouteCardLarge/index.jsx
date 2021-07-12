@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Title from "../14_Title";
 import BaseButton from "../4_Buttons";
 import stelvio from "../../5_Assets/JPG/stelvio_06_hairpin.jpeg"
-import StatField from "../16_StatsField";
+import StatField from "../15_StatsField";
 import { ReactComponent as Distance } from '../../5_Assets/SVG/26_distance.svg'
 import { ReactComponent as Elevation } from '../../5_Assets/SVG/13_routes.svg'
 import { ReactComponent as AverageGrade } from '../../5_Assets/SVG/28_averagegrade.svg'
@@ -12,6 +12,8 @@ import { ReactComponent as Calories } from '../../5_Assets/SVG/31_kcal.svg'
 import { ReactComponent as AverageSpeed } from '../../5_Assets/SVG/32_avaragespeed.svg'
 import { ReactComponent as ClimbDate } from '../../5_Assets/SVG/25_datetime.svg'
 import arrowThin from '../../5_Assets/SVG/41_arrow.svg'
+import Table from "../6_SessionCardLarge/Table";
+import TextField from "../6_SessionCardLarge/TextField";
 
 const Container = styled.div`
   margin-top: 2%;
@@ -58,6 +60,11 @@ const Wrapper = styled.div`
   }
 `
 
+const TableWrapper = styled.div`
+  width: 89.8%;
+  margin-top: 1.875vw;
+`
+
 const Stats = styled.div`
   height: 16vw;
   width: 65%;
@@ -95,6 +102,10 @@ const ArrowButton = styled.button`
   right: 0px;
 `
 
+const onClickHandler = (e) => {
+    console.log('clicked')
+}
+
 const RoutCardLarge = () => {
     return (
         <Container>
@@ -117,9 +128,12 @@ const RoutCardLarge = () => {
                         <StatField image={<AverageSpeed/>} stat={'300W'} name={'Average Speed'}/>
                         <StatField image={<ClimbDate/>} stat={'300W'} name={'Climb Date'}/>
                     </Stats>
-
                 </Wrapper>
-                <ArrowButton/>
+                <TableWrapper>
+                    <Table/>
+                </TableWrapper>
+                <TextField/>
+                <ArrowButton onClick={onClickHandler}/>
             </Card>
         </Container>
     )

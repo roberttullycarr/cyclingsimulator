@@ -6,7 +6,7 @@ import { ReactComponent as HeartRate } from '../../5_Assets/SVG/22_heartrate.svg
 import { ReactComponent as Weight } from '../../5_Assets/SVG/31_kcal.svg'
 import { ReactComponent as SessionNumber } from '../../5_Assets/SVG/14_sessions.svg'
 import { ReactComponent as Session } from '../../5_Assets/SVG/25_datetime.svg'
-import StatField from "../16_StatsField";
+import StatField from "../15_StatsField";
 
 const Container = styled.div`
   aspect-ratio: 7.85 / 1;

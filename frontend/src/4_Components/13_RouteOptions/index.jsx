@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Title from "../14_Title";
-import OptionField from "../15_OptionField";
+import OptionField from "./OptionField";
 import BaseButton from "../4_Buttons";
 
 const Container = styled.div`

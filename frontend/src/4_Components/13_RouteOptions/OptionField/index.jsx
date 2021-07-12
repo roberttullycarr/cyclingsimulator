@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import arrow from "../../5_Assets/SVG/42_arrowBold.svg"
+import arrow from "../../../5_Assets/SVG/42_arrowBold.svg"
 
 
 const Select = styled.select`
