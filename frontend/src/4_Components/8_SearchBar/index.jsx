@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as SearchIcon } from '../../5_Assets/SVG/40_search.svg'
 
 export const Container = styled.div`
   margin-top: 2%;
@@ -45,10 +46,10 @@ export const Container = styled.div`
 const SearchBar = (props) => {
     return (
         <Container>
-            {/*<Helper>*/}
-            {/*    <SearchIcon/>*/}
-            {/*</Helper>*/}
-            {/*<InputField placeholder={'Search ' + props.placeholder}/>*/}
+            <div className="helper">
+                <SearchIcon/>
+            </div>
+            <input placeholder={'Search ' + props.placeholder} />
         </Container>
     )
 }
