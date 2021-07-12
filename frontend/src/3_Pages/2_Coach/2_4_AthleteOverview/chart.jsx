@@ -1,6 +1,14 @@
 import React from 'react';
 import {ResponsiveLine} from "@nivo/line";
+import styled from "styled-components";
 
+export const ChartWrapper = styled.div`
+  box-shadow: ${props => props.theme.BoxShadowWidget};
+  height: 500px;
+  width: 85%;
+  margin-bottom: 50px;
+  border: 1px solid #BDBDBD;
+`
 
 const LineNivo = props => {
 
@@ -14,7 +22,7 @@ const LineNivo = props => {
                     "color": "hsl(212, 70%, 50%)",
                     "data": [
                         {
-                            "x": "Heart Rate in BPM",
+                            "x": "Heart Rate",
                             "y": session['heart_rate']
                         },
                         {
@@ -35,7 +43,7 @@ const LineNivo = props => {
 
 
     return (
-        <div style={{height: '600px', width: '85%', border: 'none', marginBottom: '50px'}}>
+        <ChartWrapper>
             <ResponsiveLine
                 data={generateData()}
                 margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -61,11 +69,10 @@ const LineNivo = props => {
                 }}
                 axisLeft={{
                     orient: 'left',
-                    tickSize: 5,
+                    tickSize: 1,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: 'Rate',
-                    legendOffset: -40,
+                    legendOffset: -50,
                     legendPosition: 'middle'
                 }}
                 colors={{ scheme: 'set1' }}
@@ -79,17 +86,17 @@ const LineNivo = props => {
                 useMesh={true}
                 legends={[
                     {
-                        anchor: 'right',
-                        direction: 'column',
+                        anchor: 'top',
+                        direction: 'row',
                         justify: false,
-                        translateX: 133,
-                        translateY: -3,
-                        itemsSpacing: 0,
+                        translateX: -11,
+                        translateY: -40,
+                        itemsSpacing: 100,
                         itemDirection: 'left-to-right',
-                        itemWidth: 78,
-                        itemHeight: 53,
+                        itemWidth: 83,
+                        itemHeight: 20,
                         itemOpacity: 0.75,
-                        symbolSize: 17,
+                        symbolSize: 12,
                         symbolShape: 'circle',
                         symbolBorderColor: 'rgba(0, 0, 0, .5)',
                         effects: [
@@ -103,9 +110,16 @@ const LineNivo = props => {
                         ]
                     }
                 ]}
+                theme={
+                    {
+                        "background": "#ffffff",
+                        "textColor": "#333333",
+                        "fontSize": 15,
+                    }
+                }
             />
-        </div>
+        </ChartWrapper>
     )
-};
+}
 
 export default LineNivo;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {ResponsiveCalendar} from "@nivo/calendar";
+import {ChartWrapper} from "../2_4_AthleteOverview/chart";
 
 
 const CalendarNivo = props => {
@@ -32,7 +33,7 @@ const CalendarNivo = props => {
 
 
     return (
-        <div style={{height: '400px', width: '85%', border: 'none'}}>
+        <ChartWrapper style={{height: '300px'}}>
             <ResponsiveCalendar
                 data={generateData()}
                 from={getCurrentYear()[0]}
@@ -56,8 +57,15 @@ const CalendarNivo = props => {
                         itemDirection: 'right-to-left'
                     }
                 ]}
+                theme={
+                    {
+                        "background": "#ffffff",
+                        "textColor": "#333333",
+                        "fontSize": 15,
+                    }
+                }
             />
-        </div>
+        </ChartWrapper>
     )
 };
 
