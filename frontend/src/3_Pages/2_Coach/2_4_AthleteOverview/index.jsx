@@ -7,7 +7,7 @@ import React, {useEffect} from "react";
 import {fetchClientDetails} from "../../../2_Store/Fetches/client_details";
 import {fetchClientRecentSessions} from "../../../2_Store/Fetches/user_specific_sessions";
 import SessionCard from "../../../4_Components/5_SessionCard";
-import LineNivo from "./nivo";
+import LineNivo from "./chart";
 
 
 const AthleteOverview = props => {
@@ -28,7 +28,7 @@ const AthleteOverview = props => {
                 <HeaderBar title={`ATHLETE - ${profile['full_name']}`}/>
                 { Object.keys(profile).length ?
                     <>
-                        <SessionCardLarge profile={profile}/>
+                        <SessionCardLarge profile={profile}/>}
                         <LineNivo sessions={recentSessions}/>
                         { recentSessions.map(session => <SessionCard session={session}/>) }
                     </>

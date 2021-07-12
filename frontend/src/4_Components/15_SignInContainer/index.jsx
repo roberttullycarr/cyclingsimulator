@@ -24,7 +24,7 @@ const onSubmit = async (data) => {
             if (response.status === 200) {
                 dispatch({type: "TOKEN", payload: response.data.access});
                 localStorage.setItem("token", response.data.access);
-                history.push("/coach/overview");
+                history.push("/");
             }
         }
         catch(err) {

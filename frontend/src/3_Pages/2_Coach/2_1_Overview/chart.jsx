@@ -1,10 +1,16 @@
 import React from 'react';
 import {ResponsiveCalendar} from "@nivo/calendar";
-import {indexOf} from "leaflet/src/core/Util";
 
 
 const CalendarNivo = props => {
 
+    const getCurrentYear = () => {
+        let result = []
+        let start = `${new Date().getFullYear()}` + "-01-01"
+        let end = `${new Date().getFullYear()}` + "-12-31"
+        result.push(start, end)
+        return  result
+    }
     // generates data from the API response
     const generateData = () => {
         const sessions = props.sessions
@@ -29,8 +35,8 @@ const CalendarNivo = props => {
         <div style={{height: '400px', width: '85%', border: 'none'}}>
             <ResponsiveCalendar
                 data={generateData()}
-                from="2021-01-01"
-                to="2021-12-30"
+                from={getCurrentYear()[0]}
+                to={getCurrentYear()[1]}
                 emptyColor="#D3D3D3"
                 colors={[ '#61cdbb', '#97e3d5', '#e8c1a0', '#f47560' ]}
                 margin={{ top: 40, right: 40, bottom: 40, left: 40 }}

@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux"
 import { useHistory } from "react-router";
 
-export const withAuth = (WrapperComponent) => {
-  return (props) => {
-    const token = useSelector((state) => state.token);
-    const history = useHistory();
-    if (token) {
-      return <WrapperComponent />;
-    } else {
-      history.push("/signin");
-      return null;
-    }
-  };
-};
+export const withUserAccess = WrapperComponent => () => {
+
+  const token = useSelector(state => state.token);
+  const history = useHistory();
+
+  useEffect(() => {
+    if(!token)history.push("/signin")
+  }, [token])
+
+  return <WrapperComponent />
+}

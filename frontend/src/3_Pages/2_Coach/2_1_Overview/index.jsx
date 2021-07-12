@@ -6,7 +6,7 @@ import SessionCardLarge from "../../../4_Components/6_SessionCardLarge";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {fetchRecentSessions} from "../../../2_Store/Fetches/recent_sessions";
-import CalendarNivo from "./nivo";
+import CalendarNivo from "./chart";
 import {fetchYearToDateSessions} from "../../../2_Store/Fetches/year_to_date_sessions";
 
 const Overview = () => {

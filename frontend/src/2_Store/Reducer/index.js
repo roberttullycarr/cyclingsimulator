@@ -6,14 +6,16 @@ const initialState = {
     routes: [],
     clientDetails: {},
     clientRecentSessions: [],
-    yearToDateSessions: []
+    yearToDateSessions: [],
+    myInfo: {}
 };
 
 const reducer = (state = initialState, action) => {
      switch (action.type) {
          case 'TOKEN':
-             console.log(action.payload);
              return {...state, token: action.payload}
+         case 'MY_INFO':
+             return {...state, myInfo: action.payload}
          case 'RECENT_SESSIONS':
              return {...state, recentSessions: action.payload}
          case 'MY_CLIENTS':

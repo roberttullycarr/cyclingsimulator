@@ -55,7 +55,7 @@ const SessionCardLarge = props => {
                 <StatField image={<HeartRate/>} stat={`${heart_rate} BPM`} name={'Heart Rate'}/>
                 <StatField image={<Weight/>} stat={`${weight} KG`} name={'Weight'}/>
                 <StatField image={<SessionNumber/>} stat={coach['full_name']} name={'Coach'}/>
-                <StatField image={<Session/>} stat={{created}} name={'Session'}/>
+                <StatField image={<Session/>} stat={created} name={'Session'}/>
             </Wrapper>
         </Container>
     )

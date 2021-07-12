@@ -1,6 +1,6 @@
 # from django.core.mail import send_mail
 from rest_framework import filters
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.pagination import LimitOffsetPagination
 from project_settings.permissions import IsCoach, IsSuperUser
 # from project_settings.settings import DEFAULT_FROM_EMAIL
@@ -122,3 +122,10 @@ class ListAllCoaches(ListAPIView):
 
     def get_queryset(self):
         return User.objects.filter(is_coach=True)
+
+
+class LoggedInUserInfo(RetrieveAPIView):
+    serializer_class = CoachesListSerializer
+
+    def get_object(self):
+        return User.objects.get(id=self.request.user.id)

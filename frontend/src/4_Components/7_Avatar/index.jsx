@@ -40,6 +40,7 @@ export const BaseAvatar = styled.img`
 const Avatar = (props) => {
     const history = useHistory();
     const location = useLocation();
+    const coachPaths = ['/', '/coach/clients', '/coach/routes', '/coach/sessions']
 
     return (
         <AvatarRing height={props.height} width={props.width} marginLeft={props.marginLeft}
@@ -47,8 +48,8 @@ const Avatar = (props) => {
                     color={props.color}>
             <BaseAvatar  src={props.user ? props.user : avatar}
                      alt={props.alt}
-                    onClick={() => location.pathname !== `/${props.user_id}` ?
-                        history.push(`/${props.user_id}`) : null}/>
+                    onClick={() => coachPaths.includes(location.pathname) ?
+                        history.push('/') : null}/>
         </AvatarRing>
     )
 };
