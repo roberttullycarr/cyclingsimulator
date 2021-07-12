@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 const Button = styled.button`
 background: ${props => props.theme.ELGreen};
-width: ${props => `${props.width}%` || '40px'};
-height: ${props => `${props.height}%` || '20px'};
+width: ${props => `${props.width}` || '40px'};
+height: ${props => `${props.height}` || '20px'};
 margin: ${props => `${props.top}%` || '0%'} ${props => props.right || '0%'} 
 ${props => props.bottom || '0%'} ${props => props.left || '0%'};
 border: none;
