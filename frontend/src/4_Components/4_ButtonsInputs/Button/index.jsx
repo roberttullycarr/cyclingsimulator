@@ -20,7 +20,7 @@ aspect-ratio: ${props => props.num || 1  } / ${props => props.denom || 1};
 cursor:pointer;
 &:hover{
     background: rgb(1 108 31 / 76%);
-}
+  }
 `
 
 const BaseButton = (props) => {

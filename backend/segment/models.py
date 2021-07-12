@@ -11,3 +11,11 @@ class Segment(models.Model):
 
     def __str__(self):
         return f'{self.start} to {self.end} meters of {self.route.name}'
+
+    @property
+    def segment(self):
+        return f'{self.start} - {self.end}'
+
+    @property
+    def distance(self):
+        return {self.end} - {self.start}

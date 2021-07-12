@@ -1,7 +1,8 @@
 from django.urls import path
-from django.views import View
-from .views import SimulateRoute
+from .views import ListAllRoutes, ViewUpdateDeleteRoute, AddNewRoute
 
 urlpatterns = [
-    path('simulate/', SimulateRoute.as_view())
+    path('routes/', ListAllRoutes.as_view()),
+    path('routes/<int:pk>/', ViewUpdateDeleteRoute.as_view()),
+    path('routes/new/', AddNewRoute.as_view())
 ]
