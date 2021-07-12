@@ -122,10 +122,10 @@ const ClientCard = (props) => {
                 </LastSessionItem>
             </ContainerLastSession>
 
-            <ClientText>{props.date ? props.date : "Month Day, Year"} {props.hour ? props.hour : "9:30 AM"}</ClientText>
-
-            <BaseButton text={'Details'} width={75} height={10} fontSize={1.4}
-                         marginTop={10} marginBottom={"0"} marginRight={0} marginLeft={12}/>
+            <ClientText>{created ? created.substr(0, created.indexOf(' ')) : "Date"}
+                {created ? created.substr(created.indexOf(' ')) : "Time"}</ClientText>
+            <BaseButton action={goToClientProfile} text={'Details'} width={75} height={"10%"} fontSize={1.4}
+                            marginLeft={"auto"} marginRight={"auto"} marginTop={"3vw"} marginBottom={"0"} />
         </ClientCardMain>
     )
 }
