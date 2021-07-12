@@ -22,6 +22,7 @@ export const defaultTheme = {
   TableBlue: "#659FD3",
   SlightlyBlack: "#474747",
   BorderColor: "#BDBDBD",
+  InputFieldColor: "#EAEAEA",
 
   
 
