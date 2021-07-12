@@ -107,8 +107,8 @@ const ClientCard = (props) => {
 
             <ClientText>{props.date ? props.date : "Month Day, Year"} {props.hour ? props.hour : "9:30 AM"}</ClientText>
 
-            <BaseButton text={'Details'} width={75} height={"10%"} fontSize={1.4} marginLeft={"auto"}
-                        marginRight={"auto"} marginTop={"3vw"} marginBottom={"0"} />
+            <BaseButton text={'Details'} width={75} height={10} fontSize={1.4}
+                         marginTop={10} marginBottom={"0"} marginRight={0} marginLeft={12}/>
         </ClientCardMain>
     )
 }

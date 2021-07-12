@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Button = styled.button`
 background: ${props => props.theme.ELGreen};
 width: ${props => `${props.width}%` || "4%"};
-height: ${props => props.height || "0%"};
+height: ${props => `${props.height}%` || "4%"};
 margin-left: ${props => `${props.marginLeft}%` || "0%"};
 margin-right: ${props => `${props.marginRight}%`|| "0%"};
 margin-top: ${props => `${props.marginTop}%` || "0%"};

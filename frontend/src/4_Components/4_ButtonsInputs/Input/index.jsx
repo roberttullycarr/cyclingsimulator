@@ -2,6 +2,8 @@ import styled from "styled-components"
 
 const BaseInputWrap = styled.div`
     width: ${props => `${props.width}%` || "90%"};
+    margin-top: ${props => `${props.marginTop}%` || '0%'};
+    margin-bottom: ${props => `${props.marginBottom}%` || '0%'};
 `
 
 const InputTitle = styled.h2`
@@ -18,18 +20,22 @@ const BaseInputMain = styled.input`
   background-color: #EAEAEA;
   height: 4vw;
   width: 100%;
+  padding-left: 5%;
   ::placeholder {
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 1.1vw;
-    padding-left: 5%;
+  }
+  
+  :focus {
+  outline: none;  
   }
 `
 const BaseInput = (props) => {
     return (
-        <BaseInputWrap width={props.width}>
-            <InputTitle>text</InputTitle>
-            <BaseInputMain placeholder={'text'}/>
+        <BaseInputWrap width={props.width} marginTop={props.marginTop} marginBottom={props.marginBottom}>
+            <InputTitle>{props.title}</InputTitle>
+            <BaseInputMain placeholder={props.title}/>
         </BaseInputWrap>
     )
 }
