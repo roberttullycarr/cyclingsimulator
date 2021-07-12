@@ -31,6 +31,11 @@ const BaseInputMain = styled.input`
   outline: none;  
   }
 `
+
+// base input is setup to use with React hook forms, and needs a variable (var) passed to it, as well as a error message
+// (message), a placeholder (title), and a type (type), to ensure it will work as you would like.
+// Wrap in a form, pass the appropriate props and it should work!
+
 const BaseInput = (props) => {
     return (
         <BaseInputWrap width={props.width} marginTop={props.marginTop} marginBottom={props.marginBottom}>
