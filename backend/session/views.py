@@ -3,6 +3,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 from rest_framework.pagination import LimitOffsetPagination
 from project_settings.permissions import IsCoach
 from session.models import Session
+from session.serializers.coach_statistics import YTDSessions
 from session.serializers.new_session import NewSessionSerializer
 from session.serializers.recent_sessions import RecentSessionSerializer
 from django.contrib.auth import get_user_model
@@ -62,7 +63,7 @@ class RecentSessionsSpecificUser(ListAPIView):
     serializer_class = RecentSessionSerializer
 
     def get_queryset(self):
-        return Session.objects.filter(client_id=self.kwargs['pk']).order_by('-created')[1:4]
+        return Session.objects.filter(client_id=self.kwargs['pk']).order_by('-created')[:5]
 
 
 class ListAllSessions(ListAPIView):
@@ -115,3 +116,10 @@ class SimulateRoutes(UpdateAPIView):
 
     def perform_update(self, serializer):
         serializer.save(routes=self.request.data['routes'])
+
+
+class ListSessionStatistics(ListAPIView):
+    serializer_class = YTDSessions
+
+    def get_queryset(self):
+        return Session.objects.filter(coach=self.request.user).order_by('-created')
