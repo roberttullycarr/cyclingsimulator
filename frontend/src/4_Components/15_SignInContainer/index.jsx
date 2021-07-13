@@ -1,9 +1,8 @@
-import styled from "styled-components"
 import {useLocation} from "react-router-dom";
 import BaseInput from "../4_ButtonsInputs/Input";
 import BaseButton from "../4_ButtonsInputs/Button";
 import {useForm} from "react-hook-form";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useHistory} from "react-router";
 import Axios from "../../2_Store/Axios";
 import {useState} from "react";
@@ -14,7 +13,7 @@ const SignInUpContainer = (props) => {
     const location = useLocation();
     const history = useHistory();
     const dispatch = useDispatch();
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState(null);
 
 const logIn = async (data) => {

@@ -23,7 +23,7 @@ const PVContainerMain = styled.div`
 
 
 const PasswordValidate = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const validatePassword = async (data) => {
         console.log(data);

@@ -1,5 +1,4 @@
 import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
-import SignUp from "./3_Pages/1_Authentification/1_1_PasswordReset";
 import SignIn from "./3_Pages/1_Authentification/1_2_SignIn";
 import Validation from "./3_Pages/1_Authentification/1_3_Validation";
 import Congratulations from "./3_Pages/1_Authentification/1_4_Congratulations";

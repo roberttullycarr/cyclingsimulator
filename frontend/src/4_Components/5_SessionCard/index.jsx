@@ -49,7 +49,7 @@ const DivImg = styled.div`
 
 const SessionCard = (props) => {
     // destructuring props
-    const { id, client, pat, heart_rate, created } = props.session
+    const { client, pat, heart_rate, created } = props.session
 
     return (
         <ContentCard>

@@ -5,7 +5,7 @@ import {RouteCardMain, RouteImg, RouteImgMain} from "./styled";
 
 const RouteCardSmall = props => {
     // destructuring props
-    const { id, name, location, avatar, distance, elevation, steepest_km, average_grade } = props.route
+    const { name, location, avatar, distance, elevation, steepest_km, average_grade } = props.route
     return (
         <RouteCardMain>
             <RouteImgMain>

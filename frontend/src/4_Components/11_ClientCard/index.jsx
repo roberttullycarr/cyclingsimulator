@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import Avatar from "../7_Avatar";
 import BaseButton from "../4_ButtonsInputs/Button";
-import {useDispatch} from "react-redux";
-import {fetchClientDetails} from "../../2_Store/Fetches/client_details";
 import {useHistory} from "react-router";
 
 export const ClientCardMain = styled.div`
@@ -91,7 +89,6 @@ const ClientCard = (props) => {
         <ClientCardMain>
             <Avatar width={30} marginLeft={"auto"} marginRight={"auto"} marginBottom={"5%"} marginTop={"8%"} user={avatar}/>
             <ClientName>{full_name ? full_name : "Client Name"}</ClientName>
-            {/*<ClientText>{email ? email : "Email"}</ClientText>*/}
             <BirthdayContent className="marginBottom marginTop">
                 <ClientSpan>
                     <Bold>sessions</Bold>

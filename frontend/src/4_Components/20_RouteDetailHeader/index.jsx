@@ -12,8 +12,6 @@ const RouteHeader = styled.div`
 `; 
 const ImgContainer = styled.div`
     height: 45vh;
-    //background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url(${props => `${props.image}` || ImgDetailRoute}); 
-    //background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url(${ImgDetailRoute}); 
     background-image: url(${ImgDetailRoute}); 
     background-position: center; 
     background-repeat: no-repeat;
@@ -108,7 +106,6 @@ const RouteDetailHeader = (props) => {
                             <Link>consectetuer </Link>
                             <Link>elementum</Link>
                         </WrapperLinks>
-                        
                     </WrapperTitleLinks>
                     <ContentCard>
                         <WrapperDiv>
@@ -139,15 +136,10 @@ const RouteDetailHeader = (props) => {
                                 </SVGWrapper>
                                 <TextCard>{"Elevation" + props.elevation ? props.elevation : "0"}</TextCard>
                             </DivImg>
-                            
                         </WrapperDiv>
-
                     </ContentCard>
-
                 </HeroContent>
-                
             </ImgContainer>
-
         </RouteHeader>
     )
 

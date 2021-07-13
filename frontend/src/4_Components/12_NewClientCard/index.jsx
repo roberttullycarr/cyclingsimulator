@@ -27,7 +27,7 @@ const FileInput = styled.input`
 `
 
 const NewClientCard = () => {
-     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+     const { register, handleSubmit, formState: { errors } } = useForm();
 
      const submitHandler = async (data) => {
          const url = '/coach/client/new/';
