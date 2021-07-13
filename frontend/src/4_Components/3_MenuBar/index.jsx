@@ -25,9 +25,9 @@ const MenuBar = () => {
         <MenuBarMain>
             <LogoImg src={EL_logo}/>
             <BorderLine />
-            <Avatar width={65} marginTop={20} user={myInfo.avatar}/>
+            <Avatar width={65} marginTop={"20%"} user={myInfo.avatar}/>
             <LinksMainDiv>
-                <MBLink icon={overview} url={'/'}/>
+                <MBLink icon={overview} url={'/coach/overview'}/>
                 <MBLink icon={cyclist} url={'/coach/clients'}/>
                 <MBLink icon={routes} url={'/coach/routes'}/>
                 <MBLink icon={sessions} url={'/coach/sessions'}/>
