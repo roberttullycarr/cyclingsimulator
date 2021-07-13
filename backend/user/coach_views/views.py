@@ -1,12 +1,14 @@
-# from django.core.mail import send_mail
+from django.contrib.auth.hashers import make_password
+from django.core.mail import send_mail
 from rest_framework import filters
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.pagination import LimitOffsetPagination
 from project_settings.permissions import IsCoach, IsSuperUser
-# from project_settings.settings import DEFAULT_FROM_EMAIL
+from project_settings.settings import DEFAULT_FROM_EMAIL
 from user.serializers.coach.coaches_list import CoachesListSerializer
 from user.serializers.coach.list_clients import ClientListSerializer
 from django.contrib.auth import get_user_model
+from user.serializers.coach.new_coach import NewCoachSerializer
 from user.serializers.coach.new_user import NewUserSerializer
 
 User = get_user_model()
@@ -25,7 +27,6 @@ class AddNewClient(CreateAPIView):
     - avatar:
     - email: **required**
     - phone_number:
-    - username:
     """
     permission_classes = [IsCoach]
     serializer_class = NewUserSerializer
@@ -99,9 +100,23 @@ class ListSpecificClient(RetrieveUpdateDestroyAPIView):
 
 
 class AddNewCoach(CreateAPIView):
-    serializer_class = CoachesListSerializer
+    serializer_class = NewCoachSerializer
     permission_classes = [IsSuperUser]
     queryset = User.objects.all()
+
+    def perform_create(self, serializer):
+        random_password = User.objects.make_random_password()
+        email = self.request.data['email']
+        serializer.save(password=make_password(random_password), is_coach=True)
+
+        send_mail(
+            'Login Credentials',
+            f'Login ID: {email}\n'
+            f'Password: {random_password}',
+            DEFAULT_FROM_EMAIL,
+            [email],
+            fail_silently=False,
+        )
 
 
 class ListAllCoaches(ListAPIView):
@@ -122,3 +137,10 @@ class ListAllCoaches(ListAPIView):
 
     def get_queryset(self):
         return User.objects.filter(is_coach=True)
+
+
+class LoggedInUserInfo(RetrieveAPIView):
+    serializer_class = CoachesListSerializer
+
+    def get_object(self):
+        return User.objects.get(id=self.request.user.id)
