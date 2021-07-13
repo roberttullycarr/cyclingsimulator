@@ -30,12 +30,11 @@ const NewClientCard = () => {
      const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
      const submitHandler = async (data) => {
-         const fullData = {...data, username: "the_dudette"};
          const url = '/coach/client/new/';
          const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
-         const response = await Axios.post(url, fullData, config);
+         const response = await Axios.post(url, data, config);
          console.log(response.data);
      }
 
@@ -49,7 +48,7 @@ const NewClientCard = () => {
                            title={'Last Name'} width={80} height={12} marginBottom={10}/>
                 <BaseInput var={register} name={'email'} type={'email'} message={'Invalid Email'}
                            title={'Email'} width={80} height={12} marginBottom={12}/>
-                <FileInput type={'file'} />
+                <FileInput {...register('avatar')} type={'file'} />
                 <BaseButton text={'Submit'} type={'submit'} width={30} height={10} fontSize={1.4}/>
             </NewClientForm>
         </ClientCardMain>

@@ -6,8 +6,8 @@ import {fetchClientDetails} from "../../2_Store/Fetches/client_details";
 import {useHistory} from "react-router";
 
 export const ClientCardMain = styled.div`
-  width: 90%;
-  height: 30.5vw;
+  width: 80%;
+  height: 28vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,7 +121,7 @@ const ClientCard = (props) => {
                 </LastSessionItem>
             </ContainerLastSession>
             <BaseButton action={goToClientProfile} text={'Details'} width={50} height={10} fontSize={1.4}
-                            marginLeft={"auto"} marginRight={"auto"} marginTop={2} marginBottom={"0"} />
+                            marginLeft={"auto"} marginRight={"auto"} marginTop={3} marginBottom={"0"} />
         </ClientCardMain>
     )
 }

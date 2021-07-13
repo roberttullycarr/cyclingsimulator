@@ -33,9 +33,9 @@ const BaseInputMain = styled.input`
   }
 `
 
-// base input is setup to use with React hook forms, and needs a variable (var) passed to it, as well as a error message
-// (message), a placeholder (title), and a type (type), to ensure it will work as you would like.
-// Wrap in a form, pass the appropriate props and it should work!
+// base input is setup to use with React hook forms, and needs a variable (var) passed to it, or it will throw an
+// error message. It also can accept an well as a error message (message), a placeholder (title), and a type (type),
+// to ensure it will work as you would like. Wrap in a form, pass the appropriate props and it should work!
 
 const BaseInput = (props) => {
     return (
