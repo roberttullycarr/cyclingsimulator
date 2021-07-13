@@ -70,7 +70,7 @@ const Table = () => {
                     <h1>test</h1>
                     <h1>test</h1>
                 </Row>
-                                <Row>
+                <Row>
                     <h1>test</h1>
                     <h1>test</h1>
                     <h1>test</h1>
@@ -78,97 +78,100 @@ const Table = () => {
                     <h1>test</h1>
                     <h1>test</h1>
                 </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>
+                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>
+                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>
+                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>                <Row>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+                <h1>test</h1>
+            </Row>
             </Wrapper>
         </DetailTable>
 

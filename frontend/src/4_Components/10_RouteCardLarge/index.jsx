@@ -120,7 +120,7 @@ const RoutCardLarge = () => {
 
     const onClickHandler = (event) => {
         event.preventDefault();
-        if (expanded == 'visible'){
+        if (expanded === 'visible'){
             setExpanded('hidden')
         }
         else{
