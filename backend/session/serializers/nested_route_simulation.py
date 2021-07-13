@@ -39,13 +39,13 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
         pat = session.pat
         weight = session.weight
 
-        result['calories'] = (pat * (time_to_seconds(self.get_total_time(obj))) // 4180) * 4
-        result['carbs'] = weight * (time_to_seconds(self.get_total_time(obj)) // 3600)
-        result['carb_energy_value'] = result['carbs'] * 4
-        result['drinks'] = time_to_seconds(self.get_total_time(obj)) // 3600
-        result['carbs_from_drinks'] = result['drinks'] * 45
-        result['carbs_from_food'] = result['carbs'] - result['carbs_from_drinks']
-        result['slices_of_gingerbread'] = result['carbs_from_food'] // 15
+        result['calories'] = round((pat * (time_to_seconds(self.get_total_time(obj))) / 4180) * 4, 0)
+        result['carbs'] = round(weight * (time_to_seconds(self.get_total_time(obj)) / 3600), 0)
+        result['carb_energy_value'] = round(result['carbs'] * 4, 0)
+        result['drinks'] = round(time_to_seconds(self.get_total_time(obj)) / 3600, 0)
+        result['carbs_from_drinks'] = round(result['drinks'] * 45, 0)
+        result['carbs_from_food'] = round(result['carbs'] - result['carbs_from_drinks'], 0)
+        result['slices_of_gingerbread'] = round(result['carbs_from_food'] / 15, 0)
 
         return result
 

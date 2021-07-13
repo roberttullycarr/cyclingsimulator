@@ -23,7 +23,6 @@ const Results = props => {
         <Main>
             <MenuBar/>
             <Body>
-                <PieNivo />
                 {Object.keys(session).length ?
                     <>
                         <HeaderBar title={`RESULTS - ${client['full_name']} / ${created}`}/>

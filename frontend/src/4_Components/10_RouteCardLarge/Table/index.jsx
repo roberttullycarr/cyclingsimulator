@@ -14,13 +14,13 @@ const Wrapper = styled.div`
   width: 100%;
   height: 31.9vw;
   overflow: auto;
-  div:nth-child(even){color: ${props => props.theme.SlightlyBlack};}
-  div:nth-child(odd){color: ${props => props.theme.AccentGray};}
+  color: ${props => props.theme.SlightlyBlack};
+  // div:nth-child(even){color: ${props => props.theme.SlightlyBlack};}
+  // div:nth-child(odd){color: ${props => props.theme.AccentGray};}
 `
 
 
 const Head = styled.div`
-  width: 100%;
   display: flex;
   margin-bottom: 1%;
   h1{
@@ -38,7 +38,6 @@ const Head = styled.div`
 
 const Row = styled.div`
   display: flex;
-  width: 100%;
   h1{
     font-size: 1.2vw;
     height: 3.19vw;
@@ -49,7 +48,8 @@ const Row = styled.div`
 `
 
 
-const Table = () => {
+const Table = props => {
+
     return (
 
         <DetailTable>
@@ -62,116 +62,17 @@ const Table = () => {
                 <h1>Time</h1>
             </Head>
             <Wrapper>
-                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>
-                <Row>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                    <h1>test</h1>
-                </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>
-                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>
-                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>
-                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>                <Row>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
-            </Row>
+                {
+                    props.segments.map(segment =>
+                        <Row key={segment}>
+                            <h1>{segment.segment}</h1>
+                            <h1>{segment.distance}</h1>
+                            <h1>{segment['average_grade']}</h1>
+                            <h1>{segment['speed_in_km']}</h1>
+                            <h1>{segment['speed_in_m']}</h1>
+                            <h1>{segment.time}</h1>
+                        </Row>)
+                }
             </Wrapper>
         </DetailTable>
 

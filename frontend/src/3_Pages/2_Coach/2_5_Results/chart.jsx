@@ -1,6 +1,6 @@
 import { ResponsivePie } from "@nivo/pie";
 
-const margin = { top: 50, right: 110, bottom: 50, left: 70 };
+const margin = { top: 50, right: 110, bottom: 100, left: 90 };
 
 const styles = {
   root: {
@@ -22,30 +22,18 @@ const styles = {
     justifyContent: "center",
     color: "#000000",
     textAlign: "center",
-    // This is important to preserve the chart interactivity
     pointerEvents: "none"
   },
   largefont: {
     fontSize: 20,
-    marginBottom: 20
+    marginBottom: 50
   },
   smallfont: {
     fontSize: 15
   }
 };
 
-const data = [
-  {
-    id: "Carbs from drinks",
-    label: "Drinks",
-    value: 350
-  },
-  {
-    id: "Carbs from food",
-    label: "Food",
-    value: 400
-  }
-];
+
 
 const theme = {
   background: "#ffffff",
@@ -60,12 +48,12 @@ const theme = {
 
 const legends = [
   {
-    anchor: "right",
-    direction: "column",
+    anchor: "left",
+    direction: "row",
     justify: false,
-    translateX: 100,
-    translateY: 100,
-    itemsSpacing: 2,
+    translateX: -20,
+    translateY: 160,
+    itemsSpacing: 200,
     itemWidth: 100,
     itemHeight: 20,
     itemDirection: "left-to-right",
@@ -83,28 +71,48 @@ const legends = [
   }
 ];
 
-const PieNivo = () => (
-    <div style={styles.root}>
-      <ResponsivePie
-          margin={margin}
-          data={data}
-          colors={{ scheme: 'set1' }}
-          arcLinkLabelsStraightLength={1}
-          arcLinkLabelsTextOffset={1}
-          activeOuterRadiusOffset={5}
-          innerRadius={0.8}
-          enableRadialLabels={false}
-          enableSlicesLabels={false}
-          theme={theme}
-          legends={legends}
-      />
-      <div style={styles.overlay}>
-        <span style={styles.smallfont}>700g / 200kj</span>
-        <span style={styles.largefont}>Carbs needed</span>
-        <span style={styles.smallfont}>800</span>
-        <span style={styles.largefont}>Total calories</span>
+const PieNivo = props => {
+  const { total_kcal, total_carbs_in_grams, carb_energy_value, number_of_drinks,
+    carbs_from_drink_in_grams, carbs_needed_from_food, slices_of_gingerbread } = props.route
+
+  const data = [
+    {
+      id: `${number_of_drinks} energy drink`,
+      label: "Carbs in grams from food",
+      value: `${carbs_needed_from_food}`
+    },
+    {
+      id: `${slices_of_gingerbread} slices of gingerbread`,
+      label: "Carbs in grams from drinks",
+      value: `${carbs_from_drink_in_grams}`
+    }
+  ];
+
+  return (
+      <div style={styles.root}>
+        <ResponsivePie
+            margin={margin}
+            data={data}
+            colors={{ scheme: 'set1' }}
+            arcLinkLabelsStraightLength={1}
+            arcLinkLabelsTextOffset={1}
+            activeOuterRadiusOffset={5}
+            arcLabelsTextColor="white"
+            innerRadius={0.8}
+            enableRadialLabels={false}
+            enableSlicesLabels={false}
+            theme={theme}
+            legends={legends}
+        />
+        <div style={styles.overlay}>
+          <span style={styles.smallfont}>{total_carbs_in_grams}g / {carb_energy_value}kj</span>
+          <span style={styles.largefont}>Carbs needed</span>
+          <span style={styles.smallfont}>{total_kcal}</span>
+          <span style={styles.largefont}>Total calories</span>
+        </div>
       </div>
-    </div>
-);
+  );
+}
+
 
 export default PieNivo

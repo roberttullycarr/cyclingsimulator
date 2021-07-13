@@ -118,8 +118,7 @@ const RoutCardLarge = props => {
     const [expanded, setExpanded] = useState('hidden')
     // destructuring props
     const { name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
-    average_speed, total_kcal, total_carbs_in_grams, carb_energy_value, number_of_drinks,
-    carbs_from_drinks_in_grams, carbs_needed_from_food, slices_of_gingerbread, avatar} = props.route
+    average_speed, total_kcal, avatar, segments} = props.route
 
     const onClickHandler = (event) => {
         event.preventDefault();
@@ -154,8 +153,8 @@ const RoutCardLarge = props => {
                     </Stats>
                 </Wrapper>
                 <BottomWrapper expand={expanded}>
-                    <Table/>
-                    <TextField/>
+                    <Table segments={segments}/>
+                    <TextField route={props.route}/>
                 </BottomWrapper>
                 <ArrowButton onClick={onClickHandler} expand={expanded}/>
             </Card>
