@@ -12,7 +12,7 @@ const Select = styled.select`
   border: 1px solid ${props => props.theme.BorderColor};
   cursor: pointer;
   font-weight: ${props => props.theme.textWeightBold};
-  font-size: 1em;
+  font-size: 1vw;
   color: ${props => props.theme.SlightlyBlack};
   padding-left: 5%;
   background-image: url(${arrow});

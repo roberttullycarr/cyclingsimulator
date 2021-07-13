@@ -74,7 +74,7 @@ const RouteOptions = () => {
                         <OptionField options={['test', 'test']} width={fieldWidth} height={fieldHeight}/>
                     </Wrapper>
                 </Options>
-                <BaseButton text={'Calculate'} height={'2.78vw'} width={10}/>
+                <BaseButton text={'Calculate'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
             </Card>
         </Container>
     )
