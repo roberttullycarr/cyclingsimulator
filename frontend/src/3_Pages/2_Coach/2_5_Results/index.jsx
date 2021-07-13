@@ -6,7 +6,6 @@ import RouteOptions from "../../../4_Components/13_RouteOptions";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchSpecificSession} from "../../../2_Store/Fetches/get_specific_session";
-import PieNivo from "./chart";
 
 const Results = props => {
     const dispatch = useDispatch()

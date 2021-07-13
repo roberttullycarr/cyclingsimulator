@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Title from "../14_Title";
 import BaseButton from "../4_ButtonsInputs/Button";
-import stelvio from "../../5_Assets/JPG/stelvio_06_hairpin.jpeg"
 import StatField from "../15_StatsField";
 import { ReactComponent as Distance } from '../../5_Assets/SVG/26_distance.svg'
 import { ReactComponent as Elevation } from '../../5_Assets/SVG/13_routes.svg'
@@ -10,11 +9,10 @@ import { ReactComponent as SteepestGrade } from '../../5_Assets/SVG/29_steepestg
 import { ReactComponent as TotalTime } from '../../5_Assets/SVG/30_totaltime.svg'
 import { ReactComponent as Calories } from '../../5_Assets/SVG/31_kcal.svg'
 import { ReactComponent as AverageSpeed } from '../../5_Assets/SVG/32_avaragespeed.svg'
-import { ReactComponent as ClimbDate } from '../../5_Assets/SVG/25_datetime.svg'
 import arrowThin from '../../5_Assets/SVG/41_arrow.svg'
 import Table from "./Table";
 import TextField from "./TextField";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Container = styled.div`
   margin-top: 2%;
@@ -118,7 +116,7 @@ const RoutCardLarge = props => {
     const [expanded, setExpanded] = useState('hidden')
     // destructuring props
     const { name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
-    average_speed, total_kcal, avatar, segments} = props.route
+        average_speed, total_kcal, avatar, segments} = props.route
 
     const onClickHandler = (event) => {
         event.preventDefault();
@@ -149,7 +147,6 @@ const RoutCardLarge = props => {
                         <StatField image={<TotalTime/>} stat={total_time} name={'Total Time'}/>
                         <StatField image={<Calories/>} stat={total_kcal} name={'Calories'}/>
                         <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
-                        <StatField image={<ClimbDate/>} stat={'300W'} name={'Climb Date'}/>
                     </Stats>
                 </Wrapper>
                 <BottomWrapper expand={expanded}>

@@ -1,3 +1,4 @@
+// Those below lists are used in the route simulation card
 export const windConditions = [
     [0, 0],
     [3, 0.833333333],

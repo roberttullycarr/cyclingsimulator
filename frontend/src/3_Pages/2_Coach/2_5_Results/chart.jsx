@@ -1,6 +1,6 @@
 import { ResponsivePie } from "@nivo/pie";
 
-const margin = { top: 50, right: 110, bottom: 100, left: 90 };
+const margin = { top: 50, right: 110, bottom: 100, left: 100 };
 
 const styles = {
   root: {
@@ -77,12 +77,12 @@ const PieNivo = props => {
 
   const data = [
     {
-      id: `${number_of_drinks} energy drink`,
+      id: `${slices_of_gingerbread} slices of gingerbread`,
       label: "Carbs in grams from food",
       value: `${carbs_needed_from_food}`
     },
     {
-      id: `${slices_of_gingerbread} slices of gingerbread`,
+      id: `${number_of_drinks} energy drink`,
       label: "Carbs in grams from drinks",
       value: `${carbs_from_drink_in_grams}`
     }
@@ -94,6 +94,7 @@ const PieNivo = props => {
             margin={margin}
             data={data}
             colors={{ scheme: 'set1' }}
+            startAngle={-200}
             arcLinkLabelsStraightLength={1}
             arcLinkLabelsTextOffset={1}
             activeOuterRadiusOffset={5}

@@ -54,8 +54,8 @@ const Table = props => {
 
         <DetailTable>
             <Head>
-                <h1>KM</h1>
-                <h1>Distance</h1>
+                <h1>Segment</h1>
+                <h1>Distance in Meters</h1>
                 <h1>Grade</h1>
                 <h1>Speed KM/H</h1>
                 <h1>Speed M/S</h1>

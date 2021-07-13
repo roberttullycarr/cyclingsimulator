@@ -5,6 +5,7 @@ import {ChartWrapper} from "../2_4_AthleteOverview/chart";
 
 const CalendarNivo = props => {
 
+    // this function ensures that the chart will always display the current year
     const getCurrentYear = () => {
         let result = []
         let start = `${new Date().getFullYear()}` + "-01-01"
@@ -39,7 +40,7 @@ const CalendarNivo = props => {
                 from={getCurrentYear()[0]}
                 to={getCurrentYear()[1]}
                 emptyColor="#D3D3D3"
-                colors={[ '#61cdbb', '#97e3d5', '#e8c1a0', '#f47560' ]}
+                colors={['#61cdbb', '#97e3d5', '#e8c1a0', '#f47560']}
                 margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
                 yearSpacing={60}
                 monthBorderWidth={0}
