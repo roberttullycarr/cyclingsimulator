@@ -5,7 +5,7 @@ import {AuthBody} from "../1_2_SignIn/styled";
 
 
 
-const SignUp = () => {
+const PasswordReset = () => {
     return (
         <Main>
             <AuthHeader/>
@@ -16,4 +16,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default PasswordReset
