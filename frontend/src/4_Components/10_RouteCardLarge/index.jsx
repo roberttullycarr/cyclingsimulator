@@ -12,8 +12,9 @@ import { ReactComponent as Calories } from '../../5_Assets/SVG/31_kcal.svg'
 import { ReactComponent as AverageSpeed } from '../../5_Assets/SVG/32_avaragespeed.svg'
 import { ReactComponent as ClimbDate } from '../../5_Assets/SVG/25_datetime.svg'
 import arrowThin from '../../5_Assets/SVG/41_arrow.svg'
-import Table from "../6_SessionCardLarge/Table";
-import TextField from "../6_SessionCardLarge/TextField";
+import Table from "./Table";
+import TextField from "./TextField";
+import { useState } from "react";
 
 const Container = styled.div`
   margin-top: 2%;
@@ -24,7 +25,8 @@ const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 87.5vw;
-  height: auto;
+  height: ${props => (props.expand == 'hidden') ? '23vw' : '115vw'};
+  transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
   background: ${props => props.theme.ELWhite};
@@ -35,7 +37,6 @@ const Card = styled.div`
     margin-right: 2%;
     margin-bottom: 2%;
   }
-  padding-left: 1.875vw;
 `
 
 const Name = styled.h1`
@@ -48,10 +49,12 @@ const WrapperTop = styled.div`
   justify-content: space-between;
   margin-top: 1.875vw;
   height: 2.78vw;
+  padding-left: 1.875vw;
 `
 
 const Wrapper = styled.div`
   display: flex;
+  padding-left: 1.875vw;
   img{
     width: 16vw;
     height: 16vw;
@@ -60,9 +63,15 @@ const Wrapper = styled.div`
   }
 `
 
-const TableWrapper = styled.div`
-  width: 89.8%;
+const BottomWrapper = styled.div`
+  width: 100%;
   margin-top: 1.875vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  visibility: ${props => props.expand};
+  transition: all 0.7s linear;
+  overflow: hidden;
 `
 
 const Stats = styled.div`
@@ -100,20 +109,32 @@ const ArrowButton = styled.button`
   z-index: 2;
   bottom: 0px;
   right: 0px;
+  transform: ${props => (props.expand == 'hidden') ? '0' : 'rotate(0.5turn)'};
+  transition: all 0.7s linear;
 `
 
-const onClickHandler = (e) => {
-    console.log('clicked')
-}
 
 const RoutCardLarge = () => {
+
+    const [expanded, setExpanded] = useState('hidden')
+
+    const onClickHandler = (event) => {
+        event.preventDefault();
+        if (expanded == 'visible'){
+            setExpanded('hidden')
+        }
+        else{
+            setExpanded('visible')
+        }
+    }
+
     return (
         <Container>
             <Title text={'Result'}/>
-            <Card>
+            <Card expand={expanded}>
                 <WrapperTop>
                     <Name>Stelvio</Name>
-                    <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10}/>
+                    <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
                 </WrapperTop>
                 <Wrapper>
                     <img src={stelvio}/>
@@ -129,15 +150,15 @@ const RoutCardLarge = () => {
                         <StatField image={<ClimbDate/>} stat={'300W'} name={'Climb Date'}/>
                     </Stats>
                 </Wrapper>
-                <TableWrapper>
+                <BottomWrapper expand={expanded}>
                     <Table/>
-                </TableWrapper>
-                <TextField/>
-                <ArrowButton onClick={onClickHandler}/>
+                    <TextField/>
+                </BottomWrapper>
+                <ArrowButton onClick={onClickHandler} expand={expanded}/>
             </Card>
         </Container>
     )
 }
 
-export default RoutCardLarge
+export default RoutCardLarge;
 
