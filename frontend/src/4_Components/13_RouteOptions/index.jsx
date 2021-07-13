@@ -7,8 +7,10 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllRoutes} from "../../2_Store/Fetches/get_all_routes";
 import {fetchSessionResults} from "../../2_Store/Fetches/run_calculations";
+import {riderPosition, tirePressure, windConditions} from "../../3_Pages/2_Coach/2_5_Results/simulation_variables";
+import {ErrorMessage} from "../15_SignInContainer/styled";
 
-const Form = styled.div`
+const Options = styled.div`
   aspect-ratio: 4.05 / 1;
   width: 87.5vw;
   height: auto;
@@ -23,7 +25,7 @@ const Form = styled.div`
   }
 `
 
-const Options = styled.form`
+const Form = styled.form`
   width: 100%;
   height: 85.5%;
   align-self: center;
@@ -37,14 +39,19 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   .routes {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
   }
-  
+
+  .text-field {
+    width: 70%;
+    outline: none;
+  }
+
   p{
     :hover {
       cursor: pointer;
@@ -71,41 +78,44 @@ const RouteOptions = props => {
     return (
         <div>
             <Title text={'Route Options'}/>
-            <Form>
-                <Options onSubmit={handleSubmit(submitHandler)}>
+            <Options>
+                <Form onSubmit={handleSubmit(submitHandler)}>
                     <Wrapper>
                         <Title text={'Routes'}/>
                         {routes.map(route =>
                             <label className="routes">
                                 <p>{route.name}</p>
                                 <input type='checkbox' placeholder='Route'
-                                       value={route.id} {...register('routes')}/>
+                                       value={route.id}
+                                       {...register('routes', {required: 'Please select a route'})}/>
                             </label>
                         )}
                     </Wrapper>
                     <Wrapper>
                         <Title text={'Wind condition'}/>
-                        <OptionField options={['test', 'test']} width={fieldWidth} height={fieldHeight}/>
-                    </Wrapper>
-                    <Wrapper>
-                        <Title text={'Bike type'}/>
-                        <OptionField options={['test', 'test']} width={fieldWidth} height={fieldHeight}/>
-                    </Wrapper>
-                    <Wrapper>
-                        <Title text={'Bike weight'}/>
-                        <OptionField options={['test', 'test']} width={fieldWidth} height={fieldHeight}/>
+                        <OptionField name={'wind_condition'} options={windConditions} width={fieldWidth}
+                                     height={fieldHeight} register={register}/>
                     </Wrapper>
                     <Wrapper>
                         <Title text={'Tire pressure'}/>
-                        <OptionField options={['test', 'test']} width={fieldWidth} height={fieldHeight}/>
+                        <OptionField name={'tire_pressure'} options={tirePressure} width={fieldWidth}
+                                     height={fieldHeight} register={register}/>
+                    </Wrapper>
+                    <Wrapper>
+                        <Title text={'Bike weight in KGs'}/>
+                        <input className='text-field' type='number'
+                               {...register('bike_weight', {required: 'Please add a bike weight'})}/>
                     </Wrapper>
                     <Wrapper>
                         <Title text={'Rider position'}/>
-                        <OptionField options={['test', 'test']} width={fieldWidth} height={fieldHeight}/>
+                        <OptionField name={'rider_position'} options={riderPosition} width={fieldWidth}
+                                     height={fieldHeight} register={register}/>
                     </Wrapper>
-                    <BaseButton type={'submit'} text={'Calculate'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
-                </Options>
-            </Form>
+                    <BaseButton type={'submit'} text={'Calculate'} height={25} width={10} fontSize={'1.2'}/>
+                </Form>
+            </Options>
+            {errors.routes ? <ErrorMessage>{errors.routes.message}</ErrorMessage> : <ErrorMessage/>}
+            {errors.bike_weight ? <ErrorMessage>{errors.bike_weight.message}</ErrorMessage> : <ErrorMessage/>}
         </div>
     )
 }

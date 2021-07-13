@@ -3,6 +3,7 @@ from route.models import Route
 from session.models import Session
 from session.serializers.nested_segment_simulation import NestedSegmentSerializer
 from session.serializers.time_functions import seconds_to_time, time_to_seconds
+from builtins import round
 
 
 class RouteSimulationSerializer(serializers.ModelSerializer):
@@ -30,7 +31,7 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
         return seconds_to_time(time)
 
     def get_average_speed(self, obj):
-        return 3600 / (time_to_seconds(self.get_total_time(obj)) / self.get_total_distance_in_km(obj))
+        return round(3600 / (time_to_seconds(self.get_total_time(obj)) / self.get_total_distance_in_km(obj)), 2)
 
     def calculate_nutrition(self, obj):
         result = {}
@@ -73,6 +74,7 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
         model = Route
         fields = [
             'id',
+            'avatar',
             'name',
             'average_grade',
             'elevation',

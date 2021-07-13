@@ -27,7 +27,7 @@ const MenuBar = () => {
             <BorderLine />
             <Avatar width={65} marginTop={"20%"} user={myInfo.avatar}/>
             <LinksMainDiv>
-                <MBLink icon={overview} url={'/coach/overview'}/>
+                <MBLink icon={overview} url={'/'}/>
                 <MBLink icon={cyclist} url={'/coach/clients'}/>
                 <MBLink icon={routes} url={'/coach/routes'}/>
                 <MBLink icon={sessions} url={'/coach/sessions'}/>

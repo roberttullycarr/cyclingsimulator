@@ -55,7 +55,7 @@ const DivImg = styled.div`
 const SessionCard = (props) => {
     const history = useHistory()
     // destructuring props
-    const { client, pat, heart_rate, created } = props.session
+    const { id, client, pat, heart_rate, created } = props.session
 
     const simulateSession = () => {
         history.push(`/coach/results/${id}`)

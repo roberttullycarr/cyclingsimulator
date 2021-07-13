@@ -25,7 +25,7 @@ const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 87.5vw;
-  height: ${props => (props.expand == 'hidden') ? '23vw' : '115vw'};
+  height: ${props => (props.expand === 'hidden') ? '23vw' : '115vw'};
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
@@ -109,14 +109,17 @@ const ArrowButton = styled.button`
   z-index: 2;
   bottom: 0px;
   right: 0px;
-  transform: ${props => (props.expand == 'hidden') ? '0' : 'rotate(0.5turn)'};
+  transform: ${props => (props.expand === 'hidden') ? '0' : 'rotate(0.5turn)'};
   transition: all 0.7s linear;
 `
 
 
-const RoutCardLarge = () => {
-
+const RoutCardLarge = props => {
     const [expanded, setExpanded] = useState('hidden')
+    // destructuring props
+    const { name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
+    average_speed, total_kcal, total_carbs_in_grams, carb_energy_value, number_of_drinks,
+    carbs_from_drinks_in_grams, carbs_needed_from_food, slices_of_gingerbread, avatar} = props.route
 
     const onClickHandler = (event) => {
         event.preventDefault();
@@ -133,20 +136,20 @@ const RoutCardLarge = () => {
             <Title text={'Result'}/>
             <Card expand={expanded}>
                 <WrapperTop>
-                    <Name>Stelvio</Name>
+                    <Name>{name}</Name>
                     <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
                 </WrapperTop>
                 <Wrapper>
-                    <img src={stelvio}/>
+                    <img src={avatar} alt='route-avatar'/>
                     <Stats>
-                        <StatField image={<Distance/>} stat={'300W'} name={'Distance'}/>
-                        <StatField image={<Elevation/>} stat={'300W'} name={'Elevation'}/>
-                        <StatField image={<AverageGrade/>} stat={'300W'} name={'Average Grade'}/>
-                        <StatField image={<SteepestGrade/>} stat={'300W'} name={'Steepest Grade'}/>
+                        <StatField image={<Distance/>} stat={total_distance_in_km} name={'Distance in KM'}/>
+                        <StatField image={<Elevation/>} stat={elevation} name={'Elevation'}/>
+                        <StatField image={<AverageGrade/>} stat={`${average_grade} %`} name={'Average Grade'}/>
+                        <StatField image={<SteepestGrade/>} stat={`${steepest_km} %`} name={'Steepest Grade'}/>
                         <Line/>
-                        <StatField image={<TotalTime/>} stat={'300W'} name={'Total Time'}/>
-                        <StatField image={<Calories/>} stat={'300W'} name={'Calories'}/>
-                        <StatField image={<AverageSpeed/>} stat={'300W'} name={'Average Speed'}/>
+                        <StatField image={<TotalTime/>} stat={total_time} name={'Total Time'}/>
+                        <StatField image={<Calories/>} stat={total_kcal} name={'Calories'}/>
+                        <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
                         <StatField image={<ClimbDate/>} stat={'300W'} name={'Climb Date'}/>
                     </Stats>
                 </Wrapper>
