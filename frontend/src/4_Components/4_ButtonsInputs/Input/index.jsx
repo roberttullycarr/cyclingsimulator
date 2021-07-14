@@ -39,12 +39,11 @@ const BaseInputMain = styled.input`
 
 const BaseInput = (props) => {
     return (
-        <BaseInputWrap width={props.width} height={props.height} marginTop={props.marginTop}
-                       marginBottom={props.marginBottom}>
-            <InputTitle>{props.title}</InputTitle>
+        <BaseInputWrap width={props.width} marginTop={props.marginTop} marginBottom={props.marginBottom} height={props.height}>
+            {props.title ? (<InputTitle>{props.title}</InputTitle>): null}
             <BaseInputMain {...props.var(props.name, {required: props.message, minLength: props.length})}
-                           placeholder={props.title}
-                           type={props.type}/>
+                           placeholder={props.placeholder}
+                           type={props.type} defaultValue={props.value}/>
         </BaseInputWrap>
     )
 }
