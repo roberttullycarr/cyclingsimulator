@@ -38,7 +38,7 @@ const logIn = async (data) => {
         try {
             const response = await Axios.post(url, data);
             if (response.status === 200) {
-                history.push('/validate')
+                history.push('/password/validate')
             }
         } catch(err) {
             if (err.response.status === 400 || err.response.status === 401) {
@@ -70,7 +70,7 @@ const logIn = async (data) => {
                     <BaseInput  var={register} name={'email'} type={'email'} message={'Invalid Email'}
                             title={'Email'} width={65} marginTop={15} marginBottom={7}/>
                     {error ? <ErrorMessage>{error}</ErrorMessage> : <ErrorMessage/>}
-                    <BaseButton type={'submit'} text={'Sign In'} width={28} num={5} denom={2} fontSize={1.1} marginTop={10}/>
+                    <BaseButton type={'submit'} text={'Send'} width={28} num={5} denom={2} fontSize={1.1} marginTop={10}/>
                 </InputWrapper>
             }
         </SIUContainerMain>

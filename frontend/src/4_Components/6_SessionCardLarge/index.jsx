@@ -16,7 +16,8 @@ const Container = styled.div`
   border: solid 1px ${props => props.theme.BorderColor};
   border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  margin-bottom: 1vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 `
 
 const AthleteWrapper = styled.div`

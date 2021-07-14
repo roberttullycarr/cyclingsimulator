@@ -7,7 +7,7 @@ const BaseInputWrap = styled.div`
     margin-bottom: ${props => `${props.marginBottom}%` || '0%'};
 `
 
-const InputTitle = styled.h2`
+export const InputTitle = styled.h2`
 margin: 0 0 .5% 2%;
 color: ${props => props.theme.ELBlue};
 font-family: Roboto, sans-serif;
@@ -41,7 +41,8 @@ const BaseInput = (props) => {
     return (
         <BaseInputWrap width={props.width} marginTop={props.marginTop} marginBottom={props.marginBottom} height={props.height}>
             {props.title ? (<InputTitle>{props.title}</InputTitle>): null}
-            <BaseInputMain {...props.var(props.name, {required: props.message})} placeholder={props.placeholder}
+            <BaseInputMain {...props.var(props.name, {required: props.message, minLength: props.length})}
+                           placeholder={props.placeholder}
                            type={props.type} defaultValue={props.value}/>
         </BaseInputWrap>
     )

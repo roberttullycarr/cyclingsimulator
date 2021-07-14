@@ -10,6 +10,7 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {ReactComponent as SearchIcon} from "../../../../5_Assets/SVG/40_search.svg";
 import {fetchAllRoutes} from "../../../../2_Store/Fetches/routes_list";
+import NewRoute from "../../../../4_Components/24_NewRoute";
 
 
 const Routes = () => {
@@ -34,9 +35,7 @@ const Routes = () => {
                     <input placeholder="Search routes by name or location"
                            onChange={(e) => setKeyWord(e.target.value)}/>
                 </Container>
-
-                <BaseButton width={13} num={5} denom={1} fontSize={1.2} marginTop={1} marginBottom={2}
-                            text={'Create New Route'}/>
+                <NewRoute />
                 <Masonry
                     breakpointCols={2}
                     className="my-masonry-grid"

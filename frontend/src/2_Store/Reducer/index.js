@@ -9,6 +9,7 @@ const initialState = {
     yearToDateSessions: [],
     myInfo: {},
     specificSession: {},
+    specificRoute: {},
     allRoutes: [],
     sessionResults: {}
 };
@@ -27,6 +28,10 @@ const reducer = (state = initialState, action) => {
              return {...state, routes: action.payload}
          case 'ALL_SESSIONS':
              return {...state, allSessions: action.payload}
+         case 'NEW_SESSION':
+            return { ...state, clientRecentSessions: [action.payload, ...state.clientRecentSessions] };
+        case 'NEW_ROUTE':
+            return { ...state, routes: [...state.routes, action.payload] };
          case 'CLIENT_DETAILS':
              return {...state, clientDetails: action.payload}
          case 'CLIENT_RECENT_SESSIONS':
@@ -35,6 +40,8 @@ const reducer = (state = initialState, action) => {
              return {...state, yearToDateSessions: action.payload}
          case 'SPECIFIC_SESSION':
              return {...state, specificSession: action.payload}
+         case 'SPECIFIC_ROUTE':
+             return {...state, specificRoute: action.payload}
          case 'ALL_ROUTES':
              return {...state, allRoutes: action.payload}
          case 'SESSION_RESULTS':

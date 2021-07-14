@@ -1,13 +1,16 @@
 import RouteDataSmall from "./RouteData";
 import {RouteCardMain, RouteImg, RouteImgMain} from "./styled";
+import {useHistory} from "react-router-dom";
 
 
 
 const RouteCardSmall = props => {
+    const history = useHistory();
+
     // destructuring props
-    const { name, location, avatar, distance, elevation, steepest_km, average_grade } = props.route
+    const { name, id, location, avatar, distance, elevation, steepest_km, average_grade } = props.route
     return (
-        <RouteCardMain>
+        <RouteCardMain onClick={() => history.push(`routes/${id}`)}>
             <RouteImgMain>
                 <RouteImg src={avatar}/>
             </RouteImgMain>
