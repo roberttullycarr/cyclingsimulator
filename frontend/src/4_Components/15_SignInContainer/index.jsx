@@ -38,7 +38,7 @@ const logIn = async (data) => {
         try {
             const response = await Axios.post(url, data);
             if (response.status === 200) {
-                history.push('/validate')
+                history.push('/password/validate')
             }
         } catch(err) {
             if (err.response.status === 400 || err.response.status === 401) {

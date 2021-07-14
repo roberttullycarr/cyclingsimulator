@@ -42,7 +42,8 @@ const BaseInput = (props) => {
         <BaseInputWrap width={props.width} height={props.height} marginTop={props.marginTop}
                        marginBottom={props.marginBottom}>
             <InputTitle>{props.title}</InputTitle>
-            <BaseInputMain {...props.var(props.name, {required: props.message})} placeholder={props.title}
+            <BaseInputMain {...props.var(props.name, {required: props.message, minLength: props.length})}
+                           placeholder={props.title}
                            type={props.type}/>
         </BaseInputWrap>
     )
