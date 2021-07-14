@@ -2,22 +2,21 @@ import styled from "styled-components";
 import {useHistory} from "react-router-dom";
 
 const MBLinks = styled.button`
-width: 100%;
-height: 25%;
-display: flex;
-justify-content: center;
-align-items: center;
-border: none;
-background: none;
-display: ${props => props.display || 'normal'};
+  width: 100%;
+  height: 25%;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  display: ${props => props.display || 'normal'};
 
-    :hover {
+  :hover {
     cursor: pointer;
-    }
+  }
 `
 
 const Icon = styled.img`
-width: 50%;
+  width: 50%;
 `
 
 const MBLink = (props) => {

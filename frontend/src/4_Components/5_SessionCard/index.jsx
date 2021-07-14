@@ -5,6 +5,7 @@ import HeartRateIcon from "../../5_Assets/SVG/22_heartrate.svg";
 import PowerIcon from "../../5_Assets/SVG/21_power.svg";
 import DateIcon from "../../5_Assets/SVG/23_date.svg";
 import Avatar from "../7_Avatar";
+import {useHistory} from "react-router-dom";
 
 const ContentCard = styled.div`
   width: 85%;
@@ -16,6 +17,10 @@ const ContentCard = styled.div`
   border: 1px solid #BDBDBD;
   border-radius: 5px;
   margin-bottom: 1vw;
+  
+  :hover {
+    cursor: pointer;
+  }
 `;
 const ImgSVG = styled.img`
   width: 3vh;
@@ -47,11 +52,16 @@ const PowerText = styled.h1`
 
 
 const SessionCard = (props) => {
+    const history = useHistory()
     // destructuring props
-    const { client, pat, heart_rate, created } = props.session
+    const { id, client, pat, heart_rate, created } = props.session
+
+    const simulateSession = () => {
+        history.push(`/coach/results/${id}`)
+    }
 
     return (
-        <ContentCard>
+        <ContentCard onClick={simulateSession}>
             <WrapperDiv>
                 <Avatar width={20} marginLeft={"0"} marginRight={"0"} user={client.avatar}/>
                 <TextCard>{client['full_name'] ? client['full_name'] : "Client"}</TextCard>

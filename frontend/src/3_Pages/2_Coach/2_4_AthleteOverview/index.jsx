@@ -7,7 +7,7 @@ import React, {useEffect} from "react";
 import {fetchClientDetails} from "../../../2_Store/Fetches/client_details";
 import {fetchClientRecentSessions} from "../../../2_Store/Fetches/user_specific_sessions";
 import SessionCard from "../../../4_Components/5_SessionCard";
-import Chart from "./chart";
+import LineNivo from "./chart";
 import NewSession from "../../../4_Components/27_NewSession";
 
 
@@ -22,39 +22,6 @@ const AthleteOverview = props => {
         dispatch(fetchClientRecentSessions(client_id))
     }, [dispatch])
 
-    const data = [
-        {
-            name: 'July',
-            pat: 300,
-            heart_rate: 175,
-            amt: 2400,
-        },
-        {
-            name: 'August',
-            pat: 250,
-            heart_rate: 180,
-            amt: 2210,
-        },
-        {
-            name: 'September',
-            pat: 250,
-            heart_rate: 175,
-            amt: 2290,
-        },
-        {
-            name: 'October',
-            pat: 250,
-            heart_rate: 160,
-            amt: 2000,
-        },
-        {
-            name: 'November',
-            pat: 175,
-            heart_rate: 150,
-            amt: 2181,
-        }
-    ];
-
     return (
         <Main>
             <MenuBar />
@@ -62,8 +29,8 @@ const AthleteOverview = props => {
                 <HeaderBar title={`ATHLETE - ${profile['full_name']}`}/>
                 { Object.keys(profile).length ?
                     <>
-                        <SessionCardLarge profile={profile}/>
-                        <Chart data={data}/>
+                        <SessionCardLarge profile={profile}/>}
+                        <LineNivo sessions={recentSessions}/>
                         <NewSession client={profile}/>
                         { recentSessions.map(session => <SessionCard session={session}/>) }
                     </>

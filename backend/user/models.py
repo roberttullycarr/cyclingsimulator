@@ -21,6 +21,7 @@ class User(AbstractUser):
     banner = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     is_coach = models.BooleanField(blank=False, null=False, default=False)
     clients = models.ManyToManyField('self', related_name='coaches', blank=True, symmetrical=False)
+    username = models.CharField(max_length=50, blank=True, unique=False)
 
     def __str__(self):
         return self.username

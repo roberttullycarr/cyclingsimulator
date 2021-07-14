@@ -23,7 +23,7 @@ const Sessions = () => {
         <Main>
             <MenuBar/>
             <Body>
-                <HeaderBar title={'SESSIONS'}/>
+                <HeaderBar title={'Sessions'}/>
                 <Container>
                     <div className="helper">
                         <SearchIcon/>
