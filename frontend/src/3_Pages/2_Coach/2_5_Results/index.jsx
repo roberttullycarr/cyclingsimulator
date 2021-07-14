@@ -6,6 +6,9 @@ import RouteOptions from "../../../4_Components/13_RouteOptions";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchSpecificSession} from "../../../2_Store/Fetches/get_specific_session";
+import SessionCardLarge from "../../../4_Components/6_SessionCardLarge";
+import {fetchClientDetails} from "../../../2_Store/Fetches/client_details";
+import Title from "../../../4_Components/14_Title";
 
 const Results = props => {
     const dispatch = useDispatch()
@@ -25,6 +28,7 @@ const Results = props => {
                 {Object.keys(session).length ?
                     <>
                         <HeaderBar title={`RESULTS - ${client['full_name']} / ${created}`}/>
+                        <SessionCardLarge profile={client} session={session}/>
                         <RouteOptions id={id}/>
                     </>
                     : 'Loading...'}

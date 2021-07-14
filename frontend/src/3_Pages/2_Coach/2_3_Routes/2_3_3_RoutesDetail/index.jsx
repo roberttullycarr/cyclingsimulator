@@ -6,6 +6,7 @@ import {useEffect} from "react";
 import {fetchSpecificSession} from "../../../../2_Store/Fetches/get_specific_session";
 import {useDispatch} from "react-redux";
 import {fetchSpecificRoute} from "../../../../2_Store/Fetches/route_details";
+import RouteSegments from "../../../../4_Components/17_NewSegment";
 
 const RoutesDetail = (props) => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const RoutesDetail = (props) => {
             <Body>
                 <HeaderBar title={'Routes'}/>
                 <RouteDetailHeader/>
+                <RouteSegments />
             </Body>
         </Main>
     )

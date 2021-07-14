@@ -22,6 +22,8 @@ class ClientListSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'full_name',
+            'first_name',
+            'last_name',
             'coaches',
             'email',
             'about',

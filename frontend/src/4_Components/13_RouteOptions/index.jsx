@@ -10,14 +10,21 @@ import {fetchSessionResults} from "../../2_Store/Fetches/run_calculations";
 import {riderPosition, tirePressure, windConditions} from "../../3_Pages/2_Coach/2_5_Results/simulation_variables";
 import {ErrorMessage} from "../15_SignInContainer/styled";
 
+const RouteGenWrap = styled.div`
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`
+
 const Options = styled.div`
   aspect-ratio: 4.05 / 1;
-  width: 87.5vw;
+  width: 100%;
   height: auto;
   display: flex;
   background: ${props => props.theme.ELWhite};
   border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};
   button{
     margin-right: 2%;
@@ -76,7 +83,7 @@ const RouteOptions = props => {
     }
 
     return (
-        <div>
+        <RouteGenWrap>
             <Title text={'Route Options'}/>
             <Options>
                 <Form onSubmit={handleSubmit(submitHandler)}>
@@ -116,7 +123,7 @@ const RouteOptions = props => {
             </Options>
             {errors.routes ? <ErrorMessage>{errors.routes.message}</ErrorMessage> : <ErrorMessage/>}
             {errors.bike_weight ? <ErrorMessage>{errors.bike_weight.message}</ErrorMessage> : <ErrorMessage/>}
-        </div>
+        </RouteGenWrap>
     )
 }
 

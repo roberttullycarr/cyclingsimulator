@@ -25,7 +25,6 @@ const Overview = () => {
             <MenuBar />
             <Body>
                 <HeaderBar title={'Dashboard'}/>
-                <UserInfoCard user={myInfo}/>
                 {yearToDateSessions.length ? <CalendarNivo sessions={yearToDateSessions}/> : 'Loading...'}
                 {recentSessions.length ? recentSessions.map(session => <SessionCard session={session}/>) : <p>Loading...</p>}
             </Body>

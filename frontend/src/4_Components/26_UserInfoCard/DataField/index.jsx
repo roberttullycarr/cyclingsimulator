@@ -64,7 +64,7 @@ const DataField = (props) => {
                     </Data>}
                     {props.edit ?
                         <BaseInput var={props.var} message={'This field is required'}
-                                             value={props.data} type={"text"} name={'email'} width={78} height={80}
+                                             value={props.data} type={"text"} name={props.name} width={78} height={80}
                                              marginBottom={1}/> : null }
                 </DataWrapper>
                 <Line/>
