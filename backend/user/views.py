@@ -5,11 +5,11 @@ from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, C
 from rest_framework.pagination import LimitOffsetPagination
 from project_settings.permissions import IsCoach, IsSuperUser
 from project_settings.settings import DEFAULT_FROM_EMAIL
-from user.serializers.coach.coaches_list import CoachesListSerializer
-from user.serializers.coach.list_clients import ClientListSerializer
+from user.serializers.coaches_list import CoachesListSerializer
+from user.serializers.list_clients import ClientListSerializer
 from django.contrib.auth import get_user_model
-from user.serializers.coach.new_coach import NewCoachSerializer
-from user.serializers.coach.new_user import NewUserSerializer
+from user.serializers.new_coach import NewCoachSerializer
+from user.serializers.new_user import NewUserSerializer
 
 User = get_user_model()
 
@@ -31,31 +31,10 @@ class AddNewClient(CreateAPIView):
     permission_classes = [IsCoach]
     serializer_class = NewUserSerializer
 
-    # def create(self, request, *args, **kwargs):
-    #     try:
-    #         email = self.request.data['email']
-    #         if User.objects.filter(email__contains=email):
-    #             return Response({'error': 'Email already registered before'}, status=status.HTTP_400_BAD_REQUEST)
-    #         else:
-    #             # Placeholder for username so that it's not empty
-    #             username = email[:email.index("@")]
-    #             new_user = User.objects.create(email=email, username=username)
-    #             # password = str(uuid.uuid4())
-    #             # new_user.set_password(password)
-    #             # new_user.save()
-    #             #
-    #             # send_mail(
-    #             #     'Energy Lab',
-    #             #     f'Your password is: {password}\n'
-    #             #     'Please reset it once you have logged in for the first time',
-    #             #     DEFAULT_FROM_EMAIL,
-    #             #     [email],
-    #             #     fail_silently=False,
-    #             # )
-    #
-    #             return Response(status=status.HTTP_201_CREATED)
-    #     except KeyError:
-    #         return Response({'email': 'this field is required'}, status=status.HTTP_400_BAD_REQUEST)
+    def perform_create(self, serializer):
+        random_password = User.objects.make_random_password()
+        email = self.request.data['email']
+        serializer.save(password=make_password(random_password), username=email)
 
 
 class ListCoachClients(ListAPIView):
@@ -75,9 +54,7 @@ class ListCoachClients(ListAPIView):
     serializer_class = ClientListSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['username', 'first_name', 'last_name', 'email', 'location']
-
-    def get_queryset(self):
-        return User.objects.get(id=self.request.user.id).clients.all()
+    queryset = User.objects.filter(is_coach=False)
 
 
 class ListSpecificClient(RetrieveUpdateDestroyAPIView):

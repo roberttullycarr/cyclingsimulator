@@ -3,7 +3,7 @@ from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, C
 from rest_framework.pagination import LimitOffsetPagination
 from project_settings.permissions import IsCoach
 from route.models import Route
-from route.serializers.route_overview import RouteViewSerializer
+from route.serializers.route_overview import RouteViewSerializer, RouteSegmentsSerializer
 
 
 class AddNewRoute(CreateAPIView):
@@ -55,5 +55,5 @@ class ViewUpdateDeleteRoute(RetrieveUpdateDestroyAPIView):
     Pass route ID in the URL
     """
     permission_classes = [IsCoach]
-    serializer_class = RouteViewSerializer
+    serializer_class = RouteSegmentsSerializer
     queryset = Route.objects.all()

@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from rest_framework.response import Response
 from django.core.mail import send_mail
 from project_settings.settings import DEFAULT_FROM_EMAIL
-from .serializers.registration import RegistrationSerializer, PasswordSerializer
+from .serializers.registration import PasswordSerializer
 
 
 User = get_user_model()
