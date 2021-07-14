@@ -29,7 +29,7 @@ const AthleteOverview = props => {
                 <HeaderBar title={`ATHLETE - ${profile['full_name']}`}/>
                 { Object.keys(profile).length ?
                     <>
-                        <SessionCardLarge profile={profile}/>}
+                        <SessionCardLarge profile={profile}/>
                         <LineNivo sessions={recentSessions}/>
                         <NewSession client={profile}/>
                         { recentSessions.map(session => <SessionCard session={session}/>) }

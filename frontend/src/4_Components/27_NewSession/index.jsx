@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import BaseButton from "../4_ButtonsInputs/Button";
 import BaseInput from "../4_ButtonsInputs/Input";
 import {useForm} from "react-hook-form";
@@ -11,12 +10,12 @@ import {useDispatch} from "react-redux";
 
 const NewSession = (props) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [expand, setExpand] = useState('false')
+    const [expand, setExpand] = useState('false');
     const dispatch = useDispatch();
 
     const clickHandler = () => {expand === 'false' ? setExpand('true') : setExpand('false')};
     const createNewSession = async (data) => {
-        const url = `/sessions/new/${props.client.id}/`
+        const url = `/sessions/new/${props.client.id}/`;
         const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
@@ -24,8 +23,8 @@ const NewSession = (props) => {
             const response = await Axios.post(url, data, config);
             if (response.status === 201) {
                 const action = {
-                    type: 'NEW_SESSION',
-                    payload: response.data,
+                    "type": 'NEW_SESSION',
+                    "payload": response.data,
                 };
                     dispatch(action);
             }
@@ -43,8 +42,8 @@ const NewSession = (props) => {
             {expand === 'true' ? <NewSessionCard>
                 <FormWrap onSubmit={handleSubmit(createNewSession)}>
                     <NSContent>
-                        <Avatar width={23} marginLeft={"0"} marginRight={"0"}/>
-                        <SessionClient>Eva Verbeeck</SessionClient>
+                        <Avatar width={23} marginLeft={"0"} marginRight={"0"} user={props.client.avatar}/>
+                        <SessionClient>{props.client.full_name}</SessionClient>
                     </NSContent>
                     <NSContent>
                         <BaseInput var={register} width={80} height={50} name={'pat'} title={'Power (W)'}

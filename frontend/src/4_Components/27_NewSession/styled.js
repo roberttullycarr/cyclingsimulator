@@ -6,6 +6,7 @@ export const NewSessionMain = styled.div`
   align-items: center;
   width: 85%;
   margin-bottom: 2vw;
+
 `
 export const NewSessionCard = styled.div`
   width: 100%;
