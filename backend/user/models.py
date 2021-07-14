@@ -24,7 +24,7 @@ class User(AbstractUser):
     username = models.CharField(max_length=50, blank=True, unique=False)
 
     def __str__(self):
-        return self.username
+        return self.full_name
 
     @property
     def full_name(self):

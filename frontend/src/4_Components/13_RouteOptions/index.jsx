@@ -104,7 +104,8 @@ const RouteOptions = props => {
                     <Wrapper>
                         <Title text={'Bike weight in KGs'}/>
                         <input className='text-field' type='number'
-                               {...register('bike_weight', {required: 'Please add a bike weight'})}/>
+                               {...register('bike_weight', {required: 'Please add a bike weight'})}
+                               defaultValue={10}/>
                     </Wrapper>
                     <Wrapper>
                         <Title text={'Rider position'}/>
