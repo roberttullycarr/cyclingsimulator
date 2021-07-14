@@ -75,8 +75,8 @@ const NRCard = (props) => {
                             <FileInput {...register('avatar')} type='file' name='avatar'/>
                         </NRContent>
                         <NRContent>
-                            {/*<InputTitle>Banner</InputTitle>*/}
-                            {/*<FileInput {...register('banner')} type='file' name='banner' />*/}
+                            <InputTitle>Banner</InputTitle>
+                            <FileInput {...register('banner')} type='file' name='banner' />
                         </NRContent>
                     </NRContentLine>
                     <BaseButton text={"Submit Route"} type={'submit'} width={15} num={5} denom={1}

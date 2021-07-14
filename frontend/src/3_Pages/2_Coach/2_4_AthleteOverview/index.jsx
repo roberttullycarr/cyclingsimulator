@@ -9,6 +9,7 @@ import {fetchClientRecentSessions} from "../../../2_Store/Fetches/user_specific_
 import SessionCard from "../../../4_Components/5_SessionCard";
 import LineNivo from "./chart";
 import NewSession from "../../../4_Components/27_NewSession";
+import UserInfoCard from "../../../4_Components/26_UserInfoCard";
 
 
 const AthleteOverview = props => {
@@ -29,7 +30,7 @@ const AthleteOverview = props => {
                 <HeaderBar title={`ATHLETE - ${profile['full_name']}`}/>
                 { Object.keys(profile).length ?
                     <>
-                        <SessionCardLarge profile={profile}/>
+                        <UserInfoCard user={profile}/>
                         <LineNivo sessions={recentSessions}/>
                         <NewSession client={profile}/>
                         { recentSessions.map(session => <SessionCard session={session}/>) }
