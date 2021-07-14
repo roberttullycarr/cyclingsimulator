@@ -5,6 +5,8 @@ import styled from "styled-components";
 const PieChartWrapper = styled(ChartWrapper)`
   text-align: center;
   position: relative;
+  width: 700px;
+  padding: 0;
 
   .overlay {
     position: absolute;
@@ -47,8 +49,8 @@ const legends = [
     anchor: "left",
     direction: "row",
     justify: false,
-    translateX: 150,
-    translateY: 200,
+    translateX: -5,
+    translateY: 220,
     itemsSpacing: 200,
     itemWidth: 100,
     itemHeight: 20,

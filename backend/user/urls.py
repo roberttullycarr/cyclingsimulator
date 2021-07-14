@@ -1,5 +1,5 @@
 from django.urls import path
-from user.coach_views.views import ListCoachClients, ListSpecificClient, AddNewClient, ListAllCoaches, AddNewCoach, \
+from user.views import ListCoachClients, ListSpecificClient, AddNewClient, ListAllCoaches, AddNewCoach, \
     LoggedInUserInfo
 
 urlpatterns = [
