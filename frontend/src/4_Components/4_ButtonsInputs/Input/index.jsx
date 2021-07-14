@@ -7,7 +7,7 @@ const BaseInputWrap = styled.div`
     margin-bottom: ${props => `${props.marginBottom}%` || '0%'};
 `
 
-const InputTitle = styled.h2`
+export const InputTitle = styled.h2`
 margin: 0 0 .5% 2%;
 color: ${props => props.theme.ELBlue};
 font-family: Roboto, sans-serif;

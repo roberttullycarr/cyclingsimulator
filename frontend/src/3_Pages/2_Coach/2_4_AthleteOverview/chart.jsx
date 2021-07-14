@@ -4,10 +4,16 @@ import styled from "styled-components";
 
 export const ChartWrapper = styled.div`
   box-shadow: ${props => props.theme.BoxShadowWidget};
+  background-color: ${props => props.theme.ELWhite};
+  display: flex;
+  justify-content: center;
   height: 500px;
   width: 85%;
-  margin-bottom: 50px;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
   border: 1px solid #BDBDBD;
+  border-radius: 5px;
+  padding: 2%;
 `
 
 const LineNivo = props => {
@@ -46,7 +52,7 @@ const LineNivo = props => {
         <ChartWrapper>
             <ResponsiveLine
                 data={generateData()}
-                margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+                margin={{ top: 50, right: 80, bottom: 50, left: 80 }}
                 xScale={{ type: 'point' }}
                 yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
                 curve="catmullRom"

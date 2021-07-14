@@ -7,7 +7,7 @@ export const RouteHeader = styled.div`
 `;
 export const ImgContainer = styled.div`
     height: 45vh;
-    background-image: url(${ImgDetailRoute}); 
+    background-image: url(${props => props.backgroundImage || ImgDetailRoute}); 
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover;
