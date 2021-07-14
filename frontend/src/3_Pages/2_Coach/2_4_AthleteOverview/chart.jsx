@@ -19,33 +19,41 @@ export const ChartWrapper = styled.div`
 const LineNivo = props => {
 
     const generateData = () => {
-        const data = []
+        const data = [
+            {
+                "id": "Power in W",
+                "data": []
+            },
+            {
+                "id": "Hear Rate in BPM",
+                "data": []
+            },
+            {
+                "id": "Weight in KG",
+                "data": []
+            }
+        ]
         const sessions = props.sessions
-        sessions.map(session =>
-            data.push(
-                {
-                    "id": session.created,
-                    "color": "hsl(212, 70%, 50%)",
-                    "data": [
-                        {
-                            "x": "Heart Rate",
-                            "y": session['heart_rate']
-                        },
-                        {
-                            "x": "Power in W",
-                            "y": session['pat']
-                        },
-                        {
-                            "x": "Weight in KG",
-                            "y": session['weight']
-                        }
-                    ]
-                }
-            )
+        sessions.map(session => {
+                data[0].data.push(
+                    {
+                        "x": session.created,
+                        "y": session['pat']
+                    })
+                data[1].data.push(
+                    {
+                        "x": session.created,
+                        "y": session['heart_rate']
+                    })
+                data[2].data.push(
+                    {
+                        "x": session.created,
+                        "y": session['weight']
+                    })
+            }
         )
         return data
     }
-
 
 
     return (
@@ -55,7 +63,7 @@ const LineNivo = props => {
                 margin={{ top: 50, right: 80, bottom: 50, left: 80 }}
                 xScale={{ type: 'point' }}
                 yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
-                curve="catmullRom"
+                curve="natural"
                 axisTop={null}
                 axisRight={{
                     orient: 'right',
@@ -67,10 +75,10 @@ const LineNivo = props => {
                 axisBottom={{
                     orient: 'bottom',
                     tickSize: 5,
-                    tickPadding: 5,
+                    tickPadding: 10,
                     tickRotation: 0,
                     legend: 'Stats for the last 5 sessions',
-                    legendOffset: 36,
+                    legendOffset: 45,
                     legendPosition: 'middle'
                 }}
                 axisLeft={{

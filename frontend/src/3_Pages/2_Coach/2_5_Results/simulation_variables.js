@@ -1,12 +1,12 @@
 // Those below lists are used in the route simulation card
 export const windConditions = [
-    [0, 0],
-    [3, 0.833333333],
-    [6, 1.666666667],
-    [9, 2.5],
-    [-3, -0.833333333],
-    [-6, -1.666666667],
-    [-9, -2.5]
+    ['No wind', 0],
+    ['Soft headwind', 0.833333333],
+    ['Moderate headwind', 1.666666667],
+    ['Strong headwind', 2.5],
+    ['Soft tailwind', -0.833333333],
+    ['Moderate tailwind', -1.666666667],
+    ['Strong tailwind', -2.5]
 ]
 
 export const tirePressure = [

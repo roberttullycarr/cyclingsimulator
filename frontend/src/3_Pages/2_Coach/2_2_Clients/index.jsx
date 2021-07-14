@@ -40,7 +40,10 @@ const Clients = () => {
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column">
                     <NewClientCard/>
-                    { myClients ? myClients.map(client => <ClientCard client={client}/>) : 'Loading...'}
+                    { myClients ? myClients.map(client =>
+                        <ClientCard client={client}/>
+                        )
+                        : 'Loading...'}
 
                 </Masonry>
             </Body>
