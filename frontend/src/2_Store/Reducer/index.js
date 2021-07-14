@@ -26,8 +26,16 @@ const reducer = (state = initialState, action) => {
              return {...state, myClients: action.payload}
          case 'ROUTES':
              return {...state, routes: action.payload}
+
          case 'ALL_SESSIONS':
-             return {...state, allSessions: action.payload}
+             if (state.allSessions.length > 0){
+                 return {...state, allSessions: [...state.allSessions, ...action.payload]}
+             } else {
+                 return {...state, allSessions: action.payload}
+             }
+
+         case 'NEW_CLIENT':
+             return { ...state, myClients: [action.payload, ...state.myClients] }
          case 'NEW_SESSION':
             return { ...state, clientRecentSessions: [action.payload, ...state.clientRecentSessions] };
         case 'NEW_ROUTE':
@@ -46,6 +54,8 @@ const reducer = (state = initialState, action) => {
              return {...state, allRoutes: action.payload}
          case 'SESSION_RESULTS':
              return {...state, sessionResults: action.payload}
+         case 'CLEAR_RESULTS':
+             return { ...state, sessionResults: {} }
          default:
              return state;
      }

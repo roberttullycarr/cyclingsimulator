@@ -29,7 +29,7 @@ class AddNewClient(CreateAPIView):
     - phone_number:
     """
     permission_classes = [IsCoach]
-    serializer_class = NewUserSerializer
+    serializer_class = ClientListSerializer
 
     def perform_create(self, serializer):
         random_password = User.objects.make_random_password()
@@ -37,7 +37,7 @@ class AddNewClient(CreateAPIView):
         serializer.save(password=make_password(random_password), username=email)
 
 
-class ListCoachClients(ListAPIView):
+class ListClients(ListAPIView):
     """
     get: List clients of logged in coach
 

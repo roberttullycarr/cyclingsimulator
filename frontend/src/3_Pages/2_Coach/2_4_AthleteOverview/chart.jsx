@@ -21,15 +21,15 @@ const LineNivo = props => {
     const generateData = () => {
         const data = [
             {
-                "id": "Power in W",
+                "id": "Power (W)",
                 "data": []
             },
             {
-                "id": "Hear Rate in BPM",
+                "id": "Heart Rate (BPM)",
                 "data": []
             },
             {
-                "id": "Weight in KG",
+                "id": "Weight (KG)",
                 "data": []
             }
         ]
@@ -68,9 +68,9 @@ const LineNivo = props => {
                 axisRight={{
                     orient: 'right',
                     tickSize: 5,
-                    tickPadding: 5,
-                    tickRotation: 2,
-                    legendOffset: -35
+                    tickPadding: 20,
+                    tickRotation: 0,
+                    legendOffset: -50,
                 }}
                 axisBottom={{
                     orient: 'bottom',
@@ -83,8 +83,8 @@ const LineNivo = props => {
                 }}
                 axisLeft={{
                     orient: 'left',
-                    tickSize: 1,
-                    tickPadding: 5,
+                    tickSize: 5,
+                    tickPadding: 20,
                     tickRotation: 0,
                     legendOffset: -50,
                     legendPosition: 'middle'
@@ -92,11 +92,13 @@ const LineNivo = props => {
                 colors={{ scheme: 'set1' }}
                 lineWidth={4}
                 pointSize={10}
-                pointColor={{ theme: 'background' }}
-                pointBorderWidth={1}
-                pointBorderColor="#9d9d9d"
+                pointColor={{ from: 'color', modifiers: [] }}
+                pointBorderWidth={0}
+                pointBorderColor="#000000"
                 pointLabel="y"
                 pointLabelYOffset={-12}
+                enableGridX={false}
+                enableGridY={false}
                 useMesh={true}
                 legends={[
                     {

@@ -9,7 +9,7 @@ import {useDispatch} from "react-redux";
 
 
 const NewSession = (props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [expand, setExpand] = useState('false');
     const dispatch = useDispatch();
 
@@ -33,6 +33,8 @@ const NewSession = (props) => {
                 console.log(err.response.status);
             }
         }
+        reset()
+        clickHandler()
     };
 
     return (

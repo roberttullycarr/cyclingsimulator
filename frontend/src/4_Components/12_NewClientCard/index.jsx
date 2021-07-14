@@ -4,6 +4,7 @@ import {useForm} from "react-hook-form";
 import styled from "styled-components";
 import BaseButton from "../4_ButtonsInputs/Button";
 import Axios from "../../2_Store/Axios";
+import {useDispatch} from "react-redux";
 
 const NewClientForm = styled.form`
   display: flex;
@@ -27,19 +28,24 @@ const FileInput = styled.input`
 `
 
 const NewClientCard = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const dispatch = useDispatch()
 
     const submitHandler = async (data) => {
         const url = '/coach/client/new/';
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
+
         let newForm = new FormData()
-        newForm.append('avatar', data.avatar[0])
+        if (data.avatar[0]) newForm.append('avatar', data.avatar[0])
         newForm.append('first_name', data.first_name)
         newForm.append('last_name', data.last_name)
         newForm.append('email', data.email)
+
         const response = await Axios.post(url, newForm, config);
+        dispatch({type: 'NEW_CLIENT', payload: response.data})
+        reset()
     }
 
     return (

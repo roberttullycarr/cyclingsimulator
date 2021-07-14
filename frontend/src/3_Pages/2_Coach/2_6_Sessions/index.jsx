@@ -8,16 +8,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAllSessions} from "../../../2_Store/Fetches/all_sessions";
 import {ReactComponent as SearchIcon} from "../../../5_Assets/SVG/40_search.svg";
 import NewSession from "../../../4_Components/27_NewSession";
+import {off} from "leaflet/src/dom/DomEvent";
 
 
 const Sessions = () => {
     const [keyWord, setKeyWord] = useState('')
     const dispatch = useDispatch()
     const sessions = useSelector(state => state.allSessions)
+    const [offset, setOffset] = useState(0)
 
     useEffect(() => {
-        dispatch(fetchAllSessions(keyWord))
-    }, [keyWord])
+        dispatch(fetchAllSessions(keyWord, 10, offset))
+
+        window.addEventListener('scroll', function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                setOffset(offset+10)
+            }
+        });
+    }, [keyWord, offset])
 
     return (
         <Main>
