@@ -8,6 +8,7 @@ import {fetchClientDetails} from "../../../2_Store/Fetches/client_details";
 import {fetchClientRecentSessions} from "../../../2_Store/Fetches/user_specific_sessions";
 import SessionCard from "../../../4_Components/5_SessionCard";
 import Chart from "./chart";
+import NewSession from "../../../4_Components/27_NewSession";
 
 
 const AthleteOverview = props => {
@@ -63,6 +64,7 @@ const AthleteOverview = props => {
                     <>
                         <SessionCardLarge profile={profile}/>
                         <Chart data={data}/>
+                        <NewSession client={profile}/>
                         { recentSessions.map(session => <SessionCard session={session}/>) }
                     </>
                     : 'Loading...' }
