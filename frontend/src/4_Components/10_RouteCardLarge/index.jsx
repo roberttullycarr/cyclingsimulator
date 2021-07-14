@@ -134,7 +134,7 @@ const RoutCardLarge = () => {
             <Card expand={expanded}>
                 <WrapperTop>
                     <Name>Stelvio</Name>
-                    <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
+                    <BaseButton text={'Generate PDF'} height={100} width={10} fontSize={'1.2'}/>
                 </WrapperTop>
                 <Wrapper>
                     <img src={stelvio}/>
