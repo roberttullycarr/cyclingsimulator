@@ -4,7 +4,7 @@ from django.db import models
 
 
 def user_directory_path(instance, filename):
-    return f'{instance.username}/{filename}'
+    return f'{instance.email}/{filename}'
 
 
 class User(AbstractUser):

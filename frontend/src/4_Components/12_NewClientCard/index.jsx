@@ -6,7 +6,7 @@ import BaseButton from "../4_ButtonsInputs/Button";
 import Axios from "../../2_Store/Axios";
 
 const NewClientForm = styled.form`
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
@@ -27,16 +27,20 @@ const FileInput = styled.input`
 `
 
 const NewClientCard = () => {
-     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-     const submitHandler = async (data) => {
-         const url = '/coach/client/new/';
-         const config = {
+    const submitHandler = async (data) => {
+        const url = '/coach/client/new/';
+        const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
-         const response = await Axios.post(url, data, config);
-         console.log(response.data);
-     }
+        let newForm = new FormData()
+        newForm.append('avatar', data.avatar[0])
+        newForm.append('first_name', data.first_name)
+        newForm.append('last_name', data.last_name)
+        newForm.append('email', data.email)
+        const response = await Axios.post(url, newForm, config);
+    }
 
     return (
         <ClientCardMain>
@@ -48,7 +52,7 @@ const NewClientCard = () => {
                            title={'Last Name'} width={80} height={12} marginBottom={10}/>
                 <BaseInput var={register} name={'email'} type={'email'} message={'Invalid Email'}
                            title={'Email'} width={80} height={12} marginBottom={12}/>
-                <FileInput {...register('avatar')} type={'file'} />
+                <FileInput {...register('avatar')} type='file' />
                 <BaseButton text={'Submit'} type={'submit'} width={30} height={10} fontSize={1.4}/>
             </NewClientForm>
         </ClientCardMain>
