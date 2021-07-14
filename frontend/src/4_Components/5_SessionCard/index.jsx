@@ -47,8 +47,7 @@ const PowerText = styled.h1`
   margin-left: 11px;
   font-size: 1.2vw;
 `;
-const DivImg = styled.div`
-`;
+
 
 
 
@@ -69,17 +68,17 @@ const SessionCard = (props) => {
             </WrapperDiv>
 
             <WrapperDiv>
-                <DivImg><PowerSVG src={PowerIcon} alt="power icon"/></DivImg>
+                <div><PowerSVG src={PowerIcon} alt="power icon"/></div>
                 <PowerText>{pat ? `${pat}w` : "Anaebolic Threshold"}</PowerText>
             </WrapperDiv>
 
             <WrapperDiv>
-                <DivImg><ImgSVG src={HeartRateIcon} alt="heartrate icon"/></DivImg>
+                <div><ImgSVG src={HeartRateIcon} alt="heartrate icon"/></div>
                 <TextCard>{heart_rate ? `${heart_rate} BPM` : "Heart Rate"}</TextCard>
             </WrapperDiv>
 
             <WrapperDiv>
-                <DivImg><ImgSVG src={DateIcon} alt="date icon"/></DivImg>
+                <div><ImgSVG src={DateIcon} alt="date icon"/></div>
                 <TextCard>{created ? created.substr(0, created.indexOf(' ')) : "Date"}</TextCard>
             </WrapperDiv>
 

@@ -5,20 +5,26 @@ import { ReactComponent as SteepestgradeIcon }from "../../5_Assets/SVG/29_steepe
 import { ReactComponent as DistanceIcon }from "../../5_Assets/SVG/26_distance.svg";
 import {ContentCard, DivImg, HeroContent, ImgContainer, Line, Link, RouteHeader, RouteName, SVGWrapper, TextCard, WrapperDiv,
     WrapperLinks, WrapperTitleLinks} from "./styled";
+import {useLocation} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 const RouteDetailHeader = (props) => {
+    const location = useLocation();
+    const route_id = location.pathname;
+    const route = useSelector(state => state.specificRoute);
+    console.log(location, route_id);
     return (
         <RouteHeader>
-            <ImgContainer backgroundImage={props.image}>
+            <ImgContainer backgroundImage={route.banner}>
                 <HeroContent>
                     <WrapperTitleLinks>
-                        <RouteName>Mont Ventoux - Bedouin</RouteName>
+                        <RouteName>{route.name}</RouteName>
                         <Line/>
                         <WrapperLinks>
-                            <Link>Lorem ipsum dolor sit amet</Link>
-                            <Link>consectetuer </Link>
-                            <Link>elementum</Link>
+                            {/*<Link>Lorem ipsum dolor sit amet</Link>*/}
+                            {/*<Link>consectetuer </Link>*/}
+                            {/*<Link>elementum</Link>*/}
                         </WrapperLinks>
                     </WrapperTitleLinks>
                     <ContentCard>
@@ -27,28 +33,28 @@ const RouteDetailHeader = (props) => {
                                 <SVGWrapper>
                                     <DistanceIcon/>
                                 </SVGWrapper>
-                                <TextCard>{ "distance:" + props.distance ? props.distance : "0" }</TextCard>
+                                <TextCard>{route.distance ? `Distance: ${route.distance} KM`: "Loading..." }</TextCard>
                             </DivImg>
                        
                             <DivImg>
                                 <SVGWrapper>
                                     <AverageGradeIcon/>
                                 </SVGWrapper>
-                                <TextCard>{ "Average Grade:" + props.averageGrade ? props.averageGrade : "0" }</TextCard>
+                                <TextCard>{route.average_grade ? `Average Grade: ${route.average_grade}%` : "Loading..." }</TextCard>
                             </DivImg>
                        
                             <DivImg>
                                 <SVGWrapper>
                                     <SteepestgradeIcon/> 
                                 </SVGWrapper>
-                                <TextCard>{ "Steepest Grade:" + props.steepestGrade ? props.steepestGrade : "0" }</TextCard>
+                                <TextCard>{route.steepest_km ? `Steepest Grade: ${route.steepest_km}%` : "Loading..." }</TextCard>
                             </DivImg>
                      
                             <DivImg>
                                 <SVGWrapper>
                                     <ElevationIcon/>
                                 </SVGWrapper>
-                                <TextCard>{"Elevation" + props.elevation ? props.elevation : "0"}</TextCard>
+                                <TextCard>{route.elevation ? `Elevation: ${route.elevation} M` : "Loading..." }</TextCard>
                             </DivImg>
                         </WrapperDiv>
                     </ContentCard>
