@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllSessions} from "../../../2_Store/Fetches/all_sessions";
 import {ReactComponent as SearchIcon} from "../../../5_Assets/SVG/40_search.svg";
+import NewSession from "../../../4_Components/27_NewSession";
 
 
 const Sessions = () => {
@@ -22,7 +23,7 @@ const Sessions = () => {
         <Main>
             <MenuBar/>
             <Body>
-                <HeaderBar title={'SESSIONS'}/>
+                <HeaderBar title={'Sessions'}/>
                 <Container>
                     <div className="helper">
                         <SearchIcon/>
@@ -30,7 +31,6 @@ const Sessions = () => {
                     <input placeholder="Search sessions by client name"
                            onChange={(e) => setKeyWord(e.target.value)}/>
                 </Container>
-
                 {sessions ? sessions.map(session => <SessionCard session={session}/>) : 'Loading...'}
 
             </Body>

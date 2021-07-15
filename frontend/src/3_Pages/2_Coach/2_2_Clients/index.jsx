@@ -9,6 +9,7 @@ import { ReactComponent as SearchIcon } from '../../../5_Assets/SVG/40_search.sv
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {fetchMyClients} from "../../../2_Store/Fetches/client_list";
+import NewClientCard from "../../../4_Components/12_NewClientCard";
 
 
 const Clients = () => {
@@ -38,8 +39,11 @@ const Clients = () => {
                     breakpointCols={3}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column">
-
-                    { myClients ? myClients.map(client => <ClientCard client={client}/>) : 'Loading...'}
+                    <NewClientCard/>
+                    { myClients ? myClients.map(client =>
+                        <ClientCard client={client}/>
+                        )
+                        : 'Loading...'}
 
                 </Masonry>
             </Body>

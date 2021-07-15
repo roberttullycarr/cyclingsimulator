@@ -1,3 +1,4 @@
+from builtins import round
 from rest_framework import serializers
 from segment.models import Segment
 from session.models import Session
@@ -60,10 +61,10 @@ class NestedSegmentSerializer(serializers.ModelSerializer):
         return cardano
 
     def get_speed_in_km(self, obj):
-        return self.apply_calculations(obj) * 3.6
+        return round(self.apply_calculations(obj) * 3.6, 2)
 
     def get_speed_in_m(self, obj):
-        return self.apply_calculations(obj)
+        return round(self.apply_calculations(obj), 2)
 
     def get_distance(self, obj):
         distance = obj.end - obj.start

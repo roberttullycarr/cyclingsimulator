@@ -54,8 +54,8 @@ a {
 `
 
 export const LogoImg = styled.img`
-width: 70%;
-background: transparent;
+  width: 70%;
+  background: transparent;
 `
 export const BorderLine = styled.hr`
 width: 55%;
