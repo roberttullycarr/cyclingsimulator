@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import arrow from "../../../5_Assets/SVG/42_arrowBold.svg"
+import Title from "../../14_Title";
 
 
 const Select = styled.select`
   width: ${props => `${props.width}%`};
   height: ${props => `${props.height}%`};
+  margin-top: ${props => `${props.marginTop}%` || "0%"};
+  margin-bottom: ${props => `${props.marginBottom}%` || "0%"};
   appearance: none;
   outline: none;
   background-color: ${props => props.theme.InputFieldColor};
@@ -21,20 +24,10 @@ const Select = styled.select`
   background-size: 1rem 1rem;
 `
 
-const Option = styled.option`
-
-`
-
-
-// Example: <OptionField options={['test', 'test']} width={80} height={20}/>
-
-const OptionField = (props) => {
+const OptionField = props => {
     return (
-        <Select width={props.width} height={props.height}>
-            {props.options ? (
-                props.options.map((option, index) =>(
-                    <Option value={String(index)}>{option}</Option>))
-            ):null}
+        <Select value={props.default} {...props.register(props.name)} width={props.width} height={props.height} marginTop={props.marginTop} marginBottom={props.marginBottom}>
+            {props.options.map(option => <option value={option[1]}>{option[0]}</option>)}
         </Select>
     )
 }
