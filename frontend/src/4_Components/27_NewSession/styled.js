@@ -12,7 +12,7 @@ export const NewSessionCard = styled.div`
   width: 100%;
   background: white;
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  padding: 1.2vw 0;
+  padding: 1.2vw 1vw;
   border: 1px solid #BDBDBD;
   border-radius: 5px;
   margin-top: 2vw;
@@ -27,7 +27,7 @@ export const NSContent = styled.div`
 `;
 
 export const SessionClient = styled.h1`
-  margin-left: 14px;
+  margin-left: 2%;
   font-size: 1.2vw;
   color: ${props => props.theme.SlightlyBlack};
 `;

@@ -4,7 +4,7 @@ from django.db import models
 
 
 def user_directory_path(instance, filename):
-    return f'{instance.username}/{filename}'
+    return f'{instance.email}/{filename}'
 
 
 class User(AbstractUser):
@@ -21,9 +21,10 @@ class User(AbstractUser):
     banner = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     is_coach = models.BooleanField(blank=False, null=False, default=False)
     clients = models.ManyToManyField('self', related_name='coaches', blank=True, symmetrical=False)
+    username = models.CharField(max_length=50, blank=True, unique=False)
 
     def __str__(self):
-        return self.username
+        return self.full_name
 
     @property
     def full_name(self):

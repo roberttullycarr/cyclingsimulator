@@ -13,6 +13,9 @@ background: ${props => props.theme.ELWhite};
 border: 1px solid #BDBDBD;
 border-radius: 5px;
 box-shadow: ${props => props.theme.BoxShadowWidget};
+  :hover {
+    cursor: pointer;
+  }
 `
 
 export const RouteImgMain = styled(BaseDiv)`

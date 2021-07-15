@@ -16,7 +16,8 @@ const Container = styled.div`
   border: solid 1px ${props => props.theme.BorderColor};
   border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  margin-bottom: 1vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 `
 
 const AthleteWrapper = styled.div`
@@ -41,8 +42,8 @@ const Wrapper = styled.div`
 
 const SessionCardLarge = props => {
     // destructuring props
-    const { avatar, full_name, latest_session } = props.profile
-    const { pat, heart_rate, weight, coach, created } = latest_session
+    const { avatar, full_name } = props.profile
+    const { pat, heart_rate, weight, coach, created } = props.session
 
     return (
         <Container>
@@ -55,7 +56,7 @@ const SessionCardLarge = props => {
                 <StatField image={<HeartRate/>} stat={`${heart_rate} BPM`} name={'Heart Rate'}/>
                 <StatField image={<Weight/>} stat={`${weight} KG`} name={'Weight'}/>
                 <StatField image={<SessionNumber/>} stat={coach['full_name']} name={'Coach'}/>
-                <StatField image={<Session/>} stat={{created}} name={'Session'}/>
+                <StatField image={<Session/>} stat={created} name={'Session'}/>
             </Wrapper>
         </Container>
     )

@@ -6,6 +6,7 @@ import NRCard from "./NRCard";
 import styled from "styled-components"
 import Axios from "../../2_Store/Axios";
 import SessionCard from "../5_SessionCard";
+import {useHistory} from "react-router-dom";
 
 const NewRouteMain = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const NewRouteMain = styled.div`
 
 const NewRoute = () => {
     const [expand, setExpand] = useState('false');
-    const [route, setRoute] = useState('false');
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const clickHandler = () => {expand === 'false' ? setExpand('true') : setExpand('false')};
@@ -29,27 +30,31 @@ const NewRoute = () => {
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
-        try {
-            const response = await Axios.post(url, data, config);
-            if (response.status === 201) {
-                const action = {
-                    "type": 'NEW_ROUTE',
-                    "payload": response.data,
-                };
-                    dispatch(action);
-                    clickHandler();
-            }
-        } catch(err) {
-            if (err.response.status === 400 || err.response.status === 401) {
-                console.log(err.response.status);
-            }
+        let newForm = new FormData()
+        if (data.avatar.length > 0) {
+            newForm.append('avatar', data.avatar[0]);
         }
+        if (data.banner.length > 0) {
+            newForm.append('banner', data.banner[0]);
+        }
+        newForm.append('name', data.name);
+        newForm.append('location', data.location);
+        newForm.append('distance', data.distance);
+        newForm.append('elevation', data.elevation);
+        newForm.append('steepest_km', data.steepest_km);
+        newForm.append('average_grade', data.average_grade);
+        console.log(newForm);
+        const response = await Axios.post(url, newForm, config);
+        console.log(response.data);
+        dispatch({"type": 'NEW_ROUTE', "payload": response.data});
+        history.push(`routes/${response.data.id}`);
+        clickHandler();
     };
 
     return (
         <NewRouteMain>
             <BaseButton action={clickHandler} text={"Create New Route"} width={15} num={5} denom={1} fontSize={1.4} />
-            {expand === "true" ? route === 'false' ? <NRCard submitFunc={createNewRoute}/> : <SessionCard/> : null}
+            {expand === "true" ? <NRCard submitFunc={createNewRoute}/> : null}
         </NewRouteMain>
     )
 }
