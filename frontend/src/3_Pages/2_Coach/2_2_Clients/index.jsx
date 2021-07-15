@@ -14,7 +14,7 @@ import NewClient from "../../../4_Components/12_NewClient";
 
 const Clients = () => {
     const dispatch = useDispatch()
-    const myClients = useSelector(state => state.myClients)
+    const myClients = useSelector(state => state.myClients);
     const [keyWord, setKeyWord] = useState('')
 
     useEffect(() => {

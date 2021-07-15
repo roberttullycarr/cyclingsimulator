@@ -31,7 +31,7 @@ const NCCard = (props) => {
                         <FileInput {...props.var('avatar')} type='file' name='avatar'/>
                     </NCContent>
                 <NCContent>
-                    <BaseButton type={'submit'} text={'Submit'} width={60} num={5} denom={1} marginLeft={20} marginTop={5}/>
+                    <BaseButton type={'submit'} text={'Submit'} fontSize={1.4} width={45} num={5} denom={1} marginLeft={27.5} marginTop={5}/>
                 </NCContent>
                 </NCContentLine>
             </NewClientForm>

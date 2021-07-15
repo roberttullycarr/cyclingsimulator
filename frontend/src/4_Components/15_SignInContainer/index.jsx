@@ -23,7 +23,7 @@ const logIn = async (data) => {
             if (response.status === 200) {
                 dispatch({type: "TOKEN", payload: response.data.access});
                 localStorage.setItem("token", response.data.access);
-                history.push("/");
+                history.push("/coach/overview");
             }
         } catch(err) {
             if (err.response.status === 400 || err.response.status === 401) {
