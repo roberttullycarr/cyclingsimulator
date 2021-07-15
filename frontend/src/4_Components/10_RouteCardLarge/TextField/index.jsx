@@ -4,7 +4,6 @@ import {Title, Wrapper} from "./styled";
 const TextField = props => {
     return (
         <Wrapper>
-            <Title>Nutrition preparation for the climb</Title>
             <PieNivo route={props.route}/>
         </Wrapper>
     )}

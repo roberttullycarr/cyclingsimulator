@@ -30,58 +30,58 @@ const RouteOptions = props => {
     }
 
     return (
-            <RouteGenWrap>
-                <Title text={'Route Options'}/>
-                <Form onSubmit={handleSubmit(submitHandler)}>
-                    <FormWrapper>
-                        <RouteWrapper>
-                            <Title text={'Routes'}/>
-                            <RoutesInput>
-                                {routes.map(route =>
-                                    <label className="routes">
-                                        <input type='checkbox' placeholder='Route'
+        <RouteGenWrap>
+            <Title text={'Route Options'}/>
+            <Form onSubmit={handleSubmit(submitHandler)}>
+                <FormWrapper>
+                    <RouteWrapper>
+                        <Title text={'Routes'}/>
+                        <RoutesInput>
+                            {routes.map(route =>
+                                <label className="routes">
+                                    <input type='checkbox' placeholder='Route'
                                            value={route.id}
-                                        {...register('routes', {required: 'Please select a route'})}/>
-                                        <p>{route.name}</p>
-                                    </label>
-                                )}
-                            </RoutesInput>
-                            {errors.routes ? <ErrorMessage>{errors.routes.message}</ErrorMessage> : <ErrorMessage/>}
-                        </RouteWrapper>
-                        <Wrapper>
-                            <InnerWrapper>
-                                <Title text={'Wind condition'}/>
-                                <OptionField name={'wind_condition'} options={windConditions} width={fieldWidth}
-                                            height={fieldHeight} register={register} marginTop={optionMarginTop}
-                                             marginBottom={optionMarginBottom}/>
-                            </InnerWrapper>
-                            <InnerWrapper>
-                                <Title text={'Tire pressure'}/>
-                                <OptionField name={'tire_pressure'} options={tirePressure} width={fieldWidth}
-                                        height={fieldHeight} register={register} marginTop={optionMarginTop}
-                                             marginBottom={optionMarginBottom}/>
-                            </InnerWrapper>
-                        </Wrapper>
-                        <Wrapper>
-                            <InnerWrapper>
-                                <Title text={'Bike weight in KGs'}/>
-                                <BaseInput type={'number'} width={fieldWidth} height={fieldHeight} marginTop={optionMarginTop}
-                                    var={register} name={'bike_weight'} message={'Please add a bike weight'}
-                                           marginBottom={optionMarginBottom}/>
-                                {errors.bike_weight ? <ErrorMessage>{errors.bike_weight.message}</ErrorMessage> : <ErrorMessage/>}
-                            </InnerWrapper>
-                            <InnerWrapper>
-                                <Title text={'Rider position'}/>
-                                <OptionField name={'rider_position'} options={riderPosition} width={fieldWidth}
+                                           {...register('routes', {required: 'Please select a route'})}/>
+                                    <p>{route.name}</p>
+                                </label>
+                            )}
+                        </RoutesInput>
+                        {errors.routes ? <ErrorMessage>{errors.routes.message}</ErrorMessage> : <ErrorMessage/>}
+                    </RouteWrapper>
+                    <Wrapper>
+                        <InnerWrapper>
+                            <Title text={'Wind condition'}/>
+                            <OptionField name={'wind_condition'} options={windConditions} width={fieldWidth}
                                          height={fieldHeight} register={register} marginTop={optionMarginTop}
-                                             marginBottom={optionMarginBottom}/>
-                            </InnerWrapper>
-                        </Wrapper>
-                        <BaseButton type={'submit'} text={'Calculate'} height={15} width={10} fontSize={'1.2'}
-                                    marginBottom={1} marginRight={1}/>
-                    </FormWrapper>
-                </Form>
-            </RouteGenWrap>
+                                         marginBottom={optionMarginBottom}/>
+                        </InnerWrapper>
+                        <InnerWrapper>
+                            <Title text={'Tire pressure'}/>
+                            <OptionField name={'tire_pressure'} options={tirePressure} width={fieldWidth}
+                                         height={fieldHeight} register={register} marginTop={optionMarginTop}
+                                         marginBottom={optionMarginBottom}/>
+                        </InnerWrapper>
+                    </Wrapper>
+                    <Wrapper>
+                        <InnerWrapper>
+                            <Title text={'Bike weight in KGs'}/>
+                            <BaseInput type={'number'} width={fieldWidth} height={fieldHeight} marginTop={optionMarginTop}
+                                       var={register} name={'bike_weight'} message={'Please add a bike weight'}
+                                       marginBottom={optionMarginBottom} value={10}/>
+                            {errors.bike_weight ? <ErrorMessage>{errors.bike_weight.message}</ErrorMessage> : <ErrorMessage/>}
+                        </InnerWrapper>
+                        <InnerWrapper>
+                            <Title text={'Rider position'}/>
+                            <OptionField name={'rider_position'} options={riderPosition} width={fieldWidth}
+                                         height={fieldHeight} register={register} marginTop={optionMarginTop}
+                                         marginBottom={optionMarginBottom}/>
+                        </InnerWrapper>
+                    </Wrapper>
+                    <BaseButton type={'submit'} text={'Calculate'} height={15} width={10} fontSize={'1.2'}
+                                marginBottom={1} marginRight={1}/>
+                </FormWrapper>
+            </Form>
+        </RouteGenWrap>
     )
 }
 

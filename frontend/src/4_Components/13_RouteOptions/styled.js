@@ -71,7 +71,7 @@ export const RoutesInput = styled.div`
   }
   scrollbar-width: thin;
   scrollbar-color: ${props => props.theme.ELBlue} transparent;
-  crollbar-track: hidden;
+  scrollbar-track: hidden;
   
   .routes {
     margin-bottom: 2%;

@@ -15,6 +15,7 @@ import TextField from "./TextField";
 import React, { useState } from "react";
 import jsPDF from "jspdf";
 import domtoimage from 'dom-to-image';
+import PieNivo from "../../3_Pages/2_Coach/2_5_Results/chart";
 
 const Container = styled.div`
   margin-top: 2%;
@@ -25,7 +26,7 @@ const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 87.5vw;
-  height: ${props => (props.expand === 'hidden') ? '23vw' : '115vw'};
+  height: ${props => (props.expand === 'hidden') ? '40vw' : '115vw'};
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
@@ -116,8 +117,9 @@ const ArrowButton = styled.button`
 
 const RoutCardLarge = props => {
     const [expanded, setExpanded] = useState('hidden')
+    const [pdfView, setPdfView] = useState(null)
     // destructuring props
-    const { name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
+    const { id, name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
         average_speed, total_kcal, avatar, segments} = props.route
 
     const onClickHandler = (event) => {
@@ -131,22 +133,25 @@ const RoutCardLarge = props => {
     }
 
     const generatePDF = () => {
-        domtoimage.toPng(document.getElementById("tocapture"), {}).then(imgInfo => {
+        setPdfView('hidden')
+        domtoimage.toPng(document.getElementById(`${id}`), {}).then(imgInfo => {
             const img = new Image();
             img.src = imgInfo;
-            const pdf = new jsPDF("p", "pt","a4");
-            pdf.addImage(img, 20, 20, 550, 1000);
+            const pdf = new jsPDF("landscape", "px",[1000, 400]);
+            pdf.addImage(img, 70, 10, undefined, undefined, null, "FAST");
             pdf.save(`${new Date().toISOString()}.pdf`);
+            setPdfView(null)
         });
     }
 
     return (
         <Container>
             <Title text={'Result'}/>
-            <Card id="tocapture" expand={expanded}>
+            <Card id={id} expand={expanded}>
                 <WrapperTop>
                     <Name>{name}</Name>
-                    <BaseButton action={generatePDF} text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
+                    <BaseButton action={generatePDF} visibility={pdfView}
+                                text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
                 </WrapperTop>
                 <Wrapper>
                     <img src={avatar} alt='route-avatar'/>
@@ -160,11 +165,11 @@ const RoutCardLarge = props => {
                         <StatField image={<Calories/>} stat={total_kcal} name={'Calories'}/>
                         <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
                     </Stats>
+                    <PieNivo route={props.route}/>
                 </Wrapper>
                 <BottomWrapper expand={expanded}>
                     <Table segments={segments}/>
                 </BottomWrapper>
-                <TextField route={props.route}/>
                 <ArrowButton onClick={onClickHandler} expand={expanded}/>
             </Card>
         </Container>
