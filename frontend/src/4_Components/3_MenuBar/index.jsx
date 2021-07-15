@@ -10,10 +10,6 @@ import { ReactComponent as Clients} from '../../5_Assets/SVG/12_clients.svg';
 import { ReactComponent as Routes } from '../../5_Assets/SVG/13_routes.svg';
 import { ReactComponent as Sessions } from '../../5_Assets/SVG/14_sessions.svg';
 
-// import overview from '../../5_Assets/SVG/11_overview.svg'
-// import cyclist from '../../5_Assets/SVG/12_clients.svg'
-// import routes from '../../5_Assets/SVG/13_routes.svg'
-// import sessions from '../../5_Assets/SVG/14_sessions.svg'
 
 import {BorderLine, LinksMainDiv, LogoImg, MenuBarMain, LogOutBtn, Wrapper, WrapperLogo, LogoutContainer, LogoutText} from "./styled";
 
