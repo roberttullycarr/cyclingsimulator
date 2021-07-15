@@ -43,7 +43,7 @@ const Data = styled.p`
   overflow: scroll;
   overflow-y: hidden;
   text-overflow: clip;
-  //Hiding the scrollbar - for all browsers
+  
   ::-webkit-scrollbar {
   display: none;  /* Chrome */
   }
