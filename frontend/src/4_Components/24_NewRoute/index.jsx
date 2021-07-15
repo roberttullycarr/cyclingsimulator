@@ -1,11 +1,9 @@
 import BaseButton from "../4_ButtonsInputs/Button";
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {useForm} from "react-hook-form";
 import NRCard from "./NRCard";
 import styled from "styled-components"
 import Axios from "../../2_Store/Axios";
-import SessionCard from "../5_SessionCard";
 import {useHistory} from "react-router-dom";
 
 const NewRouteMain = styled.div`

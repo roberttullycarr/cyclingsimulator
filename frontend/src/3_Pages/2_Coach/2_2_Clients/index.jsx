@@ -19,7 +19,7 @@ const Clients = () => {
 
     useEffect(() => {
         dispatch(fetchMyClients(keyWord))
-    }, [keyWord])
+    }, [keyWord, dispatch])
 
     return (
         <Main>

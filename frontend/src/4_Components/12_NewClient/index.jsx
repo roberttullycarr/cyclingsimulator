@@ -1,27 +1,15 @@
-import {ClientCardMain} from "../11_ClientCard";
-import BaseInput from "../4_ButtonsInputs/Input";
 import {useForm} from "react-hook-form";
-import styled from "styled-components";
 import BaseButton from "../4_ButtonsInputs/Button";
 import Axios from "../../2_Store/Axios";
-import NRCard from "../24_NewRoute/NRCard";
 import {useState} from "react";
-import {useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import NCCard from "./NCCard";
+import {NewClientMain} from "./styled";
 
-const NewClientMain = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 85%;
-  //margin-bottom: 2vw;
-`
 
 const NewClient = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [expand, setExpand] = useState('false');
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const clickHandler = () => {expand === 'false' ? setExpand('true') : setExpand('false')}
@@ -49,7 +37,7 @@ const NewClient = () => {
     return (
         <NewClientMain>
             <BaseButton action={clickHandler} text={"New Client"} width={15} num={5} denom={1} fontSize={1.4} />
-            {expand === "true" ? <NCCard submitFunc={submitHandler}/> : null}
+            {expand === "true" ? <NCCard var={register} submitFunc={handleSubmit(submitHandler)}/> : null}
         </NewClientMain>
     )
 }

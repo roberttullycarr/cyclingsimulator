@@ -1,13 +1,13 @@
 import {Body, Main} from "../../../4_Components/1_Main";
 import MenuBar from "../../../4_Components/3_MenuBar";
 import HeaderBar from "../../../4_Components/2_HeaderBar";
-import SearchBar, {Container} from "../../../4_Components/8_SearchBar";
+import {Container} from "../../../4_Components/8_SearchBar";
 import SessionCard from "../../../4_Components/5_SessionCard";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllSessions} from "../../../2_Store/Fetches/all_sessions";
 import {ReactComponent as SearchIcon} from "../../../5_Assets/SVG/40_search.svg";
-import NewSession from "../../../4_Components/27_NewSession";
+
 
 
 const Sessions = () => {
@@ -17,7 +17,7 @@ const Sessions = () => {
 
     useEffect(() => {
         dispatch(fetchAllSessions(keyWord))
-    }, [keyWord])
+    }, [dispatch, keyWord])
 
     return (
         <Main>

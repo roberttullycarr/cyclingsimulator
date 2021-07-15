@@ -7,13 +7,11 @@ import {useEffect} from "react";
 import {fetchRecentSessions} from "../../../2_Store/Fetches/recent_sessions";
 import CalendarNivo from "./chart";
 import {fetchYearToDateSessions} from "../../../2_Store/Fetches/year_to_date_sessions";
-import UserInfoCard from "../../../4_Components/26_UserInfoCard";
 
 const Overview = () => {
     const dispatch = useDispatch()
     const recentSessions = useSelector(state => state.recentSessions)
     const yearToDateSessions = useSelector(state => state.yearToDateSessions)
-    const myInfo = useSelector(state => state.myInfo);
 
     useEffect(() => {
         dispatch(fetchRecentSessions())

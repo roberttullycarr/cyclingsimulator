@@ -3,7 +3,7 @@ import { ReactComponent as AverageGradeIcon } from "../../5_Assets/SVG/28_averag
 import { ReactComponent as ElevationIcon }from "../../5_Assets/SVG/29_steepestgrade.svg";
 import { ReactComponent as SteepestgradeIcon }from "../../5_Assets/SVG/29_steepestgrade.svg";
 import { ReactComponent as DistanceIcon }from "../../5_Assets/SVG/26_distance.svg";
-import {ContentCard, DivImg, HeroContent, ImgContainer, Line, Link, RouteHeader, RouteName, SVGWrapper, TextCard, WrapperDiv,
+import {ContentCard, DivImg, HeroContent, ImgContainer, Line, RouteHeader, RouteName, SVGWrapper, TextCard, WrapperDiv,
     WrapperLinks, WrapperTitleLinks} from "./styled";
 import {useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";

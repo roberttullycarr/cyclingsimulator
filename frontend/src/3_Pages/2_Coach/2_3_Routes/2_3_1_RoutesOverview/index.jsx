@@ -4,8 +4,7 @@ import HeaderBar from "../../../../4_Components/2_HeaderBar";
 import './styles.css';
 import Masonry from "react-masonry-css";
 import RouteCardSmall from "../../../../4_Components/9_RouteCardSmall";
-import SearchBar, {Container} from "../../../../4_Components/8_SearchBar";
-import BaseButton from "../../../../4_Components/4_ButtonsInputs/Button";
+import {Container} from "../../../../4_Components/8_SearchBar";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {ReactComponent as SearchIcon} from "../../../../5_Assets/SVG/40_search.svg";
@@ -20,7 +19,7 @@ const Routes = () => {
 
     useEffect(() => {
         dispatch(fetchAllRoutes(keyWord))
-    }, [keyWord])
+    }, [dispatch, keyWord])
 
     return (
         <Main>

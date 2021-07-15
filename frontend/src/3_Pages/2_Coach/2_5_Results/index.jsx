@@ -7,8 +7,6 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchSpecificSession} from "../../../2_Store/Fetches/get_specific_session";
 import SessionCardLarge from "../../../4_Components/6_SessionCardLarge";
-import {fetchClientDetails} from "../../../2_Store/Fetches/client_details";
-import Title from "../../../4_Components/14_Title";
 
 const Results = props => {
     const dispatch = useDispatch()
@@ -19,7 +17,7 @@ const Results = props => {
     useEffect(() => {
         const session_id = props.match.params.index
         dispatch(fetchSpecificSession(session_id))
-    }, [dispatch])
+    }, [dispatch, props.match.params.index])
 
     return (
         <Main>

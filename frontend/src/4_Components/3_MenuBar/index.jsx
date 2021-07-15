@@ -19,12 +19,12 @@ import {fetchLoggedInUserData} from "../../2_Store/Fetches/logged_in_user_info";
 
 const MenuBar = () => {
     const history = useHistory();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const myInfo = useSelector(state => state.myInfo)
 
     useEffect(() => {
         dispatch(fetchLoggedInUserData())
-    }, [])
+    }, [dispatch])
 
     return (
         <MenuBarMain>

@@ -9,7 +9,7 @@ import {useDispatch} from "react-redux";
 
 
 const NewSession = (props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const [expand, setExpand] = useState('false');
     const dispatch = useDispatch();
 

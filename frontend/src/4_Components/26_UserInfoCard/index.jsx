@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Avatar from "../7_Avatar";
 import DataField from "./DataField";
 import BaseButton from "../4_ButtonsInputs/Button";
@@ -8,75 +7,13 @@ import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import Axios from "../../2_Store/Axios";
 import {useDispatch} from "react-redux";
-
-const Container = styled.div`
-  aspect-ratio: 8.95 / 1;
-  width: 85%;
-  height: auto;
-  display: flex;
-  background: ${props => props.theme.ELWhite};
-  border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 5px;
-  box-shadow: ${props => props.theme.BoxShadowWidget};
-  margin-top: 2vw;
-  margin-bottom: 1vw;
-`
-
-const AthleteWrapper = styled.div`
-  width: 10%;
-  margin-left: 1.5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
-const FormWrapper = styled.form`
-  width: 80%;
-  display: flex;
-  margin: 0 0;
-`
-
-const SaveBtnWrap = styled.div`
-  width: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
-const WrapperRight = styled(SaveBtnWrap)`
-`
-const EditWrap = styled.div`
-height: 100%;
-  width: 3%;
-  padding-top: .5%;
-`
-
-const Edit = styled.button`
-  width: 75%;
-  border: none;
-  background-color: transparent;
-  margin: 7% 7% 0 0;
-  svg{
-    width: 100%;
-    height: 100%;
-  }
-`
-
-const Left = styled.div`
-  width: 50%;
-`
-
-const Right = styled.div`
-  width: 50%;
-`
+import {AthleteWrapper, Container, Edit, EditWrap, FormWrapper, Left, Right, SaveBtnWrap, WrapperRight} from "./styled";
 
 const UserInfoCard = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [edit, setEdit] = useState(false)
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
 
     const onEditHandler = () => {(edit === true) ? setEdit(false) : setEdit(true)};
 
