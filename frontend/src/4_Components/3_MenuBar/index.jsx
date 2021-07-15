@@ -13,19 +13,33 @@ import { ReactComponent as Sessions } from '../../5_Assets/SVG/14_sessions.svg';
 
 import {BorderLine, LinksMainDiv, LogoImg, MenuBarMain, LogOutBtn, Wrapper, WrapperLogo, LogoutContainer, LogoutText} from "./styled";
 
+import overview from '../../5_Assets/SVG/11_overview.svg'
+import cyclist from '../../5_Assets/SVG/12_clients.svg'
+import routes from '../../5_Assets/SVG/13_routes.svg'
+import sessions from '../../5_Assets/SVG/14_sessions.svg'
+import {BorderLine, LinksMainDiv, LogoImg, MenuBarMain} from "./styled";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchLoggedInUserData} from "../../2_Store/Fetches/logged_in_user_info";
 
 
 const MenuBar = () => {
     const history = useHistory();
+    const dispatch = useDispatch()
+    const myInfo = useSelector(state => state.myInfo)
+
+    useEffect(() => {
+        dispatch(fetchLoggedInUserData())
+    }, [])
+
     return (
         <MenuBarMain>
             <WrapperLogo className="logoHoverWidth">
                 <LogoImg src={EL_logo}/>
             </WrapperLogo>
-    
             <BorderLine />
             <Wrapper className="userProfil">
-                <Avatar user={profile_photo}/>
+                <Avatar width={65} marginTop={"20%"} user={myInfo.avatar}/>
             </Wrapper>
                 
             <LinksMainDiv>
