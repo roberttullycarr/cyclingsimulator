@@ -2,30 +2,12 @@ import styled from "styled-components";
 import {useHistory, NavLink} from "react-router-dom";
 
 const MBLinks = styled.button`
-<<<<<<< HEAD
 width: 5vw;
 border: none;
 background: none;
 svg{
     width: 50%;
 }
-=======
-  width: 100%;
-  height: 25%;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  background: none;
-  display: ${props => props.display || 'normal'};
-
-  :hover {
-    cursor: pointer;
-  }
-`
-
-const Icon = styled.img`
-  width: 50%;
->>>>>>> dev
 `
 const DivMenuLink = styled.div`
     height: 15%;

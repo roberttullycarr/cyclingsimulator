@@ -21,10 +21,20 @@ const Select = styled.select`
   background-size: 1rem 1rem;
 `
 
-const OptionField = props => {
+const Option = styled.option`
+
+`
+
+
+// Example: <OptionField options={['test', 'test']} width={80} height={20}/>
+
+const OptionField = (props) => {
     return (
-        <Select value={props.default} {...props.register(props.name)} width={props.width} height={props.height}>
-            {props.options.map(option => <option value={option[1]}>{option[0]}</option>)}
+        <Select width={props.width} height={props.height}>
+            {props.options ? (
+                props.options.map((option, index) =>(
+                    <Option value={String(index)}>{option}</Option>))
+            ):null}
         </Select>
     )
 }

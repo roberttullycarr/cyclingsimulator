@@ -14,5 +14,6 @@ export const fetchAllSessions = (keyword) => async dispatch => {
     };
     const url = `/sessions/?search=${keyword}&limit=25&offset=0`;
     const response = await Axios.get(url, config);
+    console.log(response)
     dispatch(SessionsList(response.data.results));
 }

@@ -6,7 +6,8 @@ height: 5.395vw;
 background: ${props => props.theme.ELWhite};
 display: flex;
 align-items: center;
-padding: 0 3%;
+padding: 0% 3%;
+margin-bottom: 2.6%;
 `
 
 const PageHeader = styled.h1`

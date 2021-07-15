@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Title from "../14_Title";
 import BaseButton from "../4_ButtonsInputs/Button";
+import stelvio from "../../5_Assets/JPG/stelvio_06_hairpin.jpeg"
 import StatField from "../15_StatsField";
 import { ReactComponent as Distance } from '../../5_Assets/SVG/26_distance.svg'
 import { ReactComponent as Elevation } from '../../5_Assets/SVG/13_routes.svg'
@@ -9,10 +10,11 @@ import { ReactComponent as SteepestGrade } from '../../5_Assets/SVG/29_steepestg
 import { ReactComponent as TotalTime } from '../../5_Assets/SVG/30_totaltime.svg'
 import { ReactComponent as Calories } from '../../5_Assets/SVG/31_kcal.svg'
 import { ReactComponent as AverageSpeed } from '../../5_Assets/SVG/32_avaragespeed.svg'
+import { ReactComponent as ClimbDate } from '../../5_Assets/SVG/25_datetime.svg'
 import arrowThin from '../../5_Assets/SVG/41_arrow.svg'
 import Table from "./Table";
 import TextField from "./TextField";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Container = styled.div`
   margin-top: 2%;
@@ -23,7 +25,7 @@ const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 87.5vw;
-  height: ${props => (props.expand === 'hidden') ? '23vw' : '115vw'};
+  height: ${props => (props.expand == 'hidden') ? '23vw' : '115vw'};
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
@@ -107,20 +109,18 @@ const ArrowButton = styled.button`
   z-index: 2;
   bottom: 0px;
   right: 0px;
-  transform: ${props => (props.expand === 'hidden') ? '0' : 'rotate(0.5turn)'};
+  transform: ${props => (props.expand == 'hidden') ? '0' : 'rotate(0.5turn)'};
   transition: all 0.7s linear;
 `
 
 
-const RoutCardLarge = props => {
+const RoutCardLarge = () => {
+
     const [expanded, setExpanded] = useState('hidden')
-    // destructuring props
-    const { name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
-        average_speed, total_kcal, avatar, segments} = props.route
 
     const onClickHandler = (event) => {
         event.preventDefault();
-        if (expanded === 'visible'){
+        if (expanded == 'visible'){
             setExpanded('hidden')
         }
         else{
@@ -133,25 +133,26 @@ const RoutCardLarge = props => {
             <Title text={'Result'}/>
             <Card expand={expanded}>
                 <WrapperTop>
-                    <Name>{name}</Name>
+                    <Name>Stelvio</Name>
                     <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
                 </WrapperTop>
                 <Wrapper>
-                    <img src={avatar} alt='route-avatar'/>
+                    <img src={stelvio}/>
                     <Stats>
-                        <StatField image={<Distance/>} stat={total_distance_in_km} name={'Distance in KM'}/>
-                        <StatField image={<Elevation/>} stat={elevation} name={'Elevation'}/>
-                        <StatField image={<AverageGrade/>} stat={`${average_grade} %`} name={'Average Grade'}/>
-                        <StatField image={<SteepestGrade/>} stat={`${steepest_km} %`} name={'Steepest Grade'}/>
+                        <StatField image={<Distance/>} stat={'300W'} name={'Distance'}/>
+                        <StatField image={<Elevation/>} stat={'300W'} name={'Elevation'}/>
+                        <StatField image={<AverageGrade/>} stat={'300W'} name={'Average Grade'}/>
+                        <StatField image={<SteepestGrade/>} stat={'300W'} name={'Steepest Grade'}/>
                         <Line/>
-                        <StatField image={<TotalTime/>} stat={total_time} name={'Total Time'}/>
-                        <StatField image={<Calories/>} stat={total_kcal} name={'Calories'}/>
-                        <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
+                        <StatField image={<TotalTime/>} stat={'300W'} name={'Total Time'}/>
+                        <StatField image={<Calories/>} stat={'300W'} name={'Calories'}/>
+                        <StatField image={<AverageSpeed/>} stat={'300W'} name={'Average Speed'}/>
+                        <StatField image={<ClimbDate/>} stat={'300W'} name={'Climb Date'}/>
                     </Stats>
                 </Wrapper>
                 <BottomWrapper expand={expanded}>
-                    <Table segments={segments}/>
-                    <TextField route={props.route}/>
+                    <Table/>
+                    <TextField/>
                 </BottomWrapper>
                 <ArrowButton onClick={onClickHandler} expand={expanded}/>
             </Card>

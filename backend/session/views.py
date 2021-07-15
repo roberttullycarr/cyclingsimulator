@@ -3,7 +3,6 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 from rest_framework.pagination import LimitOffsetPagination
 from project_settings.permissions import IsCoach
 from session.models import Session
-from session.serializers.coach_statistics import YTDSessions
 from session.serializers.new_session import NewSessionSerializer
 from session.serializers.recent_sessions import RecentSessionSerializer
 from django.contrib.auth import get_user_model
@@ -63,7 +62,7 @@ class RecentSessionsSpecificUser(ListAPIView):
     serializer_class = RecentSessionSerializer
 
     def get_queryset(self):
-        return Session.objects.filter(client_id=self.kwargs['pk']).order_by('-created')[:5]
+        return Session.objects.filter(client_id=self.kwargs['pk']).order_by('-created')[1:4]
 
 
 class ListAllSessions(ListAPIView):
@@ -73,12 +72,12 @@ class ListAllSessions(ListAPIView):
     def get_queryset(self):
         search = self.request.query_params.get('search')
         if not search:
-            return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user)).order_by('-created')
+            return Session.objects.filter(Q(client=self.request.user) | Q(coach=self.request.user))
         else:
             return Session.objects.filter(Q(client__first_name__icontains=search) |
                                           Q(client__last_name__icontains=search) |
                                           Q(coach__first_name__icontains=search) |
-                                          Q(coach__last_name__icontains=search)).order_by('-created')
+                                          Q(coach__last_name__icontains=search))
 
 
 class RetrieveSessionByID(RetrieveAPIView):
@@ -116,10 +115,3 @@ class SimulateRoutes(UpdateAPIView):
 
     def perform_update(self, serializer):
         serializer.save(routes=self.request.data['routes'])
-
-
-class ListSessionStatistics(ListAPIView):
-    serializer_class = YTDSessions
-
-    def get_queryset(self):
-        return Session.objects.filter(coach=self.request.user).order_by('-created')
