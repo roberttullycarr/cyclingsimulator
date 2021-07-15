@@ -18,7 +18,7 @@ const RoutCardLarge = props => {
     const [expanded, setExpanded] = useState('hidden')
     // destructuring props
     const { name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
-        average_speed, total_kcal, avatar, segments} = props.route
+        average_speed, avatar, segments} = props.route
 
     const onClickHandler = (event) => {
         event.preventDefault();
@@ -36,7 +36,7 @@ const RoutCardLarge = props => {
             <Card expand={expanded}>
                 <WrapperTop>
                     <Name>{name}</Name>
-                    <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
+                    <BaseButton text={'Generate PDF'} height={100} width={12} fontSize={'1.2'}/>
                 </WrapperTop>
                 <Wrapper>
                     <img src={avatar} alt='route-avatar'/>
@@ -44,10 +44,9 @@ const RoutCardLarge = props => {
                         <StatField image={<Distance/>} stat={total_distance_in_km} name={'Distance in KM'}/>
                         <StatField image={<Elevation/>} stat={elevation} name={'Elevation'}/>
                         <StatField image={<AverageGrade/>} stat={`${average_grade} %`} name={'Average Grade'}/>
-                        <StatField image={<SteepestGrade/>} stat={`${steepest_km} %`} name={'Steepest Grade'}/>
                         <Line/>
+                        <StatField image={<SteepestGrade/>} stat={`${steepest_km} %`} name={'Steepest Grade'}/>
                         <StatField image={<TotalTime/>} stat={total_time} name={'Total Time'}/>
-                        <StatField image={<Calories/>} stat={total_kcal} name={'Calories'}/>
                         <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
                     </Stats>
                 </Wrapper>

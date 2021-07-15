@@ -9,6 +9,21 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Mulish', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.ELBlue};
+    border: 3px solid ${props => props.theme.ELBlue};
+  }
+  scrollbar-width: thin;
+  scrollbar-color: ${props => props.theme.ELBlue} transparent;
+  crollbar-track: hidden;
     }
 `;
 

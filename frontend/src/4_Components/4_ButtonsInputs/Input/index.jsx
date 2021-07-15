@@ -22,6 +22,9 @@ const BaseInputMain = styled.input`
   height: 100%;
   width: 100%;
   padding-left: 5%;
+  font-family: "Mulish", sans-serif; //added font styles to BaseInputMain. Maybe @ placholder not needed? add fontsize option?
+  font-weight: 700;
+  font-size: 1.1vw;
   ::placeholder {
     font-family: "Mulish", sans-serif;
     font-weight: 700;

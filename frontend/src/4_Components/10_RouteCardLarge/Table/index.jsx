@@ -12,11 +12,11 @@ const DetailTable = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 31.9vw;
+  max-height: 31.9vw;
   overflow: auto;
   color: ${props => props.theme.SlightlyBlack};
-  // div:nth-child(even){color: ${props => props.theme.SlightlyBlack};}
-  // div:nth-child(odd){color: ${props => props.theme.AccentGray};}
+  div:nth-child(even){color: ${props => props.theme.SlightlyBlack};}
+  div:nth-child(odd){color: ${props => props.theme.AccentGray};}
 `
 
 
