@@ -64,13 +64,13 @@ const NewSession = (props) => {
                                    type={'number'} marginBottom={9}/>
                     </NSContent>
                     <ButtonWrap>
-                        <BaseButton type={'submit'} text={"Submit"} height={70} num={3} denom={1} fontSize={1.3}/>
+                        <BaseButton type={'submit'} text={"Submit"} height={70} num={3}
+                                    denom={1} fontSize={1.3} marginLeft={20}/>
                     </ButtonWrap>
                 </FormWrap>
             </NewSessionCard> : null}
         </NewSessionMain>
     )
-}
-
+};
 
 export default NewSession

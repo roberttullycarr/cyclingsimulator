@@ -9,7 +9,7 @@ export const withUserAccess = WrapperComponent => () => {
 
   useEffect(() => {
     if(!token)history.push("/signin")
-  }, [token])
+  }, [token, history])
 
   return <WrapperComponent />
 }

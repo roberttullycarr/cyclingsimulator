@@ -42,8 +42,8 @@ const Wrapper = styled.div`
 
 const SessionCardLarge = props => {
     // destructuring props
-    const { avatar, full_name, latest_session } = props.profile
-    const { pat, heart_rate, weight, coach, created } = latest_session
+    const { avatar, full_name } = props.profile
+    const { pat, heart_rate, weight, coach, created } = props.session
 
     return (
         <Container>

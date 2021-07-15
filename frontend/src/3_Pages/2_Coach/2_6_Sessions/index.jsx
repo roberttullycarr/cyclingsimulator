@@ -1,7 +1,7 @@
 import {Body, Main} from "../../../4_Components/1_Main";
 import MenuBar from "../../../4_Components/3_MenuBar";
 import HeaderBar from "../../../4_Components/2_HeaderBar";
-import SearchBar, {Container} from "../../../4_Components/8_SearchBar";
+import {Container} from "../../../4_Components/8_SearchBar";
 import SessionCard from "../../../4_Components/5_SessionCard";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";

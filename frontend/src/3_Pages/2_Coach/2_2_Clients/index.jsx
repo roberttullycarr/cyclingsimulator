@@ -9,16 +9,16 @@ import { ReactComponent as SearchIcon } from '../../../5_Assets/SVG/40_search.sv
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {fetchMyClients} from "../../../2_Store/Fetches/client_list";
-import NewClientCard from "../../../4_Components/12_NewClientCard";
+import NewClient from "../../../4_Components/12_NewClient";
 
 const Clients = () => {
     const dispatch = useDispatch()
-    const myClients = useSelector(state => state.myClients)
+    const myClients = useSelector(state => state.myClients);
     const [keyWord, setKeyWord] = useState('')
 
     useEffect(() => {
         dispatch(fetchMyClients(keyWord))
-    }, [keyWord])
+    }, [keyWord, dispatch])
 
     return (
         <Main>
@@ -32,12 +32,11 @@ const Clients = () => {
                     <input placeholder="Search clients by name, email or location"
                            onChange={(e) => setKeyWord(e.target.value)}/>
                 </Container>
-
+                <NewClient/>
                 <Masonry
-                    breakpointCols={3}
+                    breakpointCols={5}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column">
-                    <NewClientCard/>
                     { myClients ? myClients.map(client =>
                             <ClientCard client={client}/>
                         )

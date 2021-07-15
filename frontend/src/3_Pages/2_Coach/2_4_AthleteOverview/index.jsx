@@ -2,7 +2,6 @@ import {Body, Main} from "../../../4_Components/1_Main";
 import MenuBar from "../../../4_Components/3_MenuBar";
 import HeaderBar from "../../../4_Components/2_HeaderBar";
 import {useDispatch, useSelector} from "react-redux";
-import SessionCardLarge from "../../../4_Components/6_SessionCardLarge";
 import React, {useEffect} from "react";
 import {fetchClientDetails} from "../../../2_Store/Fetches/client_details";
 import {fetchClientRecentSessions} from "../../../2_Store/Fetches/user_specific_sessions";
@@ -21,7 +20,7 @@ const AthleteOverview = props => {
         const client_id = props.match.params.index
         dispatch(fetchClientDetails(client_id))
         dispatch(fetchClientRecentSessions(client_id))
-    }, [dispatch])
+    }, [dispatch, props.match.params.index])
 
     return (
         <Main>
