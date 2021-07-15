@@ -19,7 +19,6 @@ const NewRouteMain = styled.div`
 
 const NewRoute = () => {
     const [expand, setExpand] = useState('false');
-    const [route, setRoute] = useState('false');
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -55,7 +54,7 @@ const NewRoute = () => {
     return (
         <NewRouteMain>
             <BaseButton action={clickHandler} text={"Create New Route"} width={15} num={5} denom={1} fontSize={1.4} />
-            {expand === "true" ? route === 'false' ? <NRCard submitFunc={createNewRoute}/> : <SessionCard/> : null}
+            {expand === "true" ? <NRCard submitFunc={createNewRoute}/> : null}
         </NewRouteMain>
     )
 }

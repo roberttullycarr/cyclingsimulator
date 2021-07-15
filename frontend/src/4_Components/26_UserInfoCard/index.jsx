@@ -31,23 +31,30 @@ const AthleteWrapper = styled.div`
   justify-content: center;
 `
 
-const Wrapper = styled.form`
-  width: 100%;
+const FormWrapper = styled.form`
+  width: 80%;
   display: flex;
-  margin: 0 1.5%;
+  margin: 0 0;
 `
 
-const WrapperRight = styled.div`
-  width: 13%;
+const SaveBtnWrap = styled.div`
+  width: 10%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+`
+
+const WrapperRight = styled(SaveBtnWrap)`
+`
+const EditWrap = styled.div`
+height: 100%;
+  width: 3%;
+  padding-top: .5%;
 `
 
 const Edit = styled.button`
-  height: 20%;
-  width: 20%;
+  width: 75%;
   border: none;
   background-color: transparent;
   margin: 7% 7% 0 0;
@@ -74,6 +81,7 @@ const UserInfoCard = (props) => {
     const onEditHandler = () => {(edit === true) ? setEdit(false) : setEdit(true)};
 
     const changeUserDetails = async (data) => {
+        console.log('in the change user details');
         const nameArray = data.name.split(' ');
         const firstName = nameArray[0];
         const lastName = nameArray[1] ? nameArray[1] : '';
@@ -94,7 +102,7 @@ const UserInfoCard = (props) => {
             <AthleteWrapper>
                 <Avatar user={props.user.avatar} width={80} color={'#C5C5C5'}/>
             </AthleteWrapper>
-            <Wrapper onSubmit={handleSubmit(changeUserDetails)}>
+            <FormWrapper onSubmit={handleSubmit(changeUserDetails)}>
                 <Left>
                     <DataField label={'Name'} name={'name'}
                                data={props.user.full_name ? props.user.full_name : `${props.user.first_name} ${props.user.last_name}`}
@@ -108,15 +116,19 @@ const UserInfoCard = (props) => {
                     <DataField label={'Location'} data={props.user.location} name={'location'}
                                var={register} width={100} height={50} color={props => props.theme.ELGreen} edit={edit}/>
                 </Right>
-                <WrapperRight>
-                <Edit onClick={() => onEditHandler}><Pencil/></Edit>
-                <BaseButton text={'Reset Password'} action={() => history.push('/password/reset')}
-                            height={25} width={100} fontSize={.9}
-                            marginRight={7} visibility={edit ? 'visible' : 'hidden'}/>
-                <BaseButton text={'Save'} type={'sumbit'} height={25} width={100} fontSize={.9} marginBottom={7}
-                            marginRight={7} visibility={edit ? 'visible' : 'hidden'}/>
+                <SaveBtnWrap>
+                    <BaseButton text={'Save'} type={'submit'} height={25} width={90} fontSize={.9}
+                            marginRight={0} visibility={edit ? 'visible' : 'hidden'}/>
+                </SaveBtnWrap>
+            </FormWrapper>
+            <WrapperRight>
+                    <BaseButton text={'Reset Password'} action={() => history.push('/password/reset')}
+                            height={25} width={90} fontSize={.9}
+                            marginRight={0} visibility={edit ? 'visible' : 'hidden'}/>
             </WrapperRight>
-            </Wrapper>
+            <EditWrap>
+                <Edit onClick={onEditHandler}><Pencil/></Edit>
+            </EditWrap>
         </Container>
     )
 }

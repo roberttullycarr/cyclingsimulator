@@ -9,7 +9,7 @@ const SegmentsWrap = styled.div`
 `
 
 const SegmentsMain = styled.div`
-  width: 85%;
+  width: 100%;
   height: 2vw;
   display: flex;
   background: white;
