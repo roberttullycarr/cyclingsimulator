@@ -13,6 +13,8 @@ import arrowThin from '../../5_Assets/SVG/41_arrow.svg'
 import Table from "./Table";
 import TextField from "./TextField";
 import React, { useState } from "react";
+import jsPDF from "jspdf";
+import domtoimage from 'dom-to-image';
 
 const Container = styled.div`
   margin-top: 2%;
@@ -128,13 +130,23 @@ const RoutCardLarge = props => {
         }
     }
 
+    const generatePDF = () => {
+        domtoimage.toPng(document.getElementById("tocapture"), {}).then(imgInfo => {
+            const img = new Image();
+            img.src = imgInfo;
+            const pdf = new jsPDF("p", "pt","a4");
+            pdf.addImage(img, 20, 20, 550, 1000);
+            pdf.save(`${new Date().toISOString()}.pdf`);
+        });
+    }
+
     return (
         <Container>
             <Title text={'Result'}/>
-            <Card expand={expanded}>
+            <Card id="tocapture" expand={expanded}>
                 <WrapperTop>
                     <Name>{name}</Name>
-                    <BaseButton text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
+                    <BaseButton action={generatePDF} text={'Generate PDF'} height={'2.78vw'} width={10} fontSize={'1.2'}/>
                 </WrapperTop>
                 <Wrapper>
                     <img src={avatar} alt='route-avatar'/>
@@ -151,8 +163,8 @@ const RoutCardLarge = props => {
                 </Wrapper>
                 <BottomWrapper expand={expanded}>
                     <Table segments={segments}/>
-                    <TextField route={props.route}/>
                 </BottomWrapper>
+                <TextField route={props.route}/>
                 <ArrowButton onClick={onClickHandler} expand={expanded}/>
             </Card>
         </Container>

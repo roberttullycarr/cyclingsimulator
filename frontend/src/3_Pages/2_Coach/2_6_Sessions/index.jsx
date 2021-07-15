@@ -18,13 +18,8 @@ const Sessions = () => {
     const [offset, setOffset] = useState(0)
 
     useEffect(() => {
-        dispatch(fetchAllSessions(keyWord, 10, offset))
+        dispatch(fetchAllSessions(keyWord, offset))
 
-        window.addEventListener('scroll', function() {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                setOffset(offset+10)
-            }
-        });
     }, [keyWord, offset])
 
     return (
@@ -40,7 +35,7 @@ const Sessions = () => {
                            onChange={(e) => setKeyWord(e.target.value)}/>
                 </Container>
                 {sessions ? sessions.map(session => <SessionCard session={session}/>) : 'Loading...'}
-
+                <p onClick={() => setOffset(offset+10)}>Load more sessions</p>
             </Body>
         </Main>
     )
