@@ -5,6 +5,8 @@ const BaseInputWrap = styled.div`
     height: ${props => `${props.height}%` || "10%"};
     margin-top: ${props => `${props.marginTop}%` || '0%'};
     margin-bottom: ${props => `${props.marginBottom}%` || '0%'};
+    margin-left: ${props => `${props.marginLeft}%` || '0%'};
+    margin-bottom: ${props => `${props.marginLeft}%` || '0%'};
 `
 
 export const InputTitle = styled.h2`
@@ -42,7 +44,7 @@ const BaseInputMain = styled.input`
 
 const BaseInput = (props) => {
     return (
-        <BaseInputWrap width={props.width} marginTop={props.marginTop} marginBottom={props.marginBottom} height={props.height}>
+        <BaseInputWrap width={props.width} marginLeft={props.marginLeft} marginRight={props.marginRight} marginTop={props.marginTop} marginBottom={props.marginBottom} height={props.height}>
             {props.title ? (<InputTitle>{props.title}</InputTitle>): null}
             <BaseInputMain {...props.var(props.name, {required: props.message, minLength: props.length})}
                            placeholder={props.placeholder}

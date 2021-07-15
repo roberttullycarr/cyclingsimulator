@@ -23,7 +23,7 @@ const RouteOptions = props => {
 
     useEffect(() => {
         dispatch(fetchAllRoutes())
-    }, [])
+    }, [dispatch])
 
     const submitHandler = data => {
         dispatch(fetchSessionResults(props.id, data))

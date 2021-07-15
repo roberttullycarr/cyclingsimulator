@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/signin" component={SignIn}/>
             <Route exact path="/password/validate" component={Validation}/>
             <Route exact path="/congrats" component={Congratulations}/>
-            <Route exact path="/" component={withUserAccess(Overview)}/>
+            <Route exact path="/coach/overview" component={withUserAccess(Overview)}/>
             <Route exact path="/coach/clients" component={withUserAccess(Clients)}/>
             <Route exact path="/coach/routes" component={withUserAccess(Routes)}/>
             <Route exact path="/coach/routes/:index" component={RoutesDetail}/>

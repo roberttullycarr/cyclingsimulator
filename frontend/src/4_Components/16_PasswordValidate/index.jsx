@@ -26,7 +26,7 @@ const PVContainerMain = styled.div`
 
 
 const PasswordValidate = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const history = useHistory()
     const [error, setError] = useState(null);
 

@@ -1,50 +1,11 @@
 import BaseInput, {InputTitle} from "../../4_ButtonsInputs/Input";
 import BaseButton from "../../4_ButtonsInputs/Button";
 import {useForm} from "react-hook-form";
-import {useDispatch} from "react-redux";
-import styled from"styled-components"
+import {FileInput, NewRouteCard, NewRouteForm, NRContent, NRContentLine} from "./styled";
 
-
-
-const NewRouteCard = styled.div`
-  width: 100%;
-  display: flex;
-  background: white;
-  box-shadow: ${props => props.theme.BoxShadowWidget};
-  padding: 1.2vw 1.2vw;
-  border: 1px solid #BDBDBD;
-  border-radius: 5px;
-  margin-top: 2vw;
-`;
-
-const NewRouteForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-`
-
-const NRContentLine = styled.div`
-  width: 100%;
-  display:flex;
-  padding: .5vw 0;
-`
-const NRContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 25%;
-  height: 100%;
-`
-
-const FileInput = styled.input`
-  width: 95%;
-  margin-top: 3%;
-`
 
 const NRCard = (props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const dispatch = useDispatch();
+    const { register, handleSubmit } = useForm();
 
     return (
         <NewRouteCard>
