@@ -13,7 +13,7 @@ const RouteDetailHeader = (props) => {
     const location = useLocation();
     const route_id = location.pathname;
     const route = useSelector(state => state.specificRoute);
-    console.log(location, route_id);
+
     return (
         <RouteHeader>
             <ImgContainer backgroundImage={route.banner}>
