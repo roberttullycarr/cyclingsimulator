@@ -9,6 +9,7 @@ background: ${props => props.theme.ELBlue};
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 transition: 0.4s ease, width 0.4s ease, 0.4s;
 z-index: 5;
 p{
@@ -16,6 +17,8 @@ p{
     display:none;
 }
 .userProfil{
+  display: flex;
+  justify-content: center;
     transition: 0.2s ease;
     & > div:hover{
         border: 2px solid #8bc34a;

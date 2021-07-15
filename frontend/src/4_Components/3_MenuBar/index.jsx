@@ -33,7 +33,7 @@ const MenuBar = () => {
             </WrapperLogo>
             <BorderLine />
             <Wrapper className="userProfil">
-                <Avatar width={65} marginTop={"20%"} user={myInfo.avatar}/>
+                <Avatar width={70}  user={myInfo.avatar}/>
             </Wrapper>
                 
             <LinksMainDiv>
