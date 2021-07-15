@@ -13,7 +13,7 @@ const RoutesDetail = (props) => {
     useEffect(() => {
         const session_id = props.match.params.index
         dispatch(fetchSpecificRoute(session_id))
-    }, [dispatch, props.match.params.index])
+    }, [dispatch, props.match.params.index]);
 
     return (
         <Main>

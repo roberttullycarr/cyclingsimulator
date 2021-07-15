@@ -37,7 +37,7 @@ const MenuBar = () => {
             </Wrapper>
                 
             <LinksMainDiv>
-                <MBLink icon={<Overview />} navbarname={"Overview"} url={'/'} />
+                <MBLink icon={<Overview />} navbarname={"Overview"} url={'/coach/overview'} />
                 <MBLink icon={<Clients />} navbarname={"Clients"} url={'/coach/clients'} />
                 <MBLink icon={<Routes />} navbarname={"Routes"} url={'/coach/routes'} /> 
                 <MBLink icon={<Sessions />} navbarname={"Sessions"} url={'/coach/sessions'} />
