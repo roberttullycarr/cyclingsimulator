@@ -3,7 +3,6 @@ from route.models import Route
 from session.models import Session
 from session.serializers.nested_segment_simulation import NestedSegmentSerializer
 from session.serializers.time_functions import seconds_to_time, time_to_seconds
-from builtins import round
 
 
 class RouteSimulationSerializer(serializers.ModelSerializer):
@@ -31,7 +30,7 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
         return seconds_to_time(time)
 
     def get_average_speed(self, obj):
-        return round(3600 / (time_to_seconds(self.get_total_time(obj)) / self.get_total_distance_in_km(obj)), 2)
+        return 3600 / (time_to_seconds(self.get_total_time(obj)) / self.get_total_distance_in_km(obj))
 
     def calculate_nutrition(self, obj):
         result = {}
@@ -39,13 +38,13 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
         pat = session.pat
         weight = session.weight
 
-        result['calories'] = round((pat * (time_to_seconds(self.get_total_time(obj))) / 4180) * 4, 0)
-        result['carbs'] = round(weight * (time_to_seconds(self.get_total_time(obj)) / 3600), 0)
-        result['carb_energy_value'] = round(result['carbs'] * 4, 0)
-        result['drinks'] = round(time_to_seconds(self.get_total_time(obj)) / 3600, 0)
-        result['carbs_from_drinks'] = round(result['drinks'] * 45, 0)
-        result['carbs_from_food'] = round(result['carbs'] - result['carbs_from_drinks'], 0)
-        result['slices_of_gingerbread'] = round(result['carbs_from_food'] / 15, 0)
+        result['calories'] = (pat * (time_to_seconds(self.get_total_time(obj))) // 4180) * 4
+        result['carbs'] = weight * (time_to_seconds(self.get_total_time(obj)) // 3600)
+        result['carb_energy_value'] = result['carbs'] * 4
+        result['drinks'] = time_to_seconds(self.get_total_time(obj)) // 3600
+        result['carbs_from_drinks'] = result['drinks'] * 45
+        result['carbs_from_food'] = result['carbs'] - result['carbs_from_drinks']
+        result['slices_of_gingerbread'] = result['carbs_from_food'] // 15
 
         return result
 
@@ -74,7 +73,6 @@ class RouteSimulationSerializer(serializers.ModelSerializer):
         model = Route
         fields = [
             'id',
-            'avatar',
             'name',
             'average_grade',
             'elevation',

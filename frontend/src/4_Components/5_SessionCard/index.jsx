@@ -5,7 +5,6 @@ import HeartRateIcon from "../../5_Assets/SVG/22_heartrate.svg";
 import PowerIcon from "../../5_Assets/SVG/21_power.svg";
 import DateIcon from "../../5_Assets/SVG/23_date.svg";
 import Avatar from "../7_Avatar";
-import {useHistory} from "react-router-dom";
 
 const ContentCard = styled.div`
   width: 85%;
@@ -17,10 +16,6 @@ const ContentCard = styled.div`
   border: 1px solid #BDBDBD;
   border-radius: 5px;
   margin-bottom: 1vw;
-  
-  :hover {
-    cursor: pointer;
-  }
 `;
 const ImgSVG = styled.img`
   width: 3vh;
@@ -47,38 +42,34 @@ const PowerText = styled.h1`
   margin-left: 11px;
   font-size: 1.2vw;
 `;
-
+const DivImg = styled.div`
+`;
 
 
 
 const SessionCard = (props) => {
-    const history = useHistory()
     // destructuring props
     const { id, client, pat, heart_rate, created } = props.session
 
-    const simulateSession = () => {
-        history.push(`/coach/results/${id}`)
-    }
-
     return (
-        <ContentCard onClick={simulateSession}>
+        <ContentCard>
             <WrapperDiv>
                 <Avatar width={20} marginLeft={"0"} marginRight={"0"} user={client.avatar}/>
                 <TextCard>{client['full_name'] ? client['full_name'] : "Client"}</TextCard>
             </WrapperDiv>
 
             <WrapperDiv>
-                <div><PowerSVG src={PowerIcon} alt="power icon"/></div>
+                <DivImg><PowerSVG src={PowerIcon} alt="power icon"/></DivImg>
                 <PowerText>{pat ? `${pat}w` : "Anaebolic Threshold"}</PowerText>
             </WrapperDiv>
 
             <WrapperDiv>
-                <div><ImgSVG src={HeartRateIcon} alt="heartrate icon"/></div>
+                <DivImg><ImgSVG src={HeartRateIcon} alt="heartrate icon"/></DivImg>
                 <TextCard>{heart_rate ? `${heart_rate} BPM` : "Heart Rate"}</TextCard>
             </WrapperDiv>
 
             <WrapperDiv>
-                <div><ImgSVG src={DateIcon} alt="date icon"/></div>
+                <DivImg><ImgSVG src={DateIcon} alt="date icon"/></DivImg>
                 <TextCard>{created ? created.substr(0, created.indexOf(' ')) : "Date"}</TextCard>
             </WrapperDiv>
 
