@@ -1,20 +1,20 @@
 import styled from "styled-components"
 
 const BaseInputWrap = styled.div`
-    width: ${props => `${props.width}%` || "90%"};
-    height: ${props => `${props.height}%` || "10%"};
-    margin-top: ${props => `${props.marginTop}%` || '0%'};
-    margin-bottom: ${props => `${props.marginBottom}%` || '0%'};
-    margin-left: ${props => `${props.marginLeft}%` || '0%'};
-    margin-bottom: ${props => `${props.marginLeft}%` || '0%'};
+  width: ${props => `${props.width}%` || "90%"};
+  height: ${props => `${props.height}%` || "10%"};
+  margin-top: ${props => `${props.marginTop}%` || '0%'};
+  margin-bottom: ${props => `${props.marginBottom}%` || '0%'};
+  margin-left: ${props => `${props.marginLeft}%` || '0%'};
+  margin-bottom: ${props => `${props.marginLeft}%` || '0%'};
 `
 
 export const InputTitle = styled.h2`
-margin: 0 0 .5% 2%;
-color: ${props => props.theme.ELBlue};
-font-family: Roboto, sans-serif;
-font-size: 1.1vw;
-text-align: left;
+  margin: 0 0 .5% 2%;
+  color: ${props => props.theme.ELBlue};
+  font-family: Roboto, sans-serif;
+  font-size: 1.1vw;
+  text-align: left;
 `
 
 const BaseInputMain = styled.input`
@@ -24,14 +24,17 @@ const BaseInputMain = styled.input`
   height: 100%;
   width: 100%;
   padding-left: 5%;
+  font-family: "Mulish", sans-serif; //added font styles to BaseInputMain. Maybe @ placholder not needed? add fontsize option?
+  font-weight: 700;
+  font-size: 1.1vw;
   ::placeholder {
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 1.1vw;
   }
-  
+
   :focus {
-  outline: none;  
+    outline: none;
   }
 `
 
@@ -41,8 +44,11 @@ const BaseInputMain = styled.input`
 
 const BaseInput = (props) => {
     return (
-        <BaseInputWrap width={props.width} marginLeft={props.marginLeft} marginRight={props.marginRight} marginTop={props.marginTop} marginBottom={props.marginBottom} height={props.height}>
-            {props.title ? (<InputTitle>{props.title}</InputTitle>): null}
+        <BaseInputWrap width={props.width} marginLeft={props.marginLeft} marginRight={props.marginRight}
+                       marginTop={props.marginTop} marginBottom={props.marginBottom} height={props.height}>
+
+            {props.title ? <InputTitle>{props.title}</InputTitle> : null}
+
             <BaseInputMain {...props.var(props.name, {required: props.message, minLength: props.length})}
                            placeholder={props.placeholder}
                            type={props.type} defaultValue={props.value}/>

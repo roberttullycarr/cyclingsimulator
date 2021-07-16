@@ -12,7 +12,8 @@ export const fetchAllSessions = (keyword) => async dispatch => {
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     };
-    const url = `/sessions/?search=${keyword}&limit=25&offset=0`;
+    const url = `/sessions/?search=${keyword}`;
     const response = await Axios.get(url, config);
-    dispatch(SessionsList(response.data.results));
+    console.log(response)
+    dispatch(SessionsList(response.data));
 }
