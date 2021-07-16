@@ -27,14 +27,20 @@ const reducer = (state = initialState, action) => {
              return {...state, myClients: action.payload}
          case 'ROUTES':
              return {...state, routes: action.payload}
+
          case 'ALL_SESSIONS':
-             return {...state, allSessions: action.payload}
+             if (state.allSessions.length > 0){
+                 return {...state, allSessions: [...state.allSessions, ...action.payload]}
+             } else {
+                 return {...state, allSessions: action.payload}
+             }
+
+         case 'NEW_CLIENT':
+             return { ...state, myClients: [action.payload, ...state.myClients] }
          case 'NEW_SESSION':
             return { ...state, clientRecentSessions: [action.payload, ...state.clientRecentSessions] };
         case 'NEW_ROUTE':
             return { ...state, routes: [...state.routes, action.payload] };
-        case 'NEW_CLIENT':
-            return { ...state, myClients: [...state.myClients, action.payload] };
          case 'CLIENT_DETAILS':
              return {...state, clientDetails: action.payload}
          case 'CLIENT_RECENT_SESSIONS':
@@ -51,6 +57,8 @@ const reducer = (state = initialState, action) => {
              return {...state, sessionResults: action.payload}
          case 'ALL_COACHES':
              return {...state, allCoaches: action.payload}
+         case 'CLEAR_RESULTS':
+             return { ...state, sessionResults: {} }
          default:
              return state;
      }

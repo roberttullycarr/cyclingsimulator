@@ -17,6 +17,7 @@ class NewSessionSerializer(serializers.ModelSerializer):
             'weight',
             'height',
             'pat',
+            'heart_rate',
             'created',
         ]
         read_only_fields = ['coach', 'client', 'id']

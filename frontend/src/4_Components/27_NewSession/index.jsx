@@ -9,7 +9,7 @@ import {useDispatch} from "react-redux";
 
 
 const NewSession = (props) => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [expand, setExpand] = useState('false');
     const dispatch = useDispatch();
 
@@ -33,6 +33,8 @@ const NewSession = (props) => {
                 console.log(err.response.status);
             }
         }
+        reset()
+        clickHandler()
     };
 
     return (
@@ -62,7 +64,8 @@ const NewSession = (props) => {
                                    type={'number'} marginBottom={9}/>
                     </NSContent>
                     <ButtonWrap>
-                        <BaseButton type={'submit'} text={"Submit"} height={70} num={3} denom={1} fontSize={1.3} marginLeft={20}/>
+                        <BaseButton type={'submit'} text={"Submit"} height={70} num={3}
+                                    denom={1} fontSize={1.3} marginLeft={20}/>
                     </ButtonWrap>
                 </FormWrap>
             </NewSessionCard> : null}
