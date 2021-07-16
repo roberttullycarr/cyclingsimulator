@@ -7,8 +7,8 @@ import SearchBar from "../../../4_Components/8_SearchBar";
 import BaseButton from "../../../4_Components/4_ButtonsInputs/Button";
 import styled from "styled-components";
 import CoachCard from "../../../4_Components/28_CoachCard";
-import {fetchClientDetails} from "../../../2_Store/Fetches/client_details";
-import {fetchClientRecentSessions} from "../../../2_Store/Fetches/user_specific_sessions";
+import {fetchAllCoaches} from "../../../2_Store/Fetches/get_all_coaches";
+import {fetchLoggedInUserData} from "../../../2_Store/Fetches/logged_in_user_info";
 
 const ButtonWrapper = styled.div`
   height: 3vw;
@@ -19,15 +19,14 @@ const ButtonWrapper = styled.div`
 
 const Coaches = props => {
 
-    // const dispatch = useDispatch()
-    // const profile = useSelector(state => state.clientDetails)
-    //
-    // useEffect(() => {
-    //     const client_id = props.match.params.index
-    //     dispatch(fetchClientDetails(client_id))
-    //     dispatch(fetchClientRecentSessions(client_id))
-    // }, [dispatch, props.match.params.index])
+    const dispatch = useDispatch()
+    const users = useSelector(state => state.allCoaches)
+    const logedInUser = useSelector(state => state.myInfo)
 
+    useEffect(() => {
+        dispatch(fetchAllCoaches())
+    }, [dispatch])
+    console.log(users)
     return (
         <Main>
             <MenuBar />
@@ -37,7 +36,7 @@ const Coaches = props => {
                 <ButtonWrapper>
                     <BaseButton height={100} width={10} text={'New Coach'}/>
                 </ButtonWrapper>
-                {/*<CoachCard user={profile}/>*/}
+                {users ? users.map(user => {if (user.is_coach) {return(<CoachCard user={user}/>)}}):null}
             </Body>
         </Main>
     )

@@ -7,7 +7,17 @@ import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import Axios from "../../2_Store/Axios";
 import {useDispatch} from "react-redux";
-import {AthleteWrapper, Container, Edit, EditWrap, FormWrapper, Left, Right, SaveBtnWrap, WrapperRight} from "./styled";
+import {
+    AthleteWrapper,
+    Container,
+    Edit,
+    EditWrap,
+    FormWrapper,
+    Left,
+    Right,
+    SaveBtnWrap,
+    WrapperRight
+} from "./styled";
 
 const CoachCard = (props) => {
     const history = useHistory();
