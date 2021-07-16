@@ -27,10 +27,12 @@ const Head = styled.div`
     font-size: 1.2vw;
     width: 16.67%;
     height: 3.19vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: ${props => props.theme.TableBlue};
     color: ${props => props.theme.ELWhite};
     border-radius: 5px;
-    text-align: center;
     margin-left: 0.5%;
     margin-right: 0.5%;
   }

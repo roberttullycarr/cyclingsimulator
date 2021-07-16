@@ -63,8 +63,8 @@ export const BottomWrapper = styled.div`
 
 export const Stats = styled.div`
   height: 16vw;
-  width: 65%;
-  margin-left: 2%;
+  width: 60%;
+  margin-left: 5%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 2px 1fr;
