@@ -23,7 +23,6 @@ const NewRoute = () => {
     const clickHandler = () => {expand === 'false' ? setExpand('true') : setExpand('false')};
 
     const createNewRoute = async (data) => {
-        console.log(data);
         const url = 'routes/new/';
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -41,11 +40,11 @@ const NewRoute = () => {
         newForm.append('elevation', data.elevation);
         newForm.append('steepest_km', data.steepest_km);
         newForm.append('average_grade', data.average_grade);
-        console.log(newForm);
+
         const response = await Axios.post(url, newForm, config);
-        console.log(response.data);
         dispatch({"type": 'NEW_ROUTE', "payload": response.data});
         history.push(`routes/${response.data.id}`);
+
         clickHandler();
     };
 

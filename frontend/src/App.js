@@ -11,6 +11,7 @@ import RoutesDetail from "./3_Pages/2_Coach/2_3_Routes/2_3_3_RoutesDetail";
 import PasswordReset from "./3_Pages/1_Authentification/1_1_PasswordReset";
 import {withUserAccess} from "./1_HOC";
 import Coaches from "./3_Pages/3_Admin/3_1_Coaches";
+import {withAdminRights} from "./1_HOC/admin";
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
             <Route exact path="/coach/athlete/:index" component={AthleteOverview}/>
             <Route exact path="/coach/results/:index" component={Results}/>
             <Route exact path="/coach/sessions" component={withUserAccess(Sessions)}/>
-            <Route exact path="/admin" component={withUserAccess(Coaches)}/>
+            <Route exact path="/admin" component={withAdminRights(Coaches)}/>
         </Switch>
     </Router>
   );

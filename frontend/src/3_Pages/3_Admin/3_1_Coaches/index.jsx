@@ -8,7 +8,6 @@ import BaseButton from "../../../4_Components/4_ButtonsInputs/Button";
 import styled from "styled-components";
 import CoachCard from "../../../4_Components/28_CoachCard";
 import {fetchAllCoaches} from "../../../2_Store/Fetches/get_all_coaches";
-import {fetchLoggedInUserData} from "../../../2_Store/Fetches/logged_in_user_info";
 
 const ButtonWrapper = styled.div`
   height: 3vw;
@@ -21,12 +20,11 @@ const Coaches = props => {
 
     const dispatch = useDispatch()
     const users = useSelector(state => state.allCoaches)
-    const logedInUser = useSelector(state => state.myInfo)
 
     useEffect(() => {
         dispatch(fetchAllCoaches())
     }, [dispatch])
-    console.log(users)
+
     return (
         <Main>
             <MenuBar />
@@ -36,7 +34,7 @@ const Coaches = props => {
                 <ButtonWrapper>
                     <BaseButton height={100} width={10} text={'New Coach'}/>
                 </ButtonWrapper>
-                {users ? users.map(user => {if (user.is_coach) {return(<CoachCard user={user}/>)}}):null}
+                {users ? users.map(user => {if (user['is_coach']) {return(<CoachCard user={user}/>)}}):null}
             </Body>
         </Main>
     )

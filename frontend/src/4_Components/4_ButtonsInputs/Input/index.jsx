@@ -51,7 +51,7 @@ const BaseInput = (props) => {
 
             <BaseInputMain {...props.var(props.name, {required: props.message, minLength: props.length})}
                            placeholder={props.placeholder}
-                           type={props.type} defaultValue={props.value}/>
+                           type={props.type} defaultValue={props.value} step={props.step}/>
         </BaseInputWrap>
     )
 }
