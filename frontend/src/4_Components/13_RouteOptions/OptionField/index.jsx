@@ -16,9 +16,9 @@ const Select = styled.select`
   border-radius: 4px;
   border: 1px solid ${props => props.theme.BorderColor};
   cursor: pointer;
-  font-weight: ${props => props.theme.textWeightBold};
-  font-size: 1vw;
-  color: ${props => props.theme.SlightlyBlack};
+  // // font-weight: ${props => props.theme.textWeightBold};
+  // font-size: 1vw;
+  // color: ${props => props.theme.SlightlyBlack};
   padding-left: 5%;
   background-image: url(${arrow});
   background-repeat: no-repeat;

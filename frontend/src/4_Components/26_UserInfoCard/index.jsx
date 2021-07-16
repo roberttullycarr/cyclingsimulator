@@ -18,7 +18,6 @@ const UserInfoCard = (props) => {
     const onEditHandler = () => {(edit === true) ? setEdit(false) : setEdit(true)};
 
     const changeUserDetails = async (data) => {
-        console.log('in the change user details');
         const nameArray = data.name.split(' ');
         const firstName = nameArray[0];
         const lastName = nameArray[1] ? nameArray[1] : '';
