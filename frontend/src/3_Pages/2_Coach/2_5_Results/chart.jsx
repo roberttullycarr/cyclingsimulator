@@ -1,11 +1,10 @@
 import { ResponsivePie } from "@nivo/pie";
-import { ChartWrapper } from "../2_4_AthleteOverview/chart";
 import styled from "styled-components";
 
 const PieChartWrapper = styled.div`
   text-align: center;
   position: relative;
-  width: 100%;
+  width: 780px;
   height: 500px;
   padding: 0;
   border: none;

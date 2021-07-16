@@ -11,7 +11,6 @@ import { ReactComponent as Calories } from '../../5_Assets/SVG/31_kcal.svg'
 import { ReactComponent as AverageSpeed } from '../../5_Assets/SVG/32_avaragespeed.svg'
 import arrowThin from '../../5_Assets/SVG/41_arrow.svg'
 import Table from "./Table";
-import TextField from "./TextField";
 import React, { useState } from "react";
 import jsPDF from "jspdf";
 import domtoimage from 'dom-to-image';
@@ -26,7 +25,7 @@ const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 87.5vw;
-  height: ${props => (props.expand === 'hidden') ? '40vw' : '115vw'};
+  height: ${props => (props.expand === 'hidden') ? '30vw' : '115vw'};
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
@@ -165,10 +164,10 @@ const RoutCardLarge = props => {
                         <StatField image={<Calories/>} stat={total_kcal} name={'Calories'}/>
                         <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
                     </Stats>
-                    <PieNivo route={props.route}/>
                 </Wrapper>
                 <BottomWrapper expand={expanded}>
                     <Table segments={segments}/>
+                    <PieNivo route={props.route} />
                 </BottomWrapper>
                 <ArrowButton onClick={onClickHandler} expand={expanded}/>
             </Card>
