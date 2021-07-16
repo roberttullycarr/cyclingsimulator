@@ -106,8 +106,6 @@ export const LogoutContainer = styled.div`
         transform: rotate(180deg);
         height:auto;
     }
-    
-
 `;
 export const LogoutText = styled.p`
     color: white;

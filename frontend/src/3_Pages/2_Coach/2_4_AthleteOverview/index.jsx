@@ -9,18 +9,24 @@ import SessionCard from "../../../4_Components/5_SessionCard";
 import LineNivo from "./chart";
 import NewSession from "../../../4_Components/27_NewSession";
 import UserInfoCard from "../../../4_Components/26_UserInfoCard";
+import {useHistory} from "react-router";
 
 
 const AthleteOverview = props => {
     const dispatch = useDispatch()
     const profile = useSelector(state => state.clientDetails)
     const recentSessions = useSelector(state => state.clientRecentSessions)
+    const history = useHistory();
+    const token = useSelector(state => state.token);
 
     useEffect(() => {
         const client_id = props.match.params.index
         dispatch(fetchClientDetails(client_id))
         dispatch(fetchClientRecentSessions(client_id))
-    }, [dispatch, props.match.params.index])
+
+        if(!token)history.push("/signin")
+
+    }, [dispatch, props.match.params.index, token, history])
 
     return (
         <Main>

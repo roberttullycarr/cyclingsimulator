@@ -7,17 +7,22 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchSpecificSession} from "../../../2_Store/Fetches/get_specific_session";
 import SessionCardLarge from "../../../4_Components/6_SessionCardLarge";
+import {useHistory} from "react-router";
 
 const Results = props => {
     const dispatch = useDispatch()
     const session = useSelector(state => state.specificSession)
     const results = useSelector(state => state.sessionResults)
     const { id, client, created } = session
+    const history = useHistory();
+    const token = useSelector(state => state.token);
 
     useEffect(() => {
         const session_id = props.match.params.index
         dispatch({type: 'CLEAR_RESULTS'})
         dispatch(fetchSpecificSession(session_id))
+        if(!token)history.push("/signin")
+
     }, [dispatch, props.match.params.index])
 
     return (

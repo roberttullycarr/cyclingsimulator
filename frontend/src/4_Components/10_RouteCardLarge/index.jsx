@@ -37,8 +37,8 @@ const RoutCardLarge = props => {
         domtoimage.toPng(document.getElementById(`${id}`), {}).then(imgInfo => {
             const img = new Image();
             img.src = imgInfo;
-            const pdf = new jsPDF("landscape", "px",[1000, 400]);
-            pdf.addImage(img, 70, 10, undefined, undefined, null, "FAST");
+            const pdf = new jsPDF("landscape", "px",[1000, 500]);
+            pdf.addImage(img, 70, 0, undefined, undefined, null, "FAST");
             pdf.save(`${new Date().toISOString()}.pdf`);
             setPdfView(null)
         });
