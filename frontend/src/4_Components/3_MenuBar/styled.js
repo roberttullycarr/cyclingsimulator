@@ -28,7 +28,7 @@ a {
     text-decoration: none;
 }
 &:hover {
-    width: 30%;
+    width: 18%;
     button{
         display:none;
     }
@@ -110,5 +110,5 @@ export const LogoutContainer = styled.div`
 export const LogoutText = styled.p`
     color: white;
     font-weight: 700;
-    font-size: 2vw;
+    font-size: 1.4vw;
 `;
