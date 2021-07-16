@@ -11,7 +11,8 @@ const initialState = {
     specificSession: {},
     specificRoute: {},
     allRoutes: [],
-    sessionResults: {}
+    sessionResults: {},
+    allCoaches: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -54,6 +55,8 @@ const reducer = (state = initialState, action) => {
              return {...state, allRoutes: action.payload}
          case 'SESSION_RESULTS':
              return {...state, sessionResults: action.payload}
+         case 'ALL_COACHES':
+             return {...state, allCoaches: action.payload}
          case 'CLEAR_RESULTS':
              return { ...state, sessionResults: {} }
          default:
