@@ -1,11 +1,12 @@
 import { ResponsivePie } from "@nivo/pie";
-import { ChartWrapper } from "../2_4_AthleteOverview/chart";
 import styled from "styled-components";
 
-const PieChartWrapper = styled(ChartWrapper)`
+const PieChartWrapper = styled.div`
   text-align: center;
   position: relative;
-  width: 700px;
+  width: 85%;
+  aspect-ratio: 4.05 / 1;
+  height: 400px;
   padding: 0;
 
   .overlay {
@@ -49,8 +50,8 @@ const legends = [
     anchor: "left",
     direction: "row",
     justify: false,
-    translateX: -5,
-    translateY: 220,
+    translateX: 190,
+    translateY: 200,
     itemsSpacing: 200,
     itemWidth: 100,
     itemHeight: 20,
@@ -80,7 +81,7 @@ const PieNivo = props => {
       value: `${carbs_needed_from_food}`
     },
     {
-      id: `${number_of_drinks} energy drink`,
+      id: `${number_of_drinks} isotonic drink`,
       label: "Carbs in grams from drinks",
       value: `${carbs_from_drink_in_grams}`
     }

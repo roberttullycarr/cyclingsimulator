@@ -11,7 +11,6 @@ import {useEffect, useState} from "react";
 import {fetchMyClients} from "../../../2_Store/Fetches/client_list";
 import NewClient from "../../../4_Components/12_NewClient";
 
-
 const Clients = () => {
     const dispatch = useDispatch()
     const myClients = useSelector(state => state.myClients);
@@ -26,7 +25,6 @@ const Clients = () => {
             <MenuBar />
             <Body>
                 <HeaderBar title={'Clients'}/>
-
                 <Container>
                     <div className="helper">
                         <SearchIcon/>
@@ -40,7 +38,7 @@ const Clients = () => {
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column">
                     { myClients ? myClients.map(client =>
-                        <ClientCard client={client}/>
+                            <ClientCard client={client}/>
                         )
                         : 'Loading...'}
 

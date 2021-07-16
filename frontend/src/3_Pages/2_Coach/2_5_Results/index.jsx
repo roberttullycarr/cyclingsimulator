@@ -16,6 +16,7 @@ const Results = props => {
 
     useEffect(() => {
         const session_id = props.match.params.index
+        dispatch({type: 'CLEAR_RESULTS'})
         dispatch(fetchSpecificSession(session_id))
     }, [dispatch, props.match.params.index])
 
