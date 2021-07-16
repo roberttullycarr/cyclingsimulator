@@ -15,14 +15,18 @@ import TextField from "./TextField";
 import React, { useState } from "react";
 
 const Container = styled.div`
+  display:flex;
+  flex-direction: column;
+  width: 100%;
   margin-top: 2%;
+  margin-left: 15%;
   margin-bottom: 2%;
 `
 
 const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
-  width: 87.5vw;
+  width: 85%;
   height: ${props => (props.expand === 'hidden') ? '23vw' : '115vw'};
   transition: all 0.7s linear;
   display: flex;
