@@ -15,12 +15,11 @@ const Sessions = () => {
     const [keyWord, setKeyWord] = useState('')
     const dispatch = useDispatch()
     const sessions = useSelector(state => state.allSessions)
-    const [offset, setOffset] = useState(0)
 
     useEffect(() => {
-        dispatch(fetchAllSessions(keyWord, offset))
+        dispatch(fetchAllSessions(keyWord))
 
-    }, [keyWord, offset])
+    }, [keyWord])
 
     return (
         <Main>
@@ -35,7 +34,6 @@ const Sessions = () => {
                            onChange={(e) => setKeyWord(e.target.value)}/>
                 </Container>
                 {sessions ? sessions.map(session => <SessionCard session={session}/>) : 'Loading...'}
-                <p onClick={() => setOffset(offset+10)}>Load more sessions</p>
             </Body>
         </Main>
     )

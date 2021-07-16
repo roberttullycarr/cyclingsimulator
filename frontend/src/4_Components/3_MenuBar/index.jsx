@@ -43,7 +43,7 @@ const MenuBar = () => {
                 <MBLink icon={<Sessions />} navbarname={"Sessions"} url={'/coach/sessions'} />
             </LinksMainDiv>
 
-            <LogoutContainer onClick={() => history.push('/signin')}> 
+            <LogoutContainer onClick={() => {localStorage.removeItem('token'); history.push('/signin')}}>
                 <LogOutBtn className="hidden">
                     <LogoutIcon />
                 </LogOutBtn>

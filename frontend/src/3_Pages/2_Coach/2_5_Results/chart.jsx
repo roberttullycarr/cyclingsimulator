@@ -23,12 +23,12 @@ const PieChartWrapper = styled.div`
   }
   
   .largeFont {
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 50px;
   }
   
   .smallFont {
-    font-size: 18px;
+    font-size: 15px;
   }
 `
 
