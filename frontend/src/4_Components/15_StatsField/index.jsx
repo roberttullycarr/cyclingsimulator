@@ -16,7 +16,7 @@ const Stat = styled.div`
   align-self: center;
   justify-self: center;
   svg {
-    height: 3vw;
+    height: 2vw;
     margin-bottom: 5%;
     fill: ${props => props.theme.AccentGray};
   }

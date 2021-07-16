@@ -12,11 +12,11 @@ const DetailTable = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 31.9vw;
+  max-height: 31.9vw;
   overflow: auto;
   color: ${props => props.theme.SlightlyBlack};
-  // div:nth-child(even){color: ${props => props.theme.SlightlyBlack};}
-  // div:nth-child(odd){color: ${props => props.theme.AccentGray};}
+  div:nth-child(even){color: ${props => props.theme.SlightlyBlack};}
+  div:nth-child(odd){color: ${props => props.theme.AccentGray};}
 `
 
 
@@ -27,10 +27,12 @@ const Head = styled.div`
     font-size: 1.2vw;
     width: 16.67%;
     height: 3.19vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: ${props => props.theme.TableBlue};
     color: ${props => props.theme.ELWhite};
     border-radius: 5px;
-    text-align: center;
     margin-left: 0.5%;
     margin-right: 0.5%;
   }
