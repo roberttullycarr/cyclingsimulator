@@ -4,10 +4,10 @@ import styled from "styled-components";
 const PieChartWrapper = styled.div`
   text-align: center;
   position: relative;
-  width: 780px;
-  height: 500px;
+  width: 85%;
+  aspect-ratio: 4.05 / 1;
+  height: 400px;
   padding: 0;
-  border: none;
 
   .overlay {
     position: absolute;
@@ -50,8 +50,8 @@ const legends = [
     anchor: "left",
     direction: "row",
     justify: false,
-    translateX: -5,
-    translateY: 220,
+    translateX: 190,
+    translateY: 200,
     itemsSpacing: 200,
     itemWidth: 100,
     itemHeight: 20,
@@ -81,7 +81,7 @@ const PieNivo = props => {
       value: `${carbs_needed_from_food}`
     },
     {
-      id: `${number_of_drinks} energy drink`,
+      id: `${number_of_drinks} isotonic drink`,
       label: "Carbs in grams from drinks",
       value: `${carbs_from_drink_in_grams}`
     }

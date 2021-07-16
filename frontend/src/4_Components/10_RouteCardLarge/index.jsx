@@ -65,9 +65,15 @@ const RoutCardLarge = props => {
                         <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
                     </Stats>
                 </Wrapper>
+                <Wrapper>
+                    <p>Yo, you need 75 cl of isotonic drink every hour.
+                        In your case, this means that you will need to bring one 75 cl bottle of isotonic drink with you on the climb.
+                        an isotonic drink has around 45 grams of carbohydrates per bottle of 75cl,
+                        so you will already have 41 grams of carbohydrates from your isotonic drink.</p>
+                    <PieNivo route={props.route} />
+                </Wrapper>
                 <BottomWrapper expand={expanded}>
                     <Table segments={segments}/>
-                    <PieNivo route={props.route} />
                 </BottomWrapper>
                 <ArrowButton onClick={onClickHandler} expand={expanded}/>
             </Card>

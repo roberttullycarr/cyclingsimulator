@@ -11,7 +11,7 @@ export const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 100%;
-  height: ${props => (props.expand === 'hidden') ? '23vw' : '108vw'};
+  height: ${props => (props.expand === 'hidden') ? '50vw' : '108vw'};
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
