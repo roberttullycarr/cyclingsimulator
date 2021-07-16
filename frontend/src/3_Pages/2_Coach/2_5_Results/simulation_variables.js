@@ -30,3 +30,15 @@ export const riderPosition = [
     ['Hands on drop bars', 0.340833189],
     ['Time trial position', 0.29833857]
 ]
+
+export const elevation = [
+    ['sea level', 1.23],
+    ['1000m above sea level', 1.15],
+    ['1500m above sea level', 1.080],
+    ['2000m above sea level', 1],
+    ['2500m above sea level', 0.9],
+    ['3000m above sea level', 0.81],
+    ['3500m above sea level', 0.73],
+    ['4000m above sea level', 0.66],
+    ['6000m above sea level', 0.615]
+]

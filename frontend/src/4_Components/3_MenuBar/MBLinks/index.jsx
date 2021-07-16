@@ -33,7 +33,7 @@ const DivMenuLink = styled.div`
 const NameNavBar = styled.p`
     color: white;
     font-weight: 700;
-    font-size: 2vw;
+    font-size: 1.4vw;
 `;
 
 const MBLink = (props) => {

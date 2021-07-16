@@ -2,6 +2,10 @@ import styled from "styled-components";
 import Title from "../14_Title";
 import BaseButton from "../4_ButtonsInputs/Button";
 import {useSelector} from "react-redux";
+import SegmentLine from "./SegmentLine";
+import {useState} from "react";
+import NewSegmentLine from "./NewSegmentLine";
+import SegmentHeaders from "./SegmentHeaders";
 
 const SegmentsWrap = styled.div`
   width: 85%;
@@ -31,16 +35,20 @@ const NoSegText = styled.h1`
 
 
 const RouteSegments = (props) => {
+    const [edit, setEdit] = useState(false)
     const route = useSelector(state => state.specificRoute);
+    const onEditHandler = () => {(edit === true) ? setEdit(false) : setEdit(true)};
 
 
     return (
         <SegmentsWrap>
             <Title text={'Segments'}/>
             <SegmentsMain>
-                {route['segments'] && route.segments.length > 0 ? <p>hello</p> :
-                    <NoSegText>This route currently has no segments.  Click the button to add some!</NoSegText>}
-                <BaseButton text={'Add Segment'} width={10} num={5} denom={1}/>
+                <SegmentHeaders/>
+                {route['segments'] && route.segments.length > 0 ? route.segments.map((segment) => <SegmentLine segment={segment}/>) :
+                    <NoSegText>This route currently has no segments. Click to add some!</NoSegText>}
+                {edit ? null : <NewSegmentLine index={route.id}/>}
+                <BaseButton text={'Add Segment'} action={onEditHandler} width={12} num={4} denom={1} fontSize={1.1}/>
             </SegmentsMain>
         </SegmentsWrap>
     )

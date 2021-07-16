@@ -3,7 +3,7 @@ import EL_logo from '../../5_Assets/PNG/energylab_notext.png'
 import Avatar from "../7_Avatar";
 import MBLink from "./MBLinks";
 import { ReactComponent as LogoutIcon } from "../../5_Assets/SVG/43_navbarBtn.svg";
-import { ReactComponent as Overview } from '../../5_Assets/SVG/11_overview.svg';
+import { ReactComponent as Coach } from '../../5_Assets/SVG/cap-hat.svg';
 import { ReactComponent as Clients} from '../../5_Assets/SVG/12_clients.svg';
 import { ReactComponent as Routes } from '../../5_Assets/SVG/13_routes.svg';
 import { ReactComponent as Sessions } from '../../5_Assets/SVG/14_sessions.svg';
@@ -37,7 +37,7 @@ const MenuBar = () => {
             </Wrapper>
                 
             <LinksMainDiv>
-                <MBLink icon={<Overview />} navbarname={"Overview"} url={'/coach/overview'} />
+                {myInfo.is_superuser ? <MBLink icon={<Coach />} navbarname={"Coaches"} url={'/admin'} /> : null}
                 <MBLink icon={<Clients />} navbarname={"Clients"} url={'/coach/clients'} />
                 <MBLink icon={<Routes />} navbarname={"Routes"} url={'/coach/routes'} /> 
                 <MBLink icon={<Sessions />} navbarname={"Sessions"} url={'/coach/sessions'} />
