@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 import SegmentLine from "./SegmentLine";
 import {useState} from "react";
 import NewSegmentLine from "./NewSegmentLine";
+import SegmentHeaders from "./SegmentHeaders";
 
 const SegmentsWrap = styled.div`
   width: 85%;
@@ -43,6 +44,7 @@ const RouteSegments = (props) => {
         <SegmentsWrap>
             <Title text={'Segments'}/>
             <SegmentsMain>
+                <SegmentHeaders/>
                 {route['segments'] && route.segments.length > 0 ? route.segments.map((segment) => <SegmentLine segment={segment}/>) :
                     <NoSegText>This route currently has no segments. Click to add some!</NoSegText>}
                 {edit ? null : <NewSegmentLine index={route.id}/>}

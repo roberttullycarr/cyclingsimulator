@@ -12,18 +12,18 @@ import OptionField from "../../13_RouteOptions/OptionField";
 import {elevation} from "../../../3_Pages/2_Coach/2_5_Results/simulation_variables";
 import Title from "../../14_Title";
 
-const NSLMain = styled(SLMain)`
+export const NSLMain = styled(SLMain)`
 height: 5vw;
   //border: 1px solid red;
 `
-const NSLForm = styled(SLForm)`
+export const NSLForm = styled(SLForm)`
   width: 100% !important;
   //border: 1px solid blue;
   margin: 0;
   padding-left: 3%;
 `
 
-const NSLOptionTitle = styled.h2`
+export const NSLOptionTitle = styled.h2`
 //margin: 0 0 .5% 2%;
 color: ${props => props.theme.ELBlue};
 font-family: Roboto, sans-serif;
@@ -38,7 +38,7 @@ const NSLSaveBtn = styled(SLSaveBtn)`
   //border: 1px solid green;
 `
 
-const NSLInputMain = styled.div`
+export const NSLInputMain = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -51,7 +51,7 @@ const NewSegmentLine = (props) => {
     const { register, handleSubmit, reset } = useForm();
     const dispatch = useDispatch();
     const route = useSelector(state => state.specificRoute);
-    const lastSegment = route ? route.segments.slice(-1) : {};
+    // const lastSegment = route ? route.segments.slice(-1) : {};
 
     console.log(route);
 
