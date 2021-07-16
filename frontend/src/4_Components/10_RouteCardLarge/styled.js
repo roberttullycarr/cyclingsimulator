@@ -11,7 +11,7 @@ export const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 100%;
-  height: ${props => (props.expand === 'hidden') ? '23vw' : '115vw'};
+  height: ${props => (props.expand === 'hidden') ? '23vw' : '108vw'};
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,8 @@ export const Wrapper = styled.div`
   img{
     width: 16vw;
     height: 16vw;
-    object-position: left bottom;
+    object-position: middle middle;
+    object-fit: cover;
     border-radius: 5px;
   }
 `
@@ -62,10 +63,10 @@ export const BottomWrapper = styled.div`
 
 export const Stats = styled.div`
   height: 16vw;
-  width: 65%;
-  margin-left: 2%;
+  width: 60%;
+  margin-left: 5%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 2px 1fr;
   align-items: center;
   .StatField{
@@ -77,7 +78,7 @@ export const Stats = styled.div`
 export const Line = styled.div`
   border: solid 1px ${props => props.theme.BorderColor};
   grid-row: 2 / 2;
-  grid-column: 1 / 5;
+  grid-column: 1 / 4;
 `
 
 export const ArrowButton = styled.button`

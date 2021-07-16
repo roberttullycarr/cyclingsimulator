@@ -55,23 +55,10 @@ export const RoutesInput = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-
-  ::-webkit-scrollbar {
-    width: 8px;
+  
+  label{
+    height: 10%;
   }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: ${props => props.theme.ELBlue};
-    border-radius: 20px;
-    border: 3px solid ${props => props.theme.ELBlue};
-  }
-  scrollbar-width: thin;
-  scrollbar-color: ${props => props.theme.ELBlue} transparent;
-  scrollbar-track: hidden;
   
   .routes {
     margin-bottom: 2%;
@@ -85,6 +72,10 @@ export const RoutesInput = styled.div`
     :hover {
       cursor: pointer;
     }
+  }
+  input{
+    width: 8%;
+    height: 100%;
   }
 `
 
