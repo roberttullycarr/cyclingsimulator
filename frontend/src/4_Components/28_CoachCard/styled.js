@@ -20,6 +20,13 @@ export const AthleteWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  div{
+    position: absolute;
+  }
+  svg{
+    z-index: 1;
+  }
 `
 
 export const FormWrapper = styled.form`
