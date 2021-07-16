@@ -6,6 +6,7 @@ import {useState} from "react";
 import {ButtonWrap, FormWrap, NewSessionCard, NewSessionMain, NSContent, SessionClient} from "./styled";
 import Axios from "../../2_Store/Axios";
 import {useDispatch} from "react-redux";
+import {ErrorMessage} from "../13_RouteOptions/styled";
 
 
 const NewSession = (props) => {
@@ -14,6 +15,7 @@ const NewSession = (props) => {
     const dispatch = useDispatch();
 
     const clickHandler = () => {expand === 'false' ? setExpand('true') : setExpand('false')};
+
     const createNewSession = async (data) => {
         const url = `/sessions/new/${props.client.id}/`;
         const config = {
@@ -45,23 +47,27 @@ const NewSession = (props) => {
                 <FormWrap onSubmit={handleSubmit(createNewSession)}>
                     <NSContent>
                         <Avatar width={23} marginLeft={"0"} marginRight={"0"} user={props.client.avatar}/>
-                        <SessionClient>{props.client.full_name}</SessionClient>
+                        <SessionClient>{props.client['full_name']}</SessionClient>
                     </NSContent>
                     <NSContent>
                         <BaseInput var={register} width={80} height={50} name={'pat'} title={'Power (W)'}
-                                   type={'number'} marginTop={0} marginBottom={9}/>
+                                   type={'number'} marginTop={0} marginBottom={9} message={'This field is required'}/>
+                        {errors.pat ? <ErrorMessage>{errors.pat.message}</ErrorMessage> : <ErrorMessage/>}
                     </NSContent>
                     <NSContent>
                         <BaseInput var={register} width={80} height={50} name={'heart_rate'} title={'Heart Rate (BPM)'}
-                                   type={'number'} marginBottom={9}/>
+                                   type={'number'} marginBottom={9} message={'This field is required'}/>
+                        {errors.heart_rate ? <ErrorMessage>{errors.heart_rate.message}</ErrorMessage> : <ErrorMessage/>}
                     </NSContent>
                     <NSContent>
                         <BaseInput var={register} width={80} height={50} name={'weight'} title={'weight (KG)'}
-                                   type={'number'} marginBottom={9}/>
+                                   type={'number'} marginBottom={9} message={'This field is required'}/>
+                        {errors.weight ? <ErrorMessage>{errors.weight.message}</ErrorMessage> : <ErrorMessage/>}
                     </NSContent>
                     <NSContent>
                         <BaseInput var={register} width={80} height={50} name={'height'} title={'Height (CM)'}
-                                   type={'number'} marginBottom={9}/>
+                                   type={'number'} marginBottom={9} message={'This field is required'}/>
+                        {errors.height ? <ErrorMessage>{errors.height.message}</ErrorMessage> : <ErrorMessage/>}
                     </NSContent>
                     <ButtonWrap>
                         <BaseButton type={'submit'} text={"Submit"} height={70} num={3}
@@ -71,6 +77,6 @@ const NewSession = (props) => {
             </NewSessionCard> : null}
         </NewSessionMain>
     )
-};
+}
 
 export default NewSession
