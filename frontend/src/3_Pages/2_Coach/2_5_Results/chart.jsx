@@ -52,7 +52,7 @@ const legends = [
     justify: false,
     translateX: 0,
     translateY: 200,
-    itemsSpacing: 100,
+    itemsSpacing: 120,
     itemWidth: 100,
     itemHeight: 20,
     itemDirection: "left-to-right",
