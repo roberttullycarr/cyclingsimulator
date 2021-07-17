@@ -36,7 +36,7 @@ const Results = props => {
                         <RouteOptions id={id}/>
                     </>
                     : 'Loading...'}
-                {Object.keys(results).length ? results.routes.map(route => <RoutCardLarge route={route}/>) : null}
+                {Object.keys(results).length ? results.routes.map(route => <RoutCardLarge profile={client} route={route}/>) : null}
             </Body>
         </Main>
     )
