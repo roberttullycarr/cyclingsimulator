@@ -1,17 +1,13 @@
-
 import { ReactComponent as AverageGradeIcon } from "../../5_Assets/SVG/28_averagegrade.svg";
 import { ReactComponent as ElevationIcon }from "../../5_Assets/SVG/29_steepestgrade.svg";
 import { ReactComponent as SteepestgradeIcon }from "../../5_Assets/SVG/29_steepestgrade.svg";
 import { ReactComponent as DistanceIcon }from "../../5_Assets/SVG/26_distance.svg";
 import {ContentCard, DivImg, HeroContent, ImgContainer, Line, RouteHeader, RouteName, SVGWrapper, TextCard, WrapperDiv,
-    WrapperLinks, WrapperTitleLinks} from "./styled";
-import {useLocation} from "react-router-dom";
+    WrapperTitleLinks} from "./styled";
 import {useSelector} from "react-redux";
 
 
 const RouteDetailHeader = (props) => {
-    const location = useLocation();
-    const route_id = location.pathname;
     const route = useSelector(state => state.specificRoute);
 
     return (
@@ -21,11 +17,6 @@ const RouteDetailHeader = (props) => {
                     <WrapperTitleLinks>
                         <RouteName>{route.name}</RouteName>
                         <Line/>
-                        <WrapperLinks>
-                            {/*<Link>Lorem ipsum dolor sit amet</Link>*/}
-                            {/*<Link>consectetuer </Link>*/}
-                            {/*<Link>elementum</Link>*/}
-                        </WrapperLinks>
                     </WrapperTitleLinks>
                     <ContentCard>
                         <WrapperDiv>

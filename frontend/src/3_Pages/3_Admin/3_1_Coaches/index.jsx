@@ -16,7 +16,7 @@ const ButtonWrapper = styled.div`
   justify-content: center;
 `
 
-const Coaches = props => {
+const Coaches = () => {
 
     const dispatch = useDispatch()
     const users = useSelector(state => state.allCoaches)

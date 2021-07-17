@@ -39,8 +39,6 @@ const reducer = (state = initialState, action) => {
              let segments = state.specificRoute.segments;
              let newSegment = segments.push(action.payload);
             return { ...state, specificRoute: {...state.specificRoute, newSegment}};
-         case 'NEW_CLIENT':
-            return { ...state, myClients: [...state.myClients, action.payload] };
          case 'CLIENT_DETAILS':
              return {...state, clientDetails: action.payload}
          case 'CLIENT_RECENT_SESSIONS':

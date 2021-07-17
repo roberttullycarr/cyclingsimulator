@@ -20,7 +20,7 @@ const RoutCardLarge = props => {
     const [pdfView, setPdfView] = useState(null)
     // destructuring props
     const { id, name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
-        average_speed, total_kcal, avatar, segments} = props.route
+        average_speed, avatar, segments} = props.route
 
     const onClickHandler = (event) => {
         event.preventDefault();

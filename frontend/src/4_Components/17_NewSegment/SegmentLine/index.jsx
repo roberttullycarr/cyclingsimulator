@@ -58,7 +58,7 @@ const SegmentLine = (props) => {
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
-        const response = await Axios.delete(url, config);
+        await Axios.delete(url, config);
         const session_id = route.id;
         dispatch(fetchSpecificRoute(session_id))
     }
@@ -68,7 +68,7 @@ const SegmentLine = (props) => {
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
-        const response = await Axios.patch(url, data, config);
+        await Axios.patch(url, data, config);
         const session_id = route.id;
         dispatch(fetchSpecificRoute(session_id))
         onEditHandler();

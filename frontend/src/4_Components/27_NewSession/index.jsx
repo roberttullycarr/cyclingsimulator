@@ -14,7 +14,7 @@ const NewSession = (props) => {
     const [expand, setExpand] = useState('false');
     const dispatch = useDispatch();
 
-    const clickHandler = () => {expand === 'false' ? setExpand('true') : setExpand('false')};
+    const clickHandler = () => expand === 'false' ? setExpand('true') : setExpand('false');
 
     const createNewSession = async (data) => {
         const url = `/sessions/new/${props.client.id}/`;
@@ -70,8 +70,8 @@ const NewSession = (props) => {
                         {errors.height ? <ErrorMessage>{errors.height.message}</ErrorMessage> : <ErrorMessage/>}
                     </NSContent>
                     <ButtonWrap>
-                        <BaseButton type={'submit'} text={"Submit"} height={70} num={3}
-                                    denom={1} fontSize={1.3} marginLeft={20}/>
+                        <BaseButton type={'submit'} text={"Submit"} num={6} width={50}
+                                    denom={2} fontSize={1.3} marginLeft={20}/>
                     </ButtonWrap>
                 </FormWrap>
             </NewSessionCard> : null}

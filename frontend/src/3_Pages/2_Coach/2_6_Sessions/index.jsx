@@ -7,8 +7,6 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllSessions} from "../../../2_Store/Fetches/all_sessions";
 import {ReactComponent as SearchIcon} from "../../../5_Assets/SVG/40_search.svg";
-import NewSession from "../../../4_Components/27_NewSession";
-import {off} from "leaflet/src/dom/DomEvent";
 
 
 const Sessions = () => {
@@ -19,7 +17,7 @@ const Sessions = () => {
     useEffect(() => {
         dispatch(fetchAllSessions(keyWord))
 
-    }, [keyWord])
+    }, [dispatch, keyWord])
 
     return (
         <Main>

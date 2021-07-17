@@ -1,41 +1,33 @@
 import styled from "styled-components"
-import SLData from "../SLData";
 import BaseButton from "../../4_ButtonsInputs/Button";
-import {ReactComponent as Pencil} from "../../../5_Assets/SVG/43_pencil.svg";
 import {SLForm, SLMain, SLSaveBtn} from "../SegmentLine";
 import {useForm} from "react-hook-form";
 import BaseInput from "../../4_ButtonsInputs/Input";
-import {segmentValidate} from "./segment_validate";
 import Axios from "../../../2_Store/Axios";
 import {useDispatch, useSelector} from "react-redux";
 import OptionField from "../../13_RouteOptions/OptionField";
 import {elevation} from "../../../3_Pages/2_Coach/2_5_Results/simulation_variables";
-import Title from "../../14_Title";
 
 export const NSLMain = styled(SLMain)`
-height: 5vw;
-  //border: 1px solid red;
+  height: 5vw;
 `
 export const NSLForm = styled(SLForm)`
   width: 100% !important;
-  //border: 1px solid blue;
   margin: 0;
   padding-left: 3%;
 `
 
 export const NSLOptionTitle = styled.h2`
-//margin: 0 0 .5% 2%;
-color: ${props => props.theme.ELBlue};
-font-family: Roboto, sans-serif;
-font-size: 1.1vw;
-text-align: left;
+  color: ${props => props.theme.ELBlue};
+  font-family: Roboto, sans-serif;
+  font-size: 1.1vw;
+  text-align: left;
 `
 
 const NSLSaveBtn = styled(SLSaveBtn)`
   justify-content: flex-end !important;
   align-items: center;
   width: 8% !important;
-  //border: 1px solid green;
 `
 
 export const NSLInputMain = styled.div`
@@ -44,7 +36,7 @@ export const NSLInputMain = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 23%;
-  //border: 1px solid purple;
+
 `
 
 const NewSegmentLine = (props) => {

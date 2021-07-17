@@ -17,7 +17,7 @@ const RoutesDetail = (props) => {
         const session_id = props.match.params.index
         dispatch(fetchSpecificRoute(session_id))
         if(!token)history.push("/signin")
-    }, [dispatch, token, history]);
+    }, [dispatch, token, history, props.match.params.index]);
 
 
     return (

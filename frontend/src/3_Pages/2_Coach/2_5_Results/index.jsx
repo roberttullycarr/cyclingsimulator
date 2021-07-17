@@ -23,7 +23,7 @@ const Results = props => {
         dispatch(fetchSpecificSession(session_id))
         if(!token)history.push("/signin")
 
-    }, [dispatch, props.match.params.index])
+    }, [dispatch, props.match.params.index, history, token])
 
     return (
         <Main>

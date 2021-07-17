@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
   img{
     width: 16vw;
     height: 16vw;
-    object-position: middle middle;
+    object-position: center;
     object-fit: cover;
     border-radius: 5px;
   }
