@@ -4,7 +4,7 @@ import styled from "styled-components";
 const PieChartWrapper = styled.div`
   text-align: center;
   position: relative;
-  width: 85%;
+  width: 50%;
   aspect-ratio: 4.05 / 1;
   height: 400px;
   padding: 0;
@@ -32,7 +32,7 @@ const PieChartWrapper = styled.div`
   }
 `
 
-const margin = { top: 50, right: 110, bottom: 100, left: 100 };
+const margin = { top: 40, right: 110, bottom: 100, left: 100 };
 
 const theme = {
   background: "#ffffff",
@@ -50,9 +50,9 @@ const legends = [
     anchor: "left",
     direction: "row",
     justify: false,
-    translateX: 190,
+    translateX: 0,
     translateY: 200,
-    itemsSpacing: 200,
+    itemsSpacing: 100,
     itemWidth: 100,
     itemHeight: 20,
     itemDirection: "left-to-right",

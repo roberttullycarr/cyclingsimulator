@@ -12,15 +12,29 @@ import React, { useState } from "react";
 import jsPDF from "jspdf";
 import domtoimage from 'dom-to-image';
 import PieNivo from "../../3_Pages/2_Coach/2_5_Results/chart";
-import {ArrowButton, BottomWrapper, Card, Container, Line, Name, Stats, Wrapper, WrapperTop} from "./styled";
-
+import {
+    ArrowButton,
+    BottomWrapper,
+    Card,
+    Container,
+    Line,
+    Name,
+    Stats,
+    StatsWrapper,
+    InfoWrapper,
+    WrapperTop,
+    TextWrapper,
+    Logo,
+} from "./styled";
+import logo from '../../5_Assets/PNG/energylab.png';
+import TextField from "./TextField";
 
 const RoutCardLarge = props => {
     const [expanded, setExpanded] = useState('hidden')
     const [pdfView, setPdfView] = useState(null)
     // destructuring props
     const { id, name, average_grade, elevation, steepest_km, total_distance_in_km, total_time,
-        average_speed, total_kcal, avatar, segments} = props.route
+        average_speed, avatar, segments} = props.route
 
     const onClickHandler = (event) => {
         event.preventDefault();
@@ -37,23 +51,27 @@ const RoutCardLarge = props => {
         domtoimage.toPng(document.getElementById(`${id}`), {}).then(imgInfo => {
             const img = new Image();
             img.src = imgInfo;
-            const pdf = new jsPDF("landscape", "px",[1000, 500]);
-            pdf.addImage(img, 70, 0, undefined, undefined, null, "FAST");
+            const pdf = new jsPDF('l');
+            pdf.addImage(img, 0, 0, 300, 185, null, "FAST"); // in landscape
+            // pdf.addImage(img, 0, 0, 210, 130, null, "FAST"); // in portait
             pdf.save(`${new Date().toISOString()}.pdf`);
             setPdfView(null)
         });
     }
 
+
+
     return (
         <Container>
             <Title text={'Result'}/>
-            <Card id={id} expand={expanded}>
+            <Card id={id} expand={expanded} whilePDF={pdfView}>
                 <WrapperTop>
                     <Name>{name}</Name>
-                    <BaseButton action={generatePDF} visibility={pdfView}
-                                text={'Generate PDF'} height={100} width={12} fontSize={'1.2'}/>
+                    <BaseButton action={generatePDF} text={'Generate PDF'} height={100} width={12} fontSize={'1.2'}
+                        visibility={pdfView}/>
+                    <Logo src={logo} whilePDF={pdfView}/>
                 </WrapperTop>
-                <Wrapper>
+                <StatsWrapper>
                     <img src={avatar} alt='route-avatar'/>
                     <Stats>
                         <StatField image={<Distance/>} stat={total_distance_in_km} name={'Distance in KM'}/>
@@ -64,18 +82,17 @@ const RoutCardLarge = props => {
                         <StatField image={<TotalTime/>} stat={total_time} name={'Total Time'}/>
                         <StatField image={<AverageSpeed/>} stat={average_speed} name={'Average Speed in KM'}/>
                     </Stats>
-                </Wrapper>
-                <Wrapper>
-                    <p>Yo, you need 75 cl of isotonic drink every hour.
-                        In your case, this means that you will need to bring one 75 cl bottle of isotonic drink with you on the climb.
-                        an isotonic drink has around 45 grams of carbohydrates per bottle of 75cl,
-                        so you will already have 41 grams of carbohydrates from your isotonic drink.</p>
+                </StatsWrapper>
+                <InfoWrapper>
+                    <TextWrapper>
+                        <TextField data={props.route} fullName={props.profile.full_name}/>
+                    </TextWrapper>
                     <PieNivo route={props.route} />
-                </Wrapper>
+                </InfoWrapper>
                 <BottomWrapper expand={expanded}>
                     <Table segments={segments}/>
                 </BottomWrapper>
-                <ArrowButton onClick={onClickHandler} expand={expanded}/>
+                {(pdfView === 'hidden') ? null: <ArrowButton onClick={onClickHandler} expand={expanded}/>}
             </Card>
         </Container>
     )
