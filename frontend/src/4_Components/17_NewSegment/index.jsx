@@ -8,7 +8,7 @@ import NewSegmentLine from "./NewSegmentLine";
 import SegmentHeaders from "./SegmentHeaders";
 
 const SegmentsWrap = styled.div`
-  width: 85%;
+  width: ${props => props.theme.CardWidthPercent};
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -21,11 +21,11 @@ const SegmentsMain = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   padding: 1.2vw 1.2vw;
-  border: 1px solid #BDBDBD;
-  border-radius: 5px;
+  border: ${props => props.theme.CardBorder};
+  border-radius: ${props => props.theme.CardBorderRadius};
 `;
 
 const NoSegText = styled.h1`

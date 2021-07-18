@@ -4,14 +4,14 @@ import styled from "styled-components";
 
 export const ChartWrapper = styled.div`
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  background-color: ${props => props.theme.ELWhite};
+  background-color: ${props => props.theme.CardBackColor};
   display: flex;
   justify-content: center;
   height: 500px;
   width: 85%;
   margin-top: 2vw;
   margin-bottom: 2vw;
-  border: 1px solid #BDBDBD;
+  border: ${props => props.theme.CardBorder};
   border-radius: 5px;
   padding: 2%;
 `

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const RouteGenWrap = styled.div`
-  width: 85%;
+  width: ${props => props.theme.CardWidthPercent};
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -11,9 +11,9 @@ export const Form = styled.form`
   aspect-ratio: 4.05 / 1;
   width: 100%;
   height: auto;
-  background: ${props => props.theme.ELWhite};
-  border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 5px;
+  background: ${props => props.theme.CardBackColor};
+  border: ${props => props.theme.CardBorder};
+  border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
 
 `

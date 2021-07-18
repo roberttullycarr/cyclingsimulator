@@ -22,6 +22,7 @@ class CoachesListSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'location',
+            'phone_number',
             'clients',
             'is_coach',
             'is_superuser',

@@ -4,6 +4,6 @@ export const NewClientMain = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 85%;
+  width: ${props => props.theme.CardWidthPercent};
   //margin-bottom: 2vw;
 `

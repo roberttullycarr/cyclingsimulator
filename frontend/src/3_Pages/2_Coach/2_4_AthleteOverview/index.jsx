@@ -10,6 +10,7 @@ import LineNivo from "./chart";
 import NewSession from "../../../4_Components/27_NewSession";
 import UserInfoCard from "../../../4_Components/26_UserInfoCard";
 import {useHistory} from "react-router";
+import CoachCard from "../../../4_Components/28_CoachCard";
 
 
 const AthleteOverview = props => {
@@ -35,7 +36,7 @@ const AthleteOverview = props => {
                 <HeaderBar title={`ATHLETE - ${profile['full_name']}`}/>
                 { Object.keys(profile).length ?
                     <>
-                        <UserInfoCard user={profile}/>
+                        <CoachCard user={profile} type={'clients'} />
                         <LineNivo sessions={recentSessions}/>
                         <NewSession client={profile}/>
                         { recentSessions.map(session => <SessionCard session={session}/>) }

@@ -5,7 +5,7 @@ position: fixed;
 left: 0;
 width: 4.5%;
 height: 100vh;
-background: ${props => props.theme.ELBlue};
+background: #1a1a1a;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -33,8 +33,9 @@ a {
         display:none;
     }
     .logoHoverWidth {
-        width: 7vw;
+        width: 6vw;
         margin: 13px 0;
+        transition: 0.2s ease;
     }
     .hidden{
         display:none;
@@ -63,36 +64,39 @@ background: transparent;
 export const BorderLine = styled.hr`
 width: 55%;
 height: 1px;
-background: ${props => props.theme.BackgroundLightGrey};
+background: ${props => props.theme.MBLinkColor};
 `
 
 export const LinksMainDiv = styled.div`
-position: relative;
-height: 100%;
-width: 100%;
+  position: absolute;
+  top: 58%;
+  height: 48%;
+  width: 100%;
+  transform: translateY(-50%);
 `
 // Navbar animation
 
 export const Wrapper = styled.div`
-    width: 3.5vw;
-    margin: 5vh 0;
+    width: 4vw;
+    margin: 3.6vh 0 6.4vw;
     position: relative;
 `;
 
 export const WrapperLogo = styled.div`
     width: 5vw;
-    margin: 1.3vw 0 0.7vw;
+    margin: 1.1vw 0 0.9vw;
     height: 5.395vw;
     text-align: center;
 `;
 export const LogOutBtn = styled.div`
-
+height: 120%;
 `;
 export const LogoutContainer = styled.div`
-    margin: 4vh 0;
+    position: absolute;
+    bottom: 0;
     cursor: pointer;
     width: 100%;
-    height: 15%;
+    height: 6%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,14 +105,14 @@ export const LogoutContainer = styled.div`
         background: #8bc34a;
     }
     svg{
-        fill: ${props => props.theme.BackgroundLightGrey};
+        fill: ${props => props.theme.MBLinkColor};
         width: 2vw;
         transform: rotate(180deg);
         height:auto;
     }
 `;
 export const LogoutText = styled.p`
-    color: white;
+    color: ${props => props.theme.MBLinkColor};
     font-weight: 700;
     font-size: 1.4vw;
 `;

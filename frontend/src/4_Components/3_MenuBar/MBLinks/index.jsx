@@ -7,6 +7,7 @@ border: none;
 background: none;
 svg{
     width: 50%;
+    fill: ${props => props.theme.MBLinkColor};
 }
 `
 const DivMenuLink = styled.div`
@@ -17,21 +18,21 @@ const DivMenuLink = styled.div`
     cursor:pointer;
     &:hover{
         //background: #0177B1;
-        background: #8bc34a;
+        background: ${props => props.theme.MBLinkActiveColor};
         p{
             color: ${props => props.theme.ELWhite}!important;
         } 
     }
     .main-nav-active{
         svg{
-            fill: #8bc34a;
+            fill: ${props => props.theme.MBLinkActiveColor};
         }
-        p{color: #8bc34a }
+        p{color: ${props => props.theme.MBLinkActiveColor}}
        
     }
 `;
 const NameNavBar = styled.p`
-    color: white;
+    color: ${props => props.theme.MBLinkColor};
     font-weight: 700;
     font-size: 1.4vw;
 `;

@@ -15,9 +15,9 @@ export const Card = styled.div`
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
-  background: ${props => props.theme.ELWhite};
-  border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 3px;
+  background: ${props => props.theme.CardBackColor};
+  border: ${props => props.theme.CardBorder};
+  border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   button{
     margin-right: 2%;

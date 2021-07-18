@@ -6,9 +6,9 @@ export const ClientCardMain = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: ${props => props.theme.ELWhite};
-  border: 1px solid #BDBDBD;
-  border-radius: 5px;
+  background: ${props => props.theme.CardBackColor};
+  border: ${props => props.theme.CardBorder};
+  border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   text-align: center;
   
@@ -21,7 +21,7 @@ export const ClientName = styled.h2`
   font-family: roboto,sans-serif;
   font-weight: 700;
   padding: 0 2%;
-  color: ${props => props.theme.ELBlue};
+  color: ${props => props.theme.MainFontColor};
   height: 15%;
 `;
 
@@ -40,7 +40,7 @@ export const Bold = styled.b`
   font-weight:700;
   font-family: roboto,sans-serif;
   &.grey{
-    color:#bfbfbf;
+    color: ${props => props.theme.DataFontColor};
   }
 `;
 

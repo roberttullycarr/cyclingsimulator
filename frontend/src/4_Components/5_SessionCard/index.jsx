@@ -9,14 +9,14 @@ import {useHistory} from "react-router-dom";
 
 const ContentCard = styled.div`
   width: 85%;
-  background: white;
+  background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
-  padding: 1.2vw 0;
-  border: 1px solid #BDBDBD;
+  padding: .4vw 0;
+  border: ${props => props.theme.CardBorder};
   border-radius: 5px;
-  margin-bottom: 1vw;
+  margin-bottom: 1.2vw;
   
   :hover {
     cursor: pointer;
@@ -25,11 +25,12 @@ const ContentCard = styled.div`
 const ImgSVG = styled.img`
   width: 3vh;
   filter: invert(.5);
-  fill: ${props => props.theme.AccentGray};
+  fill: ${props => props.theme.MBGreen};
 `;
 const PowerSVG = styled.img`
   width: 1.6vh;
   filter: invert(.5);
+  fill: ${props => props.theme.MBGreen};
 `;
 const WrapperDiv = styled.div`
   display: flex;
@@ -40,10 +41,10 @@ const WrapperDiv = styled.div`
 const TextCard = styled.h1`
   margin-left: 14px;
   font-size: 1.2vw;
-  color: ${props => props.theme.SlightlyBlack};
+  color: ${props => props.theme.MainFontColor};
 `;
 const PowerText = styled.h1`
-  color: ${props => props.theme.SlightlyBlack};
+  color: ${props => props.theme.MainFontColor};
   margin-left: 11px;
   font-size: 1.2vw;
 `;
@@ -57,7 +58,7 @@ const SessionCard = (props) => {
     const { id, client, pat, heart_rate, created } = props.session
 
     const simulateSession = () => {
-        history.push(`/coach/results/${id}`)
+        history.push(`/results/${id}`)
     }
 
     return (

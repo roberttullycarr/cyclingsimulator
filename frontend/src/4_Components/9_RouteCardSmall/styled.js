@@ -9,9 +9,9 @@ align-items: center;
 export const RouteCardMain = styled(BaseDiv)`
 width: 95%;
 height: 22vw;
-background: ${props => props.theme.ELWhite};
-border: 1px solid #BDBDBD;
-border-radius: 5px;
+background: ${props => props.theme.CardBackColor};
+border: ${props => props.theme.CardBorder};
+border-radius: ${props => props.theme.CardBorderRadius};
 box-shadow: ${props => props.theme.BoxShadowWidget};
   :hover {
     cursor: pointer;

@@ -7,7 +7,7 @@ export const Main = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
-  background-color: ${props => props.theme.BackgroundLightGrey};
+  background-color: ${props => props.theme.ELWhite};
 `;
 
 

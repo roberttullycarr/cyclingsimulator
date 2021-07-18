@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NewRouteCard = styled.div`
   width: 100%;
   display: flex;
-  background: white;
+  background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   padding: 1.2vw 1.2vw;
   border: 1px solid #BDBDBD;

@@ -10,15 +10,11 @@ const Select = styled.select`
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  border: none;
   outline: none;
   background-color: ${props => props.theme.InputFieldColor};
   border-radius: 4px;
   border: 1px solid ${props => props.theme.BorderColor};
   cursor: pointer;
-  // // font-weight: ${props => props.theme.textWeightBold};
-  // font-size: 1vw;
-  // color: ${props => props.theme.SlightlyBlack};
   padding-left: 5%;
   background-image: url(${arrow});
   background-repeat: no-repeat;

@@ -7,11 +7,14 @@ import {useEffect} from "react";
 import {fetchRecentSessions} from "../../../2_Store/Fetches/recent_sessions";
 import CalendarNivo from "./chart";
 import {fetchYearToDateSessions} from "../../../2_Store/Fetches/year_to_date_sessions";
+import CoachCard from "../../../4_Components/28_CoachCard";
+import Title from "../../../4_Components/14_Title";
 
 const Overview = () => {
     const dispatch = useDispatch()
     const recentSessions = useSelector(state => state.recentSessions)
     const yearToDateSessions = useSelector(state => state.yearToDateSessions)
+    const loggedInUser = useSelector(state => state.myInfo)
 
     useEffect(() => {
         dispatch(fetchRecentSessions())
@@ -22,8 +25,12 @@ const Overview = () => {
         <Main>
             <MenuBar />
             <Body>
-                <HeaderBar title={'Dashboard'}/>
+                <HeaderBar title={'DASHBOARD'}/>
+                <Title text={'Edit Your Info'}/>
+                <CoachCard user={loggedInUser} type={"MY_INFO"}/>
+                <Title text={'Total Sessions - 2021'}/>
                 {yearToDateSessions.length ? <CalendarNivo sessions={yearToDateSessions}/> : 'Loading...'}
+                <Title text={'Recent Sessions'}/>
                 {recentSessions.length ? recentSessions.map(session => <SessionCard session={session}/>) : <p>Loading...</p>}
             </Body>
         </Main>
