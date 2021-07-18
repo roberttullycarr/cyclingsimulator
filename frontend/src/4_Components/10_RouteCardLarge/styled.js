@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import arrowThin from "../../5_Assets/SVG/41_arrow.svg";
 
+
 export const Container = styled.div`
   margin-top: 2%;
   margin-bottom: 2%;
@@ -11,7 +12,7 @@ export const Card = styled.div`
   position: relative;
   aspect-ratio: 4.05 / 1;
   width: 100%;
-  height: ${props => (props.expand === 'hidden') ? '50vw' : '108vw'};
+  height: ${props => (props.expand === 'hidden') ? '50vw' : '91vw'};
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
@@ -25,9 +26,6 @@ export const Card = styled.div`
   }
 `
 
-export const Name = styled.h1`
-  font-size: 1.2vw;
-`
 
 export const WrapperTop = styled.div`
   display: flex;
@@ -35,10 +33,24 @@ export const WrapperTop = styled.div`
   justify-content: space-between;
   margin-top: 1.875vw;
   height: 2.78vw;
-  padding-left: 1.875vw;
+  width: 100%;
+  padding-left: 2.5%;
+  position: relative;
 `
 
-export const Wrapper = styled.div`
+export const Name = styled.h1`
+  font-size: 1.2vw;
+  height: 2.78vw;
+`
+
+export const Logo = styled.img`
+  position: absolute;
+  width: 6%;
+  right: 4%;
+  visibility: ${props => (props.whilePDF === 'hidden') ? 'visible' : 'hidden'};
+`
+
+export const StatsWrapper = styled.div`
   display: flex;
   padding-left: 1.875vw;
   img{
@@ -47,6 +59,32 @@ export const Wrapper = styled.div`
     object-position: middle middle;
     object-fit: cover;
     border-radius: 5px;
+  }
+`
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  padding-left: 1.875vw;
+  margin-top: 1.5vw;
+`
+
+export const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-top: 3%;
+  h1{
+    font-size: 1vw;
+    
+    font-weight: ${props => props.theme.textWeightBold};
+    color: ${props => props.theme.ELBlue};
+  }
+  ul{
+    margin: 2% 0 2% 3%;
+  }
+  li{
+    font-size: 0.9vw;
+    font-weight: ${props => props.theme.textWeightBold};
   }
 `
 
@@ -80,6 +118,7 @@ export const Line = styled.div`
   grid-row: 2 / 2;
   grid-column: 1 / 4;
 `
+
 
 export const ArrowButton = styled.button`
   background-image: url(${arrowThin});
