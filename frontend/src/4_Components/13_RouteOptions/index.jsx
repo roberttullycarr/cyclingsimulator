@@ -89,7 +89,7 @@ const RouteOptions = props => {
                     </Wrapper>
                     <ButtonWrapper>
                         <BaseButton type={'submit'} text={'Calculate'} height={15} width={50} fontSize={'1.2'}
-                                    marginBottom={27} marginRight={40}/>
+                                    marginBottom={27} marginRight={40} action={() => props.loading(true)}/>
                     </ButtonWrapper>
                 </FormWrapper>
             </Form>

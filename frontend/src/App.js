@@ -28,7 +28,7 @@ function App() {
             <Route exact path="/routes" component={withUserAccess(Routes)}/>
             <Route exact path="/routes/:index" component={RoutesDetail}/>
             <Route exact path="/clients/:index" component={AthleteOverview}/>
-            <Route exact path="/results/:index" component={Results}/>
+            <Route exact path="/clients/results/:index" component={Results}/>
             <Route exact path="/sessions" component={withUserAccess(Sessions)}/>
             <Route exact path="/admin" component={withAdminRights(Coaches)}/>
         </Switch>

@@ -32,7 +32,7 @@ const Overview = () => {
                     <CoachCard user={loggedInUser} type={"MY_INFO"}/>
                 </SectionWrapper>
                 <SectionWrapper>
-                    <Title text={'Total Sessions - 2021'}/>
+                    <Title text={`Total Sessions - ${new Date().getFullYear()}`}/>
                     {yearToDateSessions.length ? <CalendarNivo sessions={yearToDateSessions}/> : 'Loading...'}
                 </SectionWrapper>
                 <SectionWrapper>
