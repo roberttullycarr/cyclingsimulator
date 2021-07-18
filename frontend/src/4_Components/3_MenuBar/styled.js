@@ -102,7 +102,10 @@ export const LogoutContainer = styled.div`
     align-items: center;
     &:hover{
         //background: #0177B1;
-        background: #8bc34a;
+      background: #8bc34a;
+       p {
+    color: ${props => props.theme.ELWhite}!important;
+  }
     }
     svg{
         fill: ${props => props.theme.MBLinkColor};

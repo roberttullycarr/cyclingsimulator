@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   scrollbar-width: thin;
   scrollbar-color: ${props => props.theme.ELBlue} transparent;
-  crollbar-track: hidden;
+  scrollbar-track: hidden;
     }
 `;
 
@@ -45,7 +45,7 @@ export const defaultTheme = {
   MainFontColor: '#006293',
   DataFontColor: 'black',
   AccentFontColor: '#C5C5C5',
-  DataSVGColor: '#006293',
+  DataSVGColor: '#C5C5C5',
   BoxShadowWidget: "5px 5px 26px 1px rgba(0,0,0,0.06)",
   CardBorderRadius: '5px',
   CardWidthPercent: '85%',

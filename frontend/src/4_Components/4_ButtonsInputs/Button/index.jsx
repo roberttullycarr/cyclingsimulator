@@ -21,6 +21,8 @@ visibility: ${props => `${props.visibility}` || "visible"};
 cursor:pointer;
 &:hover{
     background: rgb(1 108 31 / 76%);
+    opacity: 80%;
+    
   }
 `
 

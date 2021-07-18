@@ -9,8 +9,8 @@ import OptionField from "../../13_RouteOptions/OptionField";
 import {elevation} from "../../../3_Pages/2_Coach/2_5_Results/simulation_variables";
 
 export const NSLMain = styled(SLMain)`
+  margin-top: 1vw;
 height: 5vw;
-  //border: 1px solid red;
 `
 export const NSLForm = styled(SLForm)`
   width: 100% !important;
@@ -81,7 +81,7 @@ const NewSegmentLine = (props) => {
                     <BaseInput var={register} title={'Average Grade (%)'} width={90} name={'average_grade'} height={50} />
                 </NSLInputMain>
                 <NSLSaveBtn>
-                    <BaseButton text={'Save'} type={'submit'} width={100} height={50} marginBottom={0}/>
+                    <BaseButton text={'Save'} type={'submit'} width={100} height={50} marginTop={5} fontSize={1.1}/>
                 </NSLSaveBtn>
             </NSLForm>
         </NSLMain>

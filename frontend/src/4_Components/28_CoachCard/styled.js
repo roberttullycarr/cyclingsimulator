@@ -62,7 +62,7 @@ export const Edit = styled.button`
   background-color: transparent;
   margin: 7% 7% 0 0;
   svg{
-    fill: rgb(1 108 31 / 76%);
+    fill: ${props => props.theme.ELBlue};
     width: 100%;
     height: 100%;
   }

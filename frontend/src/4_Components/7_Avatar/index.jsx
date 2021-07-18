@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import { useHistory, useLocation } from "react-router-dom";
 import avatar from "../../5_Assets/PNG/default_avatar.png"
+import { ReactComponent as Camera } from "../../5_Assets/SVG/45_camera.svg";
 
 
 const AvatarRing = styled.div`
+  position: relative;
 aspect-ratio: 1 / 1;
 width: ${props => `${props['width']}%`};
 height: auto;
@@ -34,6 +36,30 @@ export const BaseAvatar = styled.img`
     border-radius: 50%;
 `
 
+const CameraButtonInput = styled.label`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 60%;
+  background: white;
+  border-radius: 50%;
+`
+
+const AvatarInput = styled.input`
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`
+
+const CameraButton = styled(Camera)`
+  z-index: 1;
+  fill: black;
+  height: 50%;
+`
+
 
 const Avatar = (props) => {
     const history = useHistory();
@@ -44,6 +70,10 @@ const Avatar = (props) => {
         <AvatarRing height={props.height} width={props.width} marginLeft={props.marginLeft}
                     marginRight={props.marginRight} marginTop={props.marginTop} marginBottom={props.marginBottom}
                     color={props.color}>
+            {props.edit ? <CameraButtonInput>
+                            <CameraButton />
+                            <AvatarInput type={'file'} {...props.var(props.name)}/>
+                          </CameraButtonInput> : null}
             <BaseAvatar  src={props.user ? props.user : avatar}
                      alt={props.alt}
                     onClick={() => coachPaths.includes(location.pathname) ?

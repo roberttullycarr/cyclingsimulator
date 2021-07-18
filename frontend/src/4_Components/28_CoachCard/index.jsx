@@ -30,16 +30,27 @@ const CoachCard = (props) => {
     const onEditHandler = () => {(edit === true) ? setEdit(false) : setEdit(true)};
 
     const changeUserDetails = async (data) => {
+        console.log(data);
         const nameArray = data.name.split(' ');
         const firstName = nameArray[0];
         const lastName = nameArray[1] ? nameArray[1] : '';
         delete data["name"]
         const fullData = {...data, 'first_name': firstName, 'last_name': lastName};
+        let newForm = new FormData();
+        if (fullData['avatar'].length > 0) {
+            newForm.append('avatar', fullData['avatar'][0]);
+        }
+        newForm.append('first_name', fullData.first_name);
+        newForm.append('last_name', fullData.last_name);
+        newForm.append('email', fullData.email);
+        newForm.append('phone_number', fullData['phone_number']);
+        newForm.append('location', fullData.location);
+        console.log(newForm);
         const url = `/coach/client/${props.user.id}/`;
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
-        const response = await Axios.patch(url, fullData, config);
+        const response = await Axios.patch(url, newForm, config);
         if (props.type === 'MY_INFO') {
             dispatch({type: 'MY_INFO', payload: response.data})
         } else if (props.type === 'coaches') {
@@ -53,7 +64,7 @@ const CoachCard = (props) => {
     return (
         <Container>
             <AthleteWrapper>
-                <Avatar user={props.user['avatar']} width={80} color={'#C5C5C5'}/>
+                <Avatar user={props.user['avatar']} width={80} color={'#C5C5C5'} edit={edit} var={register} name={'avatar'}/>
             </AthleteWrapper>
             <FormWrapper onSubmit={handleSubmit(changeUserDetails)}>
                 <Left>
