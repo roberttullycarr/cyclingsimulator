@@ -13,7 +13,7 @@ const Results = props => {
     const dispatch = useDispatch()
     const session = useSelector(state => state.specificSession)
     const results = useSelector(state => state.sessionResults)
-    const { id, client, created } = session
+    const { id, client } = session
     const history = useHistory();
     const token = useSelector(state => state.token);
 
@@ -31,7 +31,7 @@ const Results = props => {
             <Body>
                 {Object.keys(session).length ?
                     <>
-                        <HeaderBar title={`RESULTS - ${client['full_name']} / ${created}`}/>
+                        <HeaderBar title={'RESULTS'}/>
                         <SessionCardLarge profile={client} session={session}/>
                         <RouteOptions id={id}/>
                     </>

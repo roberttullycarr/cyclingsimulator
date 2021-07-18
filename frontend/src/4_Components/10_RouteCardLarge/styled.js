@@ -133,8 +133,8 @@ export const ArrowButton = styled.button`
   outline:none;
   position: absolute;
   z-index: 2;
-  bottom: 0px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
   transform: ${props => (props.expand === 'hidden') ? '0' : 'rotate(0.5turn)'};
   transition: all 0.7s linear;
 `
