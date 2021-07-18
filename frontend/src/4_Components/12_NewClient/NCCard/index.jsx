@@ -27,13 +27,17 @@ const NCCard = (props) => {
                                    title={'Phone Number'} marginLeft={2.5} marginBottom={6} width={95}/>
                     </NCContent>
                     <NCContent>
+                        <BaseInput var={props.var} name={'location'} type={'text'}
+                                   title={'location'} marginLeft={2.5} marginBottom={6} width={95}/>
+                    </NCContent>
+                    <NCContent>
                         <InputTitle>Avatar</InputTitle>
                         <FileInput {...props.var('avatar')} type='file' name='avatar'/>
                     </NCContent>
+                </NCContentLine>
                 <NCContent>
                     <BaseButton type={'submit'} text={'Submit'} fontSize={1.4} width={45} num={5} denom={1} marginLeft={27.5} marginTop={5}/>
                 </NCContent>
-                </NCContentLine>
             </NewClientForm>
         </NewClientCardMain>
     )

@@ -84,7 +84,7 @@ class AddNewCoach(CreateAPIView):
     def perform_create(self, serializer):
         random_password = User.objects.make_random_password()
         email = self.request.data['email']
-        serializer.save(password=make_password(random_password), is_coach=True)
+        serializer.save(password=make_password(random_password), is_coach=True, username=email)
 
         send_mail(
             'Login Credentials',

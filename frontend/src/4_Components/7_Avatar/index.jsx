@@ -6,7 +6,7 @@ import avatar from "../../5_Assets/PNG/default_avatar.png"
 
 const AvatarRing = styled.div`
 aspect-ratio: 1 / 1;
-width: ${props => `${props.width}%`};
+width: ${props => `${props['width']}%`};
 height: auto;
 margin-left: ${props => props.marginLeft || "4%"};
 margin-right: ${props => props.marginRight || "4%"};

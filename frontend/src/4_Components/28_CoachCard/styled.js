@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   aspect-ratio: 8.95 / 1;
-  width: 85%;
+  width: 100%;
   height: auto;
   display: flex;
-  background: ${props => props.theme.ELWhite};
-  border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 5px;
+  background: ${props => props.theme.CardBackColor};
+  border: ${props => props.theme.CardBorder};
+  border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  margin-top: 2vw;
+  //margin-top: 2vw;
   margin-bottom: 1vw;
 `
 
@@ -30,9 +30,11 @@ export const AthleteWrapper = styled.div`
 `
 
 export const FormWrapper = styled.form`
-  width: 80%;
+  width: 90%;
   display: flex;
+  justify-content: center;
   margin: 0 0;
+  //border: 1px solid red;
 `
 
 export const SaveBtnWrap = styled.div`
@@ -46,7 +48,10 @@ export const SaveBtnWrap = styled.div`
 export const WrapperRight = styled(SaveBtnWrap)`
 `
 export const EditWrap = styled.div`
-height: 100%;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+  height: 100%;
   width: 3%;
   padding-top: .5%;
 `
@@ -57,15 +62,31 @@ export const Edit = styled.button`
   background-color: transparent;
   margin: 7% 7% 0 0;
   svg{
+    fill: rgb(1 108 31 / 76%);
     width: 100%;
     height: 100%;
+  }
+  
+  :hover {
+    svg{
+      fill: ${props => props.theme.MBGreen};
+      cursor: pointer;
+    }
   }
 `
 
 export const Left = styled.div`
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //border: 1px solid blue;
 `
 
 export const Right = styled.div`
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //border: 1px solid green;
 `

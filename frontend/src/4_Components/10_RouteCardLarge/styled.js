@@ -3,7 +3,7 @@ import arrowThin from "../../5_Assets/SVG/41_arrow.svg";
 
 
 export const Container = styled.div`
-  margin-top: 2%;
+  margin-top: .8%;
   margin-bottom: 2%;
   width: 85%;
 `
@@ -16,9 +16,9 @@ export const Card = styled.div`
   transition: all 0.7s linear;
   display: flex;
   flex-direction: column;
-  background: ${props => props.theme.ELWhite};
-  border: ${props => (props.whilePDF === 'hidden') ? 'none' : 'solid 1px #BDBDBD'};
-  border-radius: 3px;
+  background: ${props => props.theme.CardBackColor};
+  border: ${props => props.theme.CardBorder};
+  border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   button{
     margin-right: 2%;

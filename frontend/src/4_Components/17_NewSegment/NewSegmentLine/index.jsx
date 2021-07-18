@@ -1,16 +1,12 @@
 import styled from "styled-components"
-import SLData from "../SLData";
 import BaseButton from "../../4_ButtonsInputs/Button";
-import {ReactComponent as Pencil} from "../../../5_Assets/SVG/43_pencil.svg";
 import {SLForm, SLMain, SLSaveBtn} from "../SegmentLine";
 import {useForm} from "react-hook-form";
 import BaseInput from "../../4_ButtonsInputs/Input";
-import {segmentValidate} from "./segment_validate";
 import Axios from "../../../2_Store/Axios";
 import {useDispatch, useSelector} from "react-redux";
 import OptionField from "../../13_RouteOptions/OptionField";
 import {elevation} from "../../../3_Pages/2_Coach/2_5_Results/simulation_variables";
-import Title from "../../14_Title";
 
 export const NSLMain = styled(SLMain)`
 height: 5vw;

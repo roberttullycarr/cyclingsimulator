@@ -23,5 +23,6 @@ class ClientListSerializer(serializers.ModelSerializer):
             'phone_number',
             'avatar',
             'number_of_sessions',
-            'is_coach'
+            'is_coach',
+            'is_superuser'
         ]
