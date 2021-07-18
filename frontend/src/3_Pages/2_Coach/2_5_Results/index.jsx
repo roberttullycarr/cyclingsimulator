@@ -13,7 +13,7 @@ const Results = props => {
     const dispatch = useDispatch()
     const session = useSelector(state => state.specificSession)
     const results = useSelector(state => state.sessionResults)
-    const { id, client, created } = session
+    const { id, client } = session
     const history = useHistory();
     const token = useSelector(state => state.token);
 
@@ -23,7 +23,7 @@ const Results = props => {
         dispatch(fetchSpecificSession(session_id))
         if(!token)history.push("/signin")
 
-    }, [dispatch, props.match.params.index])
+    }, [dispatch, props.match.params.index, history, token])
 
     return (
         <Main>
@@ -31,12 +31,14 @@ const Results = props => {
             <Body>
                 {Object.keys(session).length ?
                     <>
-                        <HeaderBar title={`RESULTS - ${client['full_name']} / ${created}`}/>
+                        <HeaderBar title={'RESULTS'}/>
                         <SessionCardLarge profile={client} session={session}/>
                         <RouteOptions id={id}/>
                     </>
                     : 'Loading...'}
-                {Object.keys(results).length ? results.routes.map(route => <RoutCardLarge profile={client} route={route}/>) : null}
+                {Object.keys(results).length ? results.routes.map(route => <RoutCardLarge profile={client} route={route}
+                                                                                          client={client['full_name']}/>)
+                    : null}
             </Body>
         </Main>
     )

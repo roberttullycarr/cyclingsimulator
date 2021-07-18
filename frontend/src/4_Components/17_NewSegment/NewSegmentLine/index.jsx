@@ -9,18 +9,16 @@ import OptionField from "../../13_RouteOptions/OptionField";
 import {elevation} from "../../../3_Pages/2_Coach/2_5_Results/simulation_variables";
 
 export const NSLMain = styled(SLMain)`
+  height: 5vw;
   margin-top: 1vw;
-height: 5vw;
 `
 export const NSLForm = styled(SLForm)`
   width: 100% !important;
-  //border: 1px solid blue;
   margin: 0;
   padding-left: 3%;
 `
 
 export const NSLOptionTitle = styled.h2`
-//margin: 0 0 .5% 2%;
 color: ${props => props.theme.ELBlue};
 font-family: Roboto, sans-serif;
 font-size: 1.1vw;
@@ -31,7 +29,6 @@ const NSLSaveBtn = styled(SLSaveBtn)`
   justify-content: flex-end !important;
   align-items: center;
   width: 8% !important;
-  //border: 1px solid green;
 `
 
 export const NSLInputMain = styled.div`
@@ -40,14 +37,12 @@ export const NSLInputMain = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 23%;
-  //border: 1px solid purple;
 `
 
 const NewSegmentLine = (props) => {
     const { register, handleSubmit, reset } = useForm();
     const dispatch = useDispatch();
     const route = useSelector(state => state.specificRoute);
-    // const lastSegment = route ? route.segments.slice(-1) : {};
 
     console.log(route);
 

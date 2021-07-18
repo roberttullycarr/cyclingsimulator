@@ -35,6 +35,7 @@ const PasswordValidate = () => {
         try {
             const response = await Axios.patch(url, data);
             if (response.status === 200) {
+                localStorage.removeItem('token')
                 history.push('/signin')
             }
         } catch(err) {
@@ -43,6 +44,7 @@ const PasswordValidate = () => {
             }
         }
     }
+
     return (
         <PVContainerMain>
             <ContainerTitle>Validation</ContainerTitle>

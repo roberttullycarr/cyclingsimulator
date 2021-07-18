@@ -12,20 +12,8 @@ import React, { useState } from "react";
 import jsPDF from "jspdf";
 import domtoimage from 'dom-to-image';
 import PieNivo from "../../3_Pages/2_Coach/2_5_Results/chart";
-import {
-    ArrowButton,
-    BottomWrapper,
-    Card,
-    Container,
-    Line,
-    Name,
-    Stats,
-    StatsWrapper,
-    InfoWrapper,
-    WrapperTop,
-    TextWrapper,
-    Logo,
-} from "./styled";
+import { ArrowButton, BottomWrapper, Card, Container, Line, Name, Stats, StatsWrapper, InfoWrapper, WrapperTop, TextWrapper,
+    Logo } from "./styled";
 import logo from '../../5_Assets/PNG/energylab.png';
 import TextField from "./TextField";
 
@@ -54,7 +42,7 @@ const RoutCardLarge = props => {
             const pdf = new jsPDF('l');
             pdf.addImage(img, 0, 0, 300, 185, null, "FAST"); // in landscape
             // pdf.addImage(img, 0, 0, 210, 130, null, "FAST"); // in portait
-            pdf.save(`${new Date().toISOString()}.pdf`);
+            pdf.save(`${props.client}_${name}.pdf`);
             setPdfView(null)
         });
     }
@@ -68,7 +56,7 @@ const RoutCardLarge = props => {
                 <WrapperTop>
                     <Name>{name}</Name>
                     <BaseButton action={generatePDF} text={'Generate PDF'} height={100} width={12} fontSize={'1.2'}
-                        visibility={pdfView}/>
+                                visibility={pdfView}/>
                     <Logo src={logo} whilePDF={pdfView}/>
                 </WrapperTop>
                 <StatsWrapper>
@@ -85,7 +73,7 @@ const RoutCardLarge = props => {
                 </StatsWrapper>
                 <InfoWrapper>
                     <TextWrapper>
-                        <TextField data={props.route} fullName={props.profile.full_name}/>
+                        <TextField data={props.route} fullName={props.profile['full_name']}/>
                     </TextWrapper>
                     <PieNivo route={props.route} />
                 </InfoWrapper>

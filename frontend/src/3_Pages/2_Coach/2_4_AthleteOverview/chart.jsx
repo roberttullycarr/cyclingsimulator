@@ -34,7 +34,7 @@ const LineNivo = props => {
             }
         ]
         const sessions = props.sessions
-        sessions.map(session => {
+        sessions.forEach(session => {
                 data[0].data.push(
                     {
                         "x": session.created,
