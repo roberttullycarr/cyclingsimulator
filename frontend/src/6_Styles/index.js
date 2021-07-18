@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-size: 16px;
-        font-family: 'Mulish', sans-serif;
+        font-family: 'Roboto', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         ::-webkit-scrollbar {
@@ -37,15 +37,30 @@ export const defaultTheme = {
   BackgroundLightGrey: "#F5F5F5",
   TableBlue: "#659FD3",
   SlightlyBlack: "#474747",
-  BorderColor: "#BDBDBD",
   InputFieldColor: "#EAEAEA",
 
-  
+  // Card Styling
+  CardBackColor: '#FFFFFF',
+  BorderColor: "#BDBDBD",
+  MainFontColor: '#006293',
+  DataFontColor: 'black',
+  AccentFontColor: '#C5C5C5',
+  DataSVGColor: '#006293',
+  BoxShadowWidget: "5px 5px 26px 1px rgba(0,0,0,0.06)",
+  CardBorderRadius: '5px',
+  CardWidthPercent: '85%',
+  CardBorder: 'none',
 
-  // Linear Gradients
+  //Menu bar styling
+  MBLinkColor: '#4DB7FE',
+  MBLinkActiveColor: '#8bc34a',
+  MBBackground: '#1a1a1a',
 
-  // Box Shadows
-  BoxShadowWidget: "4px 4px 4px rgba(105, 105, 105, 0.25)",
+  //Header bar styling
+  HeaderBackColor: '#006293',
+  HeaderTextColor: '#FFFFFF',
+
+
   // Sizes
 
   // Text Size

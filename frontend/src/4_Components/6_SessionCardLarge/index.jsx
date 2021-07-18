@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Avatar from "../7_Avatar";
 import { ReactComponent as Power } from '../../5_Assets/SVG/21_power.svg'
 import { ReactComponent as HeartRate } from '../../5_Assets/SVG/22_heartrate.svg'
-import { ReactComponent as Weight } from '../../5_Assets/SVG/31_kcal.svg'
-import { ReactComponent as SessionNumber } from '../../5_Assets/SVG/14_sessions.svg'
+import { ReactComponent as Whistle } from '../../5_Assets/SVG/whistle.svg'
+import { ReactComponent as Scale } from '../../5_Assets/SVG/body-weight-scales.svg'
 import { ReactComponent as Session } from '../../5_Assets/SVG/25_datetime.svg'
 import StatField from "../15_StatsField";
 
@@ -12,9 +12,9 @@ const Container = styled.div`
   width: 85%;
   height: auto;
   display: flex;
-  background: ${props => props.theme.ELWhite};
-  border: solid 1px ${props => props.theme.BorderColor};
-  border-radius: 5px;
+  background: ${props => props.theme.CardBackColor};
+  border: ${props => props.theme.CardBorder};
+  border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   margin-top: 2vw;
   margin-bottom: 2vw;
@@ -29,7 +29,7 @@ const AthleteWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   h1{
-    color: ${props => props.theme.SlightlyBlack};
+    color: ${props => props.theme.MBBackground};
     margin-top: 2%;
     font-size: 1.2vw;
   }
@@ -54,8 +54,8 @@ const SessionCardLarge = props => {
             <Wrapper>
                 <StatField image={<Power/>} stat={`${pat} W`} name={'Power'}/>
                 <StatField image={<HeartRate/>} stat={`${heart_rate} BPM`} name={'Heart Rate'}/>
-                <StatField image={<Weight/>} stat={`${weight} KG`} name={'Weight'}/>
-                <StatField image={<SessionNumber/>} stat={coach['full_name']} name={'Coach'}/>
+                <StatField image={<Scale/>} stat={`${weight} KG`} name={'Weight'}/>
+                <StatField image={<Whistle/>} stat={coach['full_name']} name={'Coach'}/>
                 <StatField image={<Session/>} stat={created} name={'Session'}/>
             </Wrapper>
         </Container>

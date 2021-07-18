@@ -6,7 +6,7 @@ import {useState} from "react";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import Axios from "../../2_Store/Axios";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AthleteWrapper, Container, Edit, EditWrap, FormWrapper, Left, Right, SaveBtnWrap, WrapperRight} from "./styled";
 
 const UserInfoCard = (props) => {
@@ -14,6 +14,7 @@ const UserInfoCard = (props) => {
     const dispatch = useDispatch();
     const [edit, setEdit] = useState(false)
     const { register, handleSubmit } = useForm();
+    const myInfo = useSelector(state => state.myInfo);
 
     const onEditHandler = () => {(edit === true) ? setEdit(false) : setEdit(true)};
 
@@ -62,9 +63,9 @@ const UserInfoCard = (props) => {
                             height={25} width={90} fontSize={.9}
                             marginRight={0} visibility={edit ? 'visible' : 'hidden'}/>
             </WrapperRight>
-            <EditWrap>
+            {props.user.id === myInfo.id ? <EditWrap>
                 <Edit onClick={onEditHandler}><Pencil/></Edit>
-            </EditWrap>
+            </EditWrap> : null}
         </Container>
     )
 }

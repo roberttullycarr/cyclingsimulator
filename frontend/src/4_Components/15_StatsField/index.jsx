@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
 const Stat = styled.div`
   font-weight: ${props => props.theme.textWeightBold};
-  color: ${props => props.theme.SlightlyBlack};
+  color: ${props => props.theme.MainFontColor};
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,15 +18,17 @@ const Stat = styled.div`
   svg {
     height: 2vw;
     margin-bottom: 5%;
-    fill: ${props => props.theme.AccentGray};
+    opacity: 80%;
+    fill: ${props => props.theme.DataSVGColor};
   }
   h1{
     font-size: 1.2vw;
-    color: ${props => props.theme.SlightlyBlack};
+    color: ${props => props.theme.DataFontColor};
   }
   h2{
-    font-size: 1.2vw;
-    color: ${props => props.theme.AccentGray};
+    font-size: 1.1vw;
+    opacity: 80%;
+    color: ${props => props.theme.DataSVGColor};
   }
 `
 // Example: <StatField image={<svg as react component>} stat={'300W'} name={'power'}/

@@ -5,11 +5,11 @@ export const Container = styled.div`
   margin-top: 2%;
   margin-bottom: 2%;
   aspect-ratio: 25 / 1;
-  width: 85%;
+  width: ${props => props.theme.CardWidthPercent};
   height: auto;
   display: flex;
-  background: ${props => props.theme.ELWhite};
-  border: solid 1px ${props => props.theme.BorderColor};
+  background: ${props => props.theme.CardBackColor};
+  border: ${props => props.theme.CardBorder};
   border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};
   position: relative;

@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   aspect-ratio: 8.95 / 1;
-  width: 85%;
+  width: ${props => props.theme.CardBackColor};
   height: auto;
   display: flex;
-  background: ${props => props.theme.ELWhite};
+  background: ${props => props.theme.CardBackColor};
   border: solid 1px ${props => props.theme.BorderColor};
   border-radius: 5px;
   box-shadow: ${props => props.theme.BoxShadowWidget};

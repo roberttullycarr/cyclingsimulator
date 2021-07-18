@@ -4,13 +4,13 @@ export const NewSessionMain = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 85%;
+  width: ${props => props.theme.CardWidthPercent};
   margin-bottom: 2vw;
 
 `
 export const NewSessionCard = styled.div`
   width: 100%;
-  background: white;
+  background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   padding: 1.2vw 1vw;
   border: 1px solid #BDBDBD;
@@ -30,7 +30,7 @@ export const NSContent = styled.div`
 export const SessionClient = styled.h1`
   margin-left: 2%;
   font-size: 1.2vw;
-  color: ${props => props.theme.SlightlyBlack};
+  color: ${props => props.theme.MainFontColor};
 `;
 
 export const FormWrap = styled.form`

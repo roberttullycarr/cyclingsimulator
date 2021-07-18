@@ -32,7 +32,7 @@ const Clients = () => {
                     <input placeholder="Search clients by name, email or location"
                            onChange={(e) => setKeyWord(e.target.value)}/>
                 </Container>
-                <NewClient/>
+                <NewClient url={'coach/client/new/'} type={'NEW_CLIENT'} text={'New Client'}/>
                 <Masonry
                     breakpointCols={5}
                     className="my-masonry-grid"

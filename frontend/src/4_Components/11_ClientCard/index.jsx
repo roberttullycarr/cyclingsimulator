@@ -11,10 +11,10 @@ const ClientCard = (props) => {
     const history = useHistory();
 
     const goToClientProfile = () => {
-        history.push(`/coach/athlete/${id}`)
+        history.push(`/clients/${id}`)
     }
     return (
-        <ClientCardMain onClick={() => history.push(`/coach/athlete/${id}`)}>
+        <ClientCardMain onClick={() => history.push(`/clients/${id}`)}>
             <Avatar width={35} marginLeft={"auto"} marginRight={"auto"} marginBottom={"5%"} marginTop={"8%"} user={avatar}/>
             <ClientName>{full_name ? full_name : `${first_name} ${last_name}`}</ClientName>
             <BirthdayContent className="marginBottom marginTop">

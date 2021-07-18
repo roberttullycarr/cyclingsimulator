@@ -15,7 +15,7 @@ const SLData = (props) => {
     return (
         <SLDataMain edit={props.edit}>
             {props.edit ? null : <p>
-                        {props.name === 'elevation' ? elevationName[0][0] :props.data}
+                        {props.name === 'elevation' ? elevationName[0][0] : props.data}
                     </p>}
                     {props.edit ? props.name === 'elevation' ?
                         <OptionField options={elevation} register={props.var} title={'Elevation (M)'}

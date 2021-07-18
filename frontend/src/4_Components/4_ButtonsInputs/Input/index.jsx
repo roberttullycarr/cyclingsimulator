@@ -11,7 +11,7 @@ const BaseInputWrap = styled.div`
 
 export const InputTitle = styled.h2`
   margin: 0 0 .5% 2%;
-  color: ${props => props.theme.ELBlue};
+  color: ${props => props.theme.MainFontColor};
   font-family: Roboto, sans-serif;
   font-size: 1.1vw;
   text-align: left;
@@ -28,8 +28,6 @@ const BaseInputMain = styled.input`
   font-weight: 700;
   font-size: 1.1vw;
   ::placeholder {
-    font-family: "Mulish", sans-serif;
-    font-weight: 700;
     font-size: 1.1vw;
   }
 

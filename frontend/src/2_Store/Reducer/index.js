@@ -33,31 +33,33 @@ const reducer = (state = initialState, action) => {
             return { ...state, myClients: [action.payload, ...state.myClients] }
         case 'NEW_SESSION':
             return { ...state, clientRecentSessions: [action.payload, ...state.clientRecentSessions] };
-         case 'NEW_ROUTE':
+        case 'NEW_ROUTE':
             return { ...state, routes: [...state.routes, action.payload] };
-         case 'NEW_SEGMENT':
+        case 'NEW_SEGMENT':
              let segments = state.specificRoute.segments;
              let newSegment = segments.push(action.payload);
             return { ...state, specificRoute: {...state.specificRoute, newSegment}};
-         case 'CLIENT_DETAILS':
+        case 'NEW_COACH':
+            return { ...state, allCoaches: [...state.allCoaches, action.payload] };
+        case 'CLIENT_DETAILS':
              return {...state, clientDetails: action.payload}
-         case 'CLIENT_RECENT_SESSIONS':
+        case 'CLIENT_RECENT_SESSIONS':
              return {...state, clientRecentSessions: action.payload}
-         case 'YEAR_TO_DATE_SESSIONS':
+        case 'YEAR_TO_DATE_SESSIONS':
              return {...state, yearToDateSessions: action.payload}
-         case 'SPECIFIC_SESSION':
+        case 'SPECIFIC_SESSION':
              return {...state, specificSession: action.payload}
-         case 'SPECIFIC_ROUTE':
+        case 'SPECIFIC_ROUTE':
              return {...state, specificRoute: action.payload}
-         case 'ALL_ROUTES':
+        case 'ALL_ROUTES':
              return {...state, allRoutes: action.payload}
-         case 'SESSION_RESULTS':
+        case 'SESSION_RESULTS':
              return {...state, sessionResults: action.payload}
-         case 'ALL_COACHES':
+        case 'ALL_COACHES':
              return {...state, allCoaches: action.payload}
-         case 'CLEAR_RESULTS':
+        case 'CLEAR_RESULTS':
              return { ...state, sessionResults: {} }
-         default:
+        default:
              return state;
      }
 }

@@ -15,7 +15,7 @@ export const RouteDataMain = styled(BaseDiv)`
 
 export const RouteTitle = styled.h1`
   font-family: Roboto, sans-serif;
-  color: ${props => props.theme.ELBlue};
+  color: ${props => props.theme.MainFontColor};
   font-size: 1.8vw;
   //margin-bottom: 8%;
   text-align: center;
@@ -48,13 +48,13 @@ export const DataRight = styled(BaseData)`
   justify-content: flex-start;
 `
 export const DataNum = styled.p`
-  color: black;
+  color: ${props => props.theme.DataFontColor};
   font-weight: 700;
   font-size: 1.1vw;
 `
 
 export const DataVariable = styled.p`
-  color: #C5C5C5;
+  color: ${props => props.theme.AccentFontColor};
   font-weight: 700;
   font-size: 1.1vw;
 `
