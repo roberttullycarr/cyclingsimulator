@@ -61,7 +61,7 @@ export const RoutesInput = styled.div`
   
   .routes {
     margin-bottom: 2%;
-    width: 80%;
+    width: 100%;
     display: flex;
   }
   p{

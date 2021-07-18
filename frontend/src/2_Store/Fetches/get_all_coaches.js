@@ -8,11 +8,11 @@ const allCoaches = (data) => {
     }
 }
 
-export const fetchAllCoaches = () => async dispatch => {
+export const fetchAllCoaches = (keyword) => async dispatch => {
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     };
-    const url = `/coaches/`;
+    const url = `/coaches/?search=${keyword}`;
     const response = await Axios.get(url, config);
     dispatch(allCoaches(response.data));
 }

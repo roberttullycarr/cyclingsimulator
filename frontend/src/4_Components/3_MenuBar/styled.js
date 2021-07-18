@@ -15,22 +15,22 @@ z-index: 5;
 p{
     opacity: 0;
     display:none;
-}
-.userProfil{
-  display: flex;
-  justify-content: center;
+  }
+  .userProfil{
+    display: flex;
+    justify-content: center;
     transition: 0.2s ease;
     & > div:hover{
-        border: 2px solid #8bc34a;
+      border: 2px solid #8bc34a;
     }
-}
-a {
+  }
+  a {
     text-decoration: none;
-}
-&:hover {
+  }
+  &:hover {
     width: 18%;
     button{
-        display:none;
+      display:none;
     }
     .logoHoverWidth {
         width: 6vw;
@@ -38,28 +38,28 @@ a {
         transition: 0.2s ease;
     }
     .hidden{
-        display:none;
+      display:none;
     }
     .userProfil{
-        width: 11vw;
-        transition: 0.2s ease;
+      width: 11vw;
+      transition: 0.2s ease;
     }
     p{
-        opacity: 1;
-        display:inline;
-       
+      opacity: 1;
+      display:inline;
+
     }
-}
-@media (min-width: 1440px) {
+  }
+  @media (min-width: 1440px) {
     .main-navbar-item{
-        height: 20%;
+      height: 20%;
     }
-}
+  }
 `
 
 export const LogoImg = styled.img`
-width: 70%;
-background: transparent;
+  width: 70%;
+  background: transparent;
 `
 export const BorderLine = styled.hr`
 width: 55%;

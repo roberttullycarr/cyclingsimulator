@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   scrollbar-width: thin;
   scrollbar-color: ${props => props.theme.ELBlue} transparent;
-  crollbar-track: hidden;
+  scrollbar-track: hidden;
     }
 `;
 

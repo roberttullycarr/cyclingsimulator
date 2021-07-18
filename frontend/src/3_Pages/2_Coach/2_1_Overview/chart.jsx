@@ -8,8 +8,8 @@ const CalendarNivo = props => {
     // this function ensures that the chart will always display the current year
     const getCurrentYear = () => {
         let result = []
-        let start = `${new Date().getFullYear()}` + "-01-01"
-        let end = `${new Date().getFullYear()}` + "-12-31"
+        let start = new Date().getFullYear() + "-01-01"
+        let end = new Date().getFullYear() + "-12-31"
         result.push(start, end)
         return  result
     }

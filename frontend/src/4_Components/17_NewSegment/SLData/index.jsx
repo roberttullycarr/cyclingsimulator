@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import {Data} from "../../26_UserInfoCard/DataField/styled";
 import BaseInput from "../../4_ButtonsInputs/Input";
 import {elevation} from "../../../3_Pages/2_Coach/2_5_Results/simulation_variables";
 import OptionField from "../../13_RouteOptions/OptionField";
@@ -8,7 +7,6 @@ const SLDataMain = styled.div`
   display: flex;
   justify-content: center;
   width: ${props => props.edit ? "23.75%" : "25%"};
-  //border: 1px solid red;
 `
 
 const SLData = (props) => {

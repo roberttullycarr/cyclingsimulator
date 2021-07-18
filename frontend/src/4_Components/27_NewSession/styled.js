@@ -20,6 +20,7 @@ export const NewSessionCard = styled.div`
 
 export const NSContent = styled.div`
   display: flex;
+  flex-direction: column;
   width: auto;
   align-items: center;
   flex-wrap: nowrap;
