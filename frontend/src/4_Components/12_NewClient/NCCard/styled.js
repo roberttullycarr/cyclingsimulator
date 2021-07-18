@@ -6,7 +6,7 @@ export const NewClientCardMain = styled.div`
   background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   padding: 1.2vw 1.2vw;
-  border: 1px solid #BDBDBD;
+  border: ${props => props.theme.CardBorder}
   border-radius: ${props => props.theme.CardBorderRadius};
   margin-top: 2vw;
 `;

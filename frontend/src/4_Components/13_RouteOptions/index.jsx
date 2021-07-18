@@ -8,7 +8,17 @@ import {fetchAllRoutes} from "../../2_Store/Fetches/get_all_routes";
 import {fetchSessionResults} from "../../2_Store/Fetches/run_calculations";
 import {riderPosition, tirePressure, windConditions} from "../../3_Pages/2_Coach/2_5_Results/simulation_variables";
 import BaseInput from "../4_ButtonsInputs/Input";
-import {ErrorMessage, Form, FormWrapper, InnerWrapper, RouteGenWrap, RoutesInput, RouteWrapper, Wrapper} from "./styled";
+import {
+    ButtonWrapper,
+    ErrorMessage,
+    Form,
+    FormWrapper,
+    InnerWrapper,
+    RoutesInput,
+    RouteWrapper,
+    Wrapper
+} from "./styled";
+import {SectionWrapper} from "../1_Main";
 
 
 const fieldHeight = 20
@@ -30,7 +40,7 @@ const RouteOptions = props => {
     }
 
     return (
-        <RouteGenWrap>
+        <SectionWrapper>
             <Title text={'Route Options'}/>
             <Form onSubmit={handleSubmit(submitHandler)}>
                 <FormWrapper>
@@ -77,11 +87,13 @@ const RouteOptions = props => {
                                          marginBottom={optionMarginBottom}/>
                         </InnerWrapper>
                     </Wrapper>
-                    <BaseButton type={'submit'} text={'Calculate'} height={15} width={10} fontSize={'1.2'}
-                                marginBottom={1} marginRight={1}/>
+                    <ButtonWrapper>
+                        <BaseButton type={'submit'} text={'Calculate'} height={15} width={50} fontSize={'1.2'}
+                                    marginBottom={27} marginRight={40}/>
+                    </ButtonWrapper>
                 </FormWrapper>
             </Form>
-        </RouteGenWrap>
+        </SectionWrapper>
     )
 }
 

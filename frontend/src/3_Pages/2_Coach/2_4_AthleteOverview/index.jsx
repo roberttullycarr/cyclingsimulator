@@ -1,4 +1,4 @@
-import {Body, Main} from "../../../4_Components/1_Main";
+import {Body, Main, SectionWrapper} from "../../../4_Components/1_Main";
 import MenuBar from "../../../4_Components/3_MenuBar";
 import HeaderBar from "../../../4_Components/2_HeaderBar";
 import {useDispatch, useSelector} from "react-redux";
@@ -11,6 +11,7 @@ import NewSession from "../../../4_Components/27_NewSession";
 import UserInfoCard from "../../../4_Components/26_UserInfoCard";
 import {useHistory} from "react-router";
 import CoachCard from "../../../4_Components/28_CoachCard";
+import Title from "../../../4_Components/14_Title";
 
 
 const AthleteOverview = props => {
@@ -36,10 +37,19 @@ const AthleteOverview = props => {
                 <HeaderBar title={`ATHLETE - ${profile['full_name']}`}/>
                 { Object.keys(profile).length ?
                     <>
-                        <CoachCard user={profile} type={'clients'} />
-                        <LineNivo sessions={recentSessions}/>
+                        <SectionWrapper>
+                            <Title text={"Athlete Info"}/>
+                            <CoachCard user={profile} type={'clients'} />
+                        </SectionWrapper>
+                        <SectionWrapper>
+                            <Title text={"Recent Sessions - Graph"}/>
+                            <LineNivo sessions={recentSessions}/>
+                        </SectionWrapper>
                         <NewSession client={profile}/>
-                        { recentSessions.map(session => <SessionCard session={session}/>) }
+                        <SectionWrapper>
+                            <Title text={"Recent Sessions"}/>
+                            { recentSessions.map(session => <SessionCard session={session}/>) }
+                        </SectionWrapper>
                     </>
                     : 'Loading...' }
             </Body>

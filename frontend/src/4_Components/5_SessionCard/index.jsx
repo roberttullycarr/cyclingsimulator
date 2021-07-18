@@ -8,7 +8,7 @@ import Avatar from "../7_Avatar";
 import {useHistory} from "react-router-dom";
 
 const ContentCard = styled.div`
-  width: 85%;
+  width: 100%;
   background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
   display: grid;

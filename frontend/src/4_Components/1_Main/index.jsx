@@ -20,3 +20,10 @@ export const Body = styled.div`
   align-items: center;
   padding-bottom: 4vw;
 `
+
+export const SectionWrapper = styled.div`
+  width: ${props => props.theme.CardWidthPercent};
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`

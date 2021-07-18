@@ -8,8 +8,8 @@ export const ChartWrapper = styled.div`
   display: flex;
   justify-content: center;
   height: 500px;
-  width: 85%;
-  margin-top: 2vw;
+  width: 100%;
+  //margin-top: .5vw;
   margin-bottom: 2vw;
   border: ${props => props.theme.CardBorder};
   border-radius: 5px;

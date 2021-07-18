@@ -1,4 +1,4 @@
-import {Body, Main} from "../../../4_Components/1_Main";
+import {Body, Main, SectionWrapper} from "../../../4_Components/1_Main";
 import MenuBar from "../../../4_Components/3_MenuBar";
 import HeaderBar from "../../../4_Components/2_HeaderBar";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,6 +8,7 @@ import styled from "styled-components";
 import CoachCard from "../../../4_Components/28_CoachCard";
 import {fetchAllCoaches} from "../../../2_Store/Fetches/get_all_coaches";
 import NewClient from "../../../4_Components/12_NewClient";
+import Title from "../../../4_Components/14_Title";
 
 const ButtonWrapper = styled.div`
   height: 3vw;
@@ -34,8 +35,11 @@ const Coaches = props => {
                 <HeaderBar title={'Admin'}/>
                 <SearchBar/>
                 <NewClient url={'coach/new/'} type={'NEW_COACH'} text={'New Coach'}/>
-                {users ? users.map(user => {if (user.id !== loggedInUser.id) {return(<CoachCard
-                    user={user} type={'coaches'} />)}}):null}
+                <SectionWrapper>
+                    <Title text={'Coaches'}/>
+                    {users ? users.map(user => {if (user.id !== loggedInUser.id) {return(<CoachCard
+                        user={user} type={'coaches'} />)}}):null}
+                </SectionWrapper>
             </Body>
         </Main>
     )

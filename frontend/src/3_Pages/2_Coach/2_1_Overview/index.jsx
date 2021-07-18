@@ -1,4 +1,4 @@
-import {Body, Main} from "../../../4_Components/1_Main";
+import {Body, Main, SectionWrapper} from "../../../4_Components/1_Main";
 import MenuBar from "../../../4_Components/3_MenuBar";
 import HeaderBar from "../../../4_Components/2_HeaderBar";
 import SessionCard from "../../../4_Components/5_SessionCard";
@@ -9,6 +9,7 @@ import CalendarNivo from "./chart";
 import {fetchYearToDateSessions} from "../../../2_Store/Fetches/year_to_date_sessions";
 import CoachCard from "../../../4_Components/28_CoachCard";
 import Title from "../../../4_Components/14_Title";
+
 
 const Overview = () => {
     const dispatch = useDispatch()
@@ -26,12 +27,18 @@ const Overview = () => {
             <MenuBar />
             <Body>
                 <HeaderBar title={'DASHBOARD'}/>
-                <Title text={'Edit Your Info'}/>
-                <CoachCard user={loggedInUser} type={"MY_INFO"}/>
-                <Title text={'Total Sessions - 2021'}/>
-                {yearToDateSessions.length ? <CalendarNivo sessions={yearToDateSessions}/> : 'Loading...'}
-                <Title text={'Recent Sessions'}/>
-                {recentSessions.length ? recentSessions.map(session => <SessionCard session={session}/>) : <p>Loading...</p>}
+                <SectionWrapper>
+                    <Title text={'Edit Your Info'}/>
+                    <CoachCard user={loggedInUser} type={"MY_INFO"}/>
+                </SectionWrapper>
+                <SectionWrapper>
+                    <Title text={'Total Sessions - 2021'}/>
+                    {yearToDateSessions.length ? <CalendarNivo sessions={yearToDateSessions}/> : 'Loading...'}
+                </SectionWrapper>
+                <SectionWrapper>
+                    <Title text={'Recent Sessions'}/>
+                    {recentSessions.length ? recentSessions.map(session => <SessionCard session={session}/>) : <p>Loading...</p>}
+                </SectionWrapper>
             </Body>
         </Main>
     )

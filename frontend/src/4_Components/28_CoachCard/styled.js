@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   aspect-ratio: 8.95 / 1;
-  width: ${props => props.theme.CardWidthPercent};
+  width: 100%;
   height: auto;
   display: flex;
   background: ${props => props.theme.CardBackColor};
   border: ${props => props.theme.CardBorder};
   border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
-
-  margin-top: 2vw;
+  //margin-top: 2vw;
   margin-bottom: 1vw;
 `
 

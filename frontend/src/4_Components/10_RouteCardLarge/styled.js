@@ -3,7 +3,7 @@ import arrowThin from "../../5_Assets/SVG/41_arrow.svg";
 
 
 export const Container = styled.div`
-  margin-top: 2%;
+  margin-top: .8%;
   margin-bottom: 2%;
   width: 85%;
 `
