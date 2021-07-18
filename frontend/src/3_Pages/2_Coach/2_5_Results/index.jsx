@@ -9,6 +9,8 @@ import {fetchSpecificSession} from "../../../2_Store/Fetches/get_specific_sessio
 import SessionCardLarge from "../../../4_Components/6_SessionCardLarge";
 import {useHistory} from "react-router";
 import Loading from '../../../5_Assets/loading.gif'
+import Pie from '../../../5_Assets/Wedges-3s-200px.gif'
+
 import styled from "styled-components";
 
 const LoadingImg = styled.img`
@@ -44,7 +46,7 @@ const Results = props => {
                     <>
                         <HeaderBar title={'RESULTS'}/>
                         <SessionCardLarge profile={client} session={session}/>
-                        {loading ? <LoadingImg src={Loading} alt='loading gif'/> : null}
+                        {loading ? <LoadingImg src={Pie} alt='loading gif'/> : null}
                         <RouteOptions loading={setLoading} id={id}/>
                     </>
                     : 'Loading...'}
