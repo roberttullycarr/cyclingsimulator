@@ -17,6 +17,7 @@ class NewUserSerializer(serializers.ModelSerializer):
             'id',
             'username',
             'email',
+            'phone_number'
             'first_name',
             'last_name',
         ]

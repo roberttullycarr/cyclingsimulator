@@ -1,11 +1,21 @@
 import BaseInput, {InputTitle} from "../../4_ButtonsInputs/Input";
 import BaseButton from "../../4_ButtonsInputs/Button";
-import {FileInput, NCContent, NCContentLine, NewClientCardMain, NewClientForm} from "./styled";
+import {CheckboxWrap, FileInput, NCContent, NCContentLine, NewClientCardMain, NewClientForm} from "./styled";
+import React from "react";
+import styled from "styled-components";
+
+
+const NewCoachError = styled.p`
+  color: red;
+  height: .5vw;
+  font-size: 1vw;
+  margin-top: .5vw;
+`
 
 
 const NCCard = (props) => {
     return (
-        <NewClientCardMain>
+            <NewClientCardMain>
             <NewClientForm onSubmit={props.submitFunc}>
                 <NCContentLine>
                     <NCContent>
@@ -17,8 +27,9 @@ const NCCard = (props) => {
                                    type={'text'} marginLeft={2.5} marginBottom={6} width={95}/>
                     </NCContent>
                     <NCContent>
-                        <BaseInput var={props.var} name={'email'} title={'Email'}
+                        <BaseInput var={props.var} name={'email'} title={'Email'} message={'this email is incorrect or already taken'}
                                    type={'email'} marginLeft={2.5} marginBottom={6} width={95}/>
+                        {props.error['email'] ? <NewCoachError>{props.error['email'].message}</NewCoachError> : <NewCoachError/>}
                     </NCContent>
                 </NCContentLine>
                 <NCContentLine>
@@ -35,6 +46,10 @@ const NCCard = (props) => {
                         <FileInput {...props.var('avatar')} type='file' name='avatar'/>
                     </NCContent>
                 </NCContentLine>
+                {props.type === 'NEW_COACH' ? <CheckboxWrap>
+                    <input type={'checkbox'} {...props.var('is_superuser')} />
+                    <InputTitle>is admin</InputTitle>
+                </CheckboxWrap> : null}
                 <NCContent>
                     <BaseButton type={'submit'} text={'Submit'} fontSize={1.4} width={45} num={5} denom={1} marginLeft={27.5} marginTop={5}/>
                 </NCContent>

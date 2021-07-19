@@ -8,7 +8,7 @@ import {NewClientMain} from "./styled";
 
 
 const NewClient = (props) => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [expand, setExpand] = useState('false');
     const dispatch = useDispatch();
 
@@ -20,16 +20,18 @@ const NewClient = (props) => {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
         let newForm = new FormData();
-        if (data.avatar.length > 0) {
-            newForm.append('avatar', data.avatar[0]);
+        if (data['avatar'].length > 0) {
+            newForm.append('avatar', data['avatar'][0]);
+        }
+        if (data['is_superuser']) {
+            newForm.append('is_superuser', data['is_superuser']);
         }
         newForm.append('first_name', data.first_name);
         newForm.append('last_name', data.last_name);
         newForm.append('email', data.email);
-        newForm.append('phone_number', data.phone_number);
+        newForm.append('phone_number', data['phone_number']);
         newForm.append('location', data.location);
         const response = await Axios.post(url, newForm, config);
-        console.log(response.data);
         dispatch({"type": `${props.type}`, "payload": response.data});
         clickHandler();
         reset();
@@ -38,7 +40,7 @@ const NewClient = (props) => {
     return (
         <NewClientMain>
             <BaseButton action={clickHandler} text={props.text} width={15} num={5} denom={1} fontSize={1.4} />
-            {expand === "true" ? <NCCard var={register} submitFunc={handleSubmit(submitHandler)}/> : null}
+            {expand === "true" ? <NCCard var={register} type={props.type} error={errors} submitFunc={handleSubmit(submitHandler)}/> : null}
         </NewClientMain>
     )
 }

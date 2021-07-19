@@ -40,7 +40,7 @@ const CameraButtonInput = styled.label`
   align-items: center;
   height: 60%;
   width: 60%;
-  background: white;
+  background: ${props => props.theme.MBLinkColor};
   border-radius: 50%;
     :active {
         transform: translateY(2px);
@@ -56,7 +56,7 @@ const AvatarInput = styled.input`
 
 const CameraButton = styled(Camera)`
   z-index: 1;
-  fill: black;
+  fill: white;
   height: 50%;
 `
 
@@ -64,7 +64,6 @@ const CameraButton = styled(Camera)`
 const Avatar = (props) => {
     const history = useHistory();
     const location = useLocation();
-    const coachPaths = ['/', '/coach/clients', '/coach/routes', '/coach/sessions']
 
     return (
         <AvatarRing height={props.height} width={props.width} marginLeft={props.marginLeft}
@@ -75,9 +74,7 @@ const Avatar = (props) => {
                             <AvatarInput type={'file'} {...props.var(props.name)}/>
                           </CameraButtonInput> : null}
             <BaseAvatar  src={props.user ? props.user : avatar}
-                     alt={props.alt}
-                    onClick={() => coachPaths.includes(location.pathname) ?
-                        history.push('/') : null}/>
+                     alt={props.alt}/>
         </AvatarRing>
     )
 };

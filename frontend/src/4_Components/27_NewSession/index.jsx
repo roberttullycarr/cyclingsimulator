@@ -8,7 +8,7 @@ import Axios from "../../2_Store/Axios";
 import {useDispatch} from "react-redux";
 import styled from "styled-components";
 
-const NewSessionError = styled.p`
+export const NewSessionError = styled.p`
   color: red;
   height: .5vw;
   font-size: 1vw;
