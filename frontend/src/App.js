@@ -13,24 +13,27 @@ import {withUserAccess} from "./1_HOC";
 import Coaches from "./3_Pages/3_Admin/3_1_Coaches";
 import {withAdminRights} from "./1_HOC/admin";
 import Overview from "./3_Pages/2_Coach/2_1_Overview";
+import {Redirect} from "react-router";
 
 
 function App() {
   return (
     <Router>
         <Switch>
+            <Route exact path="/">
+                <Redirect to="/dashboard" />
+            </Route>
             <Route exact path="/password/reset" component={PasswordReset}/>
             <Route exact path="/signin" component={SignIn}/>
             <Route exact path="/password/validate" component={Validation}/>
-            <Route exact path="/congrats" component={Congratulations}/>
             <Route exact path="/dashboard" component={withUserAccess(Overview)}/>
             <Route exact path="/clients" component={withUserAccess(Clients)}/>
             <Route exact path="/routes" component={withUserAccess(Routes)}/>
             <Route exact path="/routes/:index" component={RoutesDetail}/>
             <Route exact path="/clients/:index" component={AthleteOverview}/>
-            <Route exact path="/results/:index" component={Results}/>
+            <Route exact path="/clients/results/:index" component={Results}/>
             <Route exact path="/sessions" component={withUserAccess(Sessions)}/>
-            <Route exact path="/admin" component={withAdminRights(Coaches)}/>
+            <Route exact path="/coaches" component={withAdminRights(Coaches)}/>
         </Switch>
     </Router>
   );

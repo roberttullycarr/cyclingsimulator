@@ -75,7 +75,7 @@ export const TextWrapper = styled.div`
   padding-top: 3%;
   h1{
     font-size: 1vw;
-    
+
     font-weight: ${props => props.theme.textWeightBold};
     color: ${props => props.theme.ELBlue};
   }
