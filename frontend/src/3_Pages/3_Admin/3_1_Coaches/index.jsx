@@ -27,7 +27,7 @@ const Coaches = () => {
             <MenuBar />
             <Body>
 
-                <HeaderBar title={'Admin'}/>
+                <HeaderBar title={'Coaches'}/>
                 <Container>
                     <div className="helper">
                         <SearchIcon/>

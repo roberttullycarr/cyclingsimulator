@@ -73,7 +73,7 @@ class ListAllSessions(ListAPIView):
     def get_queryset(self):
         search = self.request.query_params.get('search')
         if not search:
-            return Session.objects.filter(Q(coach=self.request.user)).order_by('-created')
+            return Session.objects.filter(coach=self.request.user).order_by('-created')
         else:
             return Session.objects.filter(Q(client__first_name__icontains=search) |
                                           Q(client__last_name__icontains=search)).order_by('-created')

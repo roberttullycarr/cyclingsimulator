@@ -60,7 +60,7 @@ const SessionCard = (props) => {
     const { id, client, pat, heart_rate, created } = props.session
 
     const simulateSession = () => {
-        history.push(`/results/${id}`)
+        history.push(`/clients/results/${id}`)
     }
 
     return (

@@ -52,7 +52,7 @@ const MenuBar = () => {
 
             <LinksMainDiv>
                 <MBLink icon={<Dashboard />} navbarname={"Dashboard"} url={'/dashboard'} />
-                {myInfo['is_superuser'] ? <MBLink icon={<Whistle />} navbarname={"Coaches"} url={'/admin'} /> : null}
+                {myInfo['is_superuser'] ? <MBLink icon={<Whistle />} navbarname={"Coaches"} url={'/coaches'} /> : null}
                 <MBLink icon={<Clients />} navbarname={"Clients"} url={'/clients'} />
                 <MBLink icon={<Routes />} navbarname={"Routes"} url={'/routes'} />
                 <MBLink icon={<Sessions />} navbarname={"Sessions"} url={'/sessions'} />

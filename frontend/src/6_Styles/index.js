@@ -1,33 +1,30 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-size: 16px;
-        font-family: 'Roboto', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     ::-webkit-scrollbar {
-    width: 8px;
-    position: absolute;
-    right: 0;
-      top: 0;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: ${props => props.theme.ELBlue};
-    border: 3px solid ${props => props.theme.ELBlue};
-  }
-  scrollbar-width: thin;
-  scrollbar-color: ${props => props.theme.ELBlue} transparent;
-  //scrollbar-track: hidden;
+      width: 8px;
     }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: ${props => props.theme.ELBlue};
+      border: 3px solid ${props => props.theme.ELBlue};
+    }
+    scrollbar-width: thin;
+    scrollbar-color: ${props => props.theme.ELBlue} transparent;
+    scrollbar-track: hidden;
+  }
 `;
 
 export const defaultTheme = {

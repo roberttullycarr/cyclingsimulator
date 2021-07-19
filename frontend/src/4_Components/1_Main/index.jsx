@@ -13,6 +13,7 @@ export const Main = styled.div`
 
 
 export const Body = styled.div`
+  position: relative;
   margin-left: 4.5%;
   width: 95.5%;
   min-height: 100vh;
