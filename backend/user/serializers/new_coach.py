@@ -15,6 +15,7 @@ class NewCoachSerializer(serializers.ModelSerializer):
             'location',
             'email',
             'is_coach',
+            'phone_number',
             'is_superuser',
             'avatar',
 

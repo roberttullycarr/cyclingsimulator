@@ -10,21 +10,32 @@ export const NewSessionMain = styled.div`
 `
 export const NewSessionCard = styled.div`
   width: 100%;
+  height: 6vw;
   background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  padding: 1.2vw 1vw;
-  border: 1px solid #BDBDBD;
-  border-radius: 5px;
+  border: ${props => props.theme.CardBorder};
+  padding: 0 2.5%;
+  border-radius: ${props => props.theme.CardBorderRadius};
   margin-top: 2vw;
 `;
 
 export const NSContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 16.25%;
+  height: 100%;
   align-items: center;
   flex-wrap: nowrap;
-  justify-content: flex-end;
+  justify-content: center;
+`;
+
+export const UserContent = styled.div`
+  display: flex;
+  width: 20%;
+  height: 100%;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 `;
 
 export const SessionClient = styled.h1`
@@ -34,10 +45,17 @@ export const SessionClient = styled.h1`
 `;
 
 export const FormWrap = styled.form`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
+  display: flex;
+  align-items: center;
+  height: 100%;
 `
 
-export const ButtonWrap = styled(NSContent)`
-justify-content: center !important;
+export const ButtonWrap = styled.div`
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  height: 100%;
+  flex-wrap: nowrap;
 `

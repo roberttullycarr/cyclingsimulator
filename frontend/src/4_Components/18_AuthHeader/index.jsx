@@ -15,7 +15,7 @@ height: 75%;
 `
 
 const AppTitle = styled.h1`
-color: ${props => props.theme.ELGreen};
+color: rgb(1 108 31 / 76%);
   margin-left: 2%;
   font-family: "Roboto", sans-serif;
   font-weight: 700;

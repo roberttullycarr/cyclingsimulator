@@ -19,14 +19,17 @@ const Stat = styled.div`
     height: 2vw;
     margin-bottom: 5%;
     opacity: 80%;
-    fill: ${props => props.theme.DataSVGColor};
+    fill: ${props => props.theme.ELBlue};
   }
   h1{
     font-size: 1.2vw;
     color: ${props => props.theme.DataFontColor};
   }
   h2{
-    font-size: 1.1vw;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1vw;
     opacity: 80%;
     color: ${props => props.theme.DataSVGColor};
   }

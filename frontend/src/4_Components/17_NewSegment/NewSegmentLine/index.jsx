@@ -10,6 +10,7 @@ import {elevation} from "../../../3_Pages/2_Coach/2_5_Results/simulation_variabl
 
 export const NSLMain = styled(SLMain)`
   height: 5vw;
+  margin-top: 1vw;
 `
 export const NSLForm = styled(SLForm)`
   width: 100% !important;
@@ -18,10 +19,10 @@ export const NSLForm = styled(SLForm)`
 `
 
 export const NSLOptionTitle = styled.h2`
-  color: ${props => props.theme.ELBlue};
-  font-family: Roboto, sans-serif;
-  font-size: 1.1vw;
-  text-align: left;
+color: ${props => props.theme.ELBlue};
+font-family: Roboto, sans-serif;
+font-size: 1.1vw;
+text-align: left;
 `
 
 const NSLSaveBtn = styled(SLSaveBtn)`
@@ -36,14 +37,12 @@ export const NSLInputMain = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 23%;
-
 `
 
 const NewSegmentLine = (props) => {
     const { register, handleSubmit, reset } = useForm();
     const dispatch = useDispatch();
     const route = useSelector(state => state.specificRoute);
-    // const lastSegment = route ? route.segments.slice(-1) : {};
 
     console.log(route);
 
@@ -77,7 +76,7 @@ const NewSegmentLine = (props) => {
                     <BaseInput var={register} title={'Average Grade (%)'} width={90} name={'average_grade'} height={50} />
                 </NSLInputMain>
                 <NSLSaveBtn>
-                    <BaseButton text={'Save'} type={'submit'} width={100} height={50} marginBottom={0}/>
+                    <BaseButton text={'Save'} type={'submit'} width={100} height={50} marginTop={5} fontSize={1.1}/>
                 </NSLSaveBtn>
             </NSLForm>
         </NSLMain>

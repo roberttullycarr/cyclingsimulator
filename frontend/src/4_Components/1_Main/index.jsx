@@ -4,6 +4,7 @@ export const Main = styled.div`
   display: flex;
   // height: auto;
   min-height: 100vh;
+  position: relative;
   width: 100%;
   flex-direction: column;
   align-items: center;
