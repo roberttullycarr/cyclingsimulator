@@ -9,7 +9,6 @@ from user.serializers.coaches_list import CoachesListSerializer
 from user.serializers.list_clients import ClientListSerializer
 from django.contrib.auth import get_user_model
 from user.serializers.new_coach import NewCoachSerializer
-from user.serializers.new_user import NewUserSerializer
 
 User = get_user_model()
 
