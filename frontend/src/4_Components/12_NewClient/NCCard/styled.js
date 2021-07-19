@@ -37,3 +37,10 @@ export const FileInput = styled.input`
   margin-top: 3%;
   margin-left: 3%;
 `
+
+export const CheckboxWrap = styled(NCContent)`
+  margin-top: 1vw;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+`

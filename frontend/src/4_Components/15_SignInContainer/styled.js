@@ -3,7 +3,7 @@ export const SIUContainerMain = styled.div`
   display: flex;
   flex-direction: column;
   width: 30%;
-  aspect-ratio: 9 / 8;
+  aspect-ratio: 9 / 7.5;
   background: ${props => props.theme.ELWhite};
   border: 1px solid #BDBDBD;
   border-radius: 5px;
@@ -16,7 +16,7 @@ export const SIUContainerMain = styled.div`
 `
 
 export const ContainerTitle = styled.h1`
-color: ${props => props.theme.ELGreen};
+color: rgb(1 108 31 / 76%);
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 1.8vw;

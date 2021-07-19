@@ -89,30 +89,51 @@ export const WrapperLogo = styled.div`
   text-align: center;
 `;
 export const LogOutBtn = styled.div`
-  height: 120%;
+  display: flex;
+  align-items: center;
+height: 50%;
 `;
 export const LogoutContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  cursor: pointer;
-  width: 100%;
-  height: 6%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:hover{
-    //background: #0177B1;
-    background: #8bc34a;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 7.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        //background: #0177B1;
+      background: #8bc34a;
+       p {
+    color: ${props => props.theme.ELWhite}!important;
+    transition: 0.2s ease;
   }
-  svg{
-    fill: ${props => props.theme.MBLinkColor};
-    width: 2vw;
-    transform: rotate(180deg);
-    height:auto;
-  }
+    }
+    svg{
+        fill: ${props => props.theme.MBLinkColor};
+        width: 2vw;
+        height:auto;
+    }
 `;
 export const LogoutText = styled.p`
-  color: ${props => props.theme.MBLinkColor};
-  font-weight: 700;
-  font-size: 1.4vw;
+    color: ${props => props.theme.MBLinkColor};
+    font-weight: 700;
+    font-size: 1.4vw;
+    white-space: nowrap;
+    animation: showBlock 0s .15s forwards;
+    opacity: 0;
+  
+  @keyframes showBlock {
+    to { opacity: 50%; }
+}
+  
+@keyframes showBlock {
+    to { opacity: 100%; }
+}
 `;
+
+export const PasswordResetContainer = styled(LogoutContainer)`
+bottom: 7.5% !important;
+`

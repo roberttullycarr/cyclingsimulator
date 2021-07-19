@@ -28,7 +28,7 @@ export const ImgContainer = styled.div`
 //header content
 export const HeroContent = styled.div`
     z-index: 5;
-    cursor: pointer;
+    //cursor: pointer;
     position: absolute;
     width: 90%;
     bottom: 0%;

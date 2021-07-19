@@ -14,8 +14,8 @@ export const SLMain = styled.div`
   justify-content: flex-start;
   width: 90%;
   border-bottom: 1px solid lightgrey;
-  margin-bottom: 1vw;
-  height: 2vw;
+  //margin-top: .5vw;
+  height: 2.5vw;
 `
 
 export const SLForm =styled.form`
@@ -38,8 +38,8 @@ export const Edit = styled.button`
   border: none;
   background-color: transparent;
   svg{
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
   }
 `
 

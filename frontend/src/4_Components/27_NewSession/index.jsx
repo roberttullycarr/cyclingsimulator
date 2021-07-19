@@ -3,10 +3,17 @@ import BaseInput from "../4_ButtonsInputs/Input";
 import {useForm} from "react-hook-form";
 import Avatar from "../7_Avatar";
 import {useState} from "react";
-import {ButtonWrap, FormWrap, NewSessionCard, NewSessionMain, NSContent, SessionClient} from "./styled";
+import {ButtonWrap, FormWrap, NewSessionCard, NewSessionMain, NSContent, SessionClient, UserContent} from "./styled";
 import Axios from "../../2_Store/Axios";
 import {useDispatch} from "react-redux";
-import {ErrorMessage} from "../13_RouteOptions/styled";
+import styled from "styled-components";
+
+export const NewSessionError = styled.p`
+  color: red;
+  height: .5vw;
+  font-size: 1vw;
+  margin-top: .5vw;
+`
 
 
 const NewSession = (props) => {
@@ -45,33 +52,33 @@ const NewSession = (props) => {
                         text={"New Session"} width={15} num={5} denom={1} fontSize={1.4} />
             {expand === 'true' ? <NewSessionCard>
                 <FormWrap onSubmit={handleSubmit(createNewSession)}>
-                    <NSContent>
-                        <Avatar width={23} marginLeft={"0"} marginRight={"0"} user={props.client.avatar}/>
+                    <UserContent>
+                        <Avatar width={23} marginLeft={"0"} marginRight={"0"} user={props.client['avatar']}/>
                         <SessionClient>{props.client['full_name']}</SessionClient>
-                    </NSContent>
+                    </UserContent>
                     <NSContent>
-                        <BaseInput var={register} width={80} height={50} name={'pat'} title={'Power (W)'}
+                        <BaseInput var={register} width={80} height={35} name={'pat'} title={'Power (W)'}
                                    type={'number'} marginTop={0} marginBottom={9} message={'This field is required'}/>
-                        {errors.pat ? <ErrorMessage>{errors.pat.message}</ErrorMessage> : <ErrorMessage/>}
+                        {errors.pat ? <NewSessionError>{errors.pat.message}</NewSessionError> : <NewSessionError/>}
                     </NSContent>
                     <NSContent>
-                        <BaseInput var={register} width={80} height={50} name={'heart_rate'} title={'Heart Rate (BPM)'}
+                        <BaseInput var={register} width={80} height={35} name={'heart_rate'} title={'Heart Rate (BPM)'}
                                    type={'number'} marginBottom={9} message={'This field is required'}/>
-                        {errors.heart_rate ? <ErrorMessage>{errors.heart_rate.message}</ErrorMessage> : <ErrorMessage/>}
+                        {errors.heart_rate ? <NewSessionError>{errors.heart_rate.message}</NewSessionError> : <NewSessionError/>}
                     </NSContent>
                     <NSContent>
-                        <BaseInput var={register} width={80} height={50} name={'weight'} title={'weight (KG)'}
+                        <BaseInput var={register} width={80} height={35} name={'weight'} title={'weight (KG)'}
                                    type={'number'} marginBottom={9} message={'This field is required'}/>
-                        {errors.weight ? <ErrorMessage>{errors.weight.message}</ErrorMessage> : <ErrorMessage/>}
+                        {errors.weight ? <NewSessionError>{errors.weight.message}</NewSessionError> : <NewSessionError/>}
                     </NSContent>
                     <NSContent>
-                        <BaseInput var={register} width={80} height={50} name={'height'} title={'Height (CM)'}
+                        <BaseInput var={register} width={80} height={35} name={'height'} title={'Height (CM)'}
                                    type={'number'} marginBottom={9} message={'This field is required'}/>
-                        {errors.height ? <ErrorMessage>{errors.height.message}</ErrorMessage> : <ErrorMessage/>}
+                        {errors.height ? <NewSessionError>{errors.height.message}</NewSessionError> : <NewSessionError/>}
                     </NSContent>
                     <ButtonWrap>
-                        <BaseButton type={'submit'} text={"Submit"} num={6} width={50}
-                                    denom={2} fontSize={1.3} marginLeft={20}/>
+                        <BaseButton type={'submit'} text={"Submit"} num={6} width={80}
+                                    denom={2} fontSize={1.3} />
                     </ButtonWrap>
                 </FormWrap>
             </NewSessionCard> : null}

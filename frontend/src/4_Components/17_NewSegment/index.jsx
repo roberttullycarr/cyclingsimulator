@@ -48,7 +48,7 @@ const RouteSegments = (props) => {
                 {route['segments'] && route.segments.length > 0 ? route.segments.map((segment) => <SegmentLine segment={segment}/>) :
                     <NoSegText>This route currently has no segments. Click to add some!</NoSegText>}
                 {edit ? null : <NewSegmentLine index={route.id}/>}
-                <BaseButton text={'Add Segment'} action={onEditHandler} width={12} num={4} denom={1} fontSize={1.1}/>
+                <BaseButton text={'Add Segment'} action={onEditHandler} width={12} num={4} denom={1} marginTop={1} fontSize={1.1}/>
             </SegmentsMain>
         </SegmentsWrap>
     )

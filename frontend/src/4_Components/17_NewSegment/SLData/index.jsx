@@ -6,6 +6,7 @@ import OptionField from "../../13_RouteOptions/OptionField";
 const SLDataMain = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: ${props => props.edit ? "23.75%" : "25%"};
 `
 

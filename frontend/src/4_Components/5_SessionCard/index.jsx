@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ClockIcon from "../../5_Assets/SVG/24_clock.svg";
 import HeartRateIcon from "../../5_Assets/SVG/22_heartrate.svg";
-import PowerIcon from "../../5_Assets/SVG/21_power.svg";
+import {ReactComponent as Power } from '../../5_Assets/SVG/21_power.svg'
 import DateIcon from "../../5_Assets/SVG/23_date.svg";
 import Avatar from "../7_Avatar";
 import {useHistory} from "react-router-dom";
@@ -27,10 +27,12 @@ const ImgSVG = styled.img`
   filter: invert(.5);
   fill: ${props => props.theme.MBGreen};
 `;
-const PowerSVG = styled.img`
+const PowerSVG = styled.div`
   width: 1.6vh;
   filter: invert(.5);
-  fill: ${props => props.theme.MBGreen};
+  svg{
+     fill: ${props => props.theme.MBGreen};
+  }
 `;
 const WrapperDiv = styled.div`
   display: flex;
@@ -69,7 +71,7 @@ const SessionCard = (props) => {
             </WrapperDiv>
 
             <WrapperDiv>
-                <div><PowerSVG src={PowerIcon} alt="power icon"/></div>
+                <PowerSVG><Power/></PowerSVG>
                 <PowerText>{pat ? `${pat}w` : "Anaebolic Threshold"}</PowerText>
             </WrapperDiv>
 

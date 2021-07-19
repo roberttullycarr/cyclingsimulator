@@ -4,6 +4,7 @@ import styled from "styled-components";
 const HeadersMain = styled(NSLMain)`
 height: 2vw;
   margin-top: 1vw;
+  margin-bottom: 0 !important;
 `
 
 const HeaderWrap = styled(NSLForm)`
@@ -13,6 +14,7 @@ padding-left: 0 !important;
 const SegmentHeaderMain = styled(NSLInputMain)`
 justify-content: center;
   align-items: center;
+  Width: 22.5%;
   height: 1vw;
 `
 

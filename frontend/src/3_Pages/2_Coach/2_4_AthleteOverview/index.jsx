@@ -39,7 +39,7 @@ const AthleteOverview = props => {
                     <>
                         <SectionWrapper>
                             <Title text={"Athlete Info"}/>
-                            <CoachCard user={profile} type={'clients'} />
+                            <CoachCard user={profile} type={"CLIENTS"} />
                         </SectionWrapper>
                         <SectionWrapper>
                             <Title text={"Recent Sessions - Graph"}/>
