@@ -26,7 +26,7 @@ const Overview = () => {
         <Main>
             <MenuBar />
             <Body>
-                <HeaderBar title={'DASHBOARD'}/>
+                <HeaderBar title={'Dashboard'}/>
                 <SectionWrapper>
                     <Title text={'Edit Your Info'}/>
                     <CoachCard user={loggedInUser} type={"MY_INFO"}/>

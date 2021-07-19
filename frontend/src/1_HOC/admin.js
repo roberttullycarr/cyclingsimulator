@@ -5,14 +5,14 @@ import { useHistory } from "react-router";
 export const withAdminRights = WrapperComponent => () => {
 
     const token = useSelector(state => state.token);
-    const logedInUser = useSelector(state => state.myInfo)
+    const loggedInUser = useSelector(state => state.myInfo)
     const history = useHistory();
 
     useEffect(() => {
-        if(!token)history.push("/signin")
-        if(!logedInUser['is_superuser'])history.push('/clients')
+        if( !token)history.push("/signin" )
+        if( !loggedInUser['is_superuser'] && Object.keys(loggedInUser).length )history.push('/clients')
 
-    }, [token, history, logedInUser])
+    }, [token, history, loggedInUser])
 
     return <WrapperComponent />
 }
