@@ -48,14 +48,12 @@ const Results = props => {
                         <SessionCardLarge profile={client} session={session}/>
                         {loading ? <LoadingImg src={Pie} alt='loading gif'/> : null}
                         <RouteOptions loading={setLoading} id={id}/>
-                    </>
-                    : 'Loading...'}
+                    </> : 'Loading...'}
 
                 { Object.keys(results).length && loading ? setLoading(!loading) : null }
                 { Object.keys(results).length ? results.routes.map(route =>
                         <RoutCardLarge profile={client} route={route}
-                                       client={client['full_name']}/>)
-                    : null }
+                                       client={client['full_name']}/>) : null }
             </Body>
         </Main>
     )

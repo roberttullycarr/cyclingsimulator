@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Form = styled.form`
-  aspect-ratio: 4.25 / 1;
+  aspect-ratio: 4.10 / 1;
   width: 100%;
   height: auto;
   background: ${props => props.theme.CardBackColor};
