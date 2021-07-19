@@ -9,8 +9,11 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        ::-webkit-scrollbar {
+    ::-webkit-scrollbar {
     width: 8px;
+    position: absolute;
+    right: 0;
+      top: 0;
   }
 
   ::-webkit-scrollbar-track {
@@ -23,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   scrollbar-width: thin;
   scrollbar-color: ${props => props.theme.ELBlue} transparent;
-  scrollbar-track: hidden;
+  //scrollbar-track: hidden;
     }
 `;
 

@@ -10,7 +10,7 @@ export const withAdminRights = WrapperComponent => () => {
 
     useEffect(() => {
         if(!token)history.push("/signin")
-        if(!logedInUser['is_superuser'])history.push('/coach/clients')
+        // if(!logedInUser['is_superuser'])history.push('/clients')
 
     }, [token, history, logedInUser])
 

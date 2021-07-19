@@ -22,8 +22,10 @@ cursor:pointer;
 &:hover{
     background: rgb(1 108 31 / 76%);
     opacity: 80%;
-    
   }
+    :active {
+        transform: scale(.97);
+    }
 `
 
 const BaseButton = (props) => {

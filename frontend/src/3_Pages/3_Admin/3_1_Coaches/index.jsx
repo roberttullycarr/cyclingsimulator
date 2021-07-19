@@ -14,8 +14,9 @@ import Title from "../../../4_Components/14_Title";
 const Coaches = () => {
 
     const dispatch = useDispatch()
-    const users = useSelector(state => state.allCoaches)
+    const coaches = useSelector(state => state.allCoaches)
     const [keyword, setKeyword] = useState('')
+    const myInfo = useSelector(state => state['myInfo']);
 
     useEffect(() => {
         dispatch(fetchAllCoaches(keyword))
@@ -39,7 +40,7 @@ const Coaches = () => {
 
                 <SectionWrapper>
                     <Title text={'Coaches'}/>
-                    {users ? users.map(user => <CoachCard user={user} type={'coaches'} />) :'Loading...'}
+                    {coaches ? coaches.map(user => {if (user.id !== myInfo.id) {return <CoachCard user={user} type={'COACHES'} />}}) :'Loading...'}
                 </SectionWrapper>
 
             </Body>

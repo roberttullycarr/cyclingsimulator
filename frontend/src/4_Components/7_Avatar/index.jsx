@@ -20,9 +20,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: transparent;
-  :active {
-        transform: translateY(2px);
-    }
       :hover {
         cursor: pointer;
     }
@@ -45,6 +42,9 @@ const CameraButtonInput = styled.label`
   width: 60%;
   background: white;
   border-radius: 50%;
+    :active {
+        transform: translateY(2px);
+    }
 `
 
 const AvatarInput = styled.input`

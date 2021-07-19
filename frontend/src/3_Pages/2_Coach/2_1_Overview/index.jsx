@@ -13,9 +13,9 @@ import Title from "../../../4_Components/14_Title";
 
 const Overview = () => {
     const dispatch = useDispatch()
-    const recentSessions = useSelector(state => state.recentSessions)
-    const yearToDateSessions = useSelector(state => state.yearToDateSessions)
-    const loggedInUser = useSelector(state => state.myInfo)
+    const recentSessions = useSelector(state => state['recentSessions'])
+    const yearToDateSessions = useSelector(state => state['yearToDateSessions'])
+    const loggedInUser = useSelector(state => state['myInfo'])
 
     useEffect(() => {
         dispatch(fetchRecentSessions())
