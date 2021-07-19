@@ -29,7 +29,7 @@ const NCCard = (props) => {
                     <NCContent>
                         <BaseInput var={props.var} name={'email'} title={'Email'} message={'this email is incorrect or already taken'}
                                    type={'email'} marginLeft={2.5} marginBottom={6} width={95}/>
-                        {props.error['email'] ? <NewCoachError>{props.error['email'].message}</NewCoachError> : <NewCoachError/>}
+                        {/*{props.error['email'] ? <NewCoachError>{props.error['email'].message}</NewCoachError> : <NewCoachError/>}*/}
                     </NCContent>
                 </NCContentLine>
                 <NCContentLine>
