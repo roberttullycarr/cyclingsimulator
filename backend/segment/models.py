@@ -19,3 +19,6 @@ class Segment(models.Model):
     @property
     def distance(self):
         return {self.end} - {self.start}
+
+    class Meta:
+        ordering = ['start']
