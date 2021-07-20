@@ -33,9 +33,46 @@ export const NCContentLine = styled.div`
 `
 
 export const FileInput = styled.input`
+  width: 100%;
+  visibility: hidden;
+`
+
+export const AvatarLabel = styled.label`
+width: 100%;
+  height: 2.9vw;
+`
+
+export const AvatarWrap = styled(NCContent)`
+padding-top: 1%;
+`
+
+export const FileInputButton = styled.div`
   width: 95%;
-  margin-top: 3%;
-  margin-left: 3%;
+  height: 2.9vw;
+  border-radius: ${props => props.theme.CardBorderRadius};
+  margin-left: 2.8%;
+  background-color: ${props => props.theme.ELBlue};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  svg {
+    fill: white;
+  }
+  :hover {
+    transform: scale(1.01);
+  }
+  :active {
+    transform: scale(1);
+  }
+`
+
+export const CameraImage = styled.img`
+height: 70%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `
 
 export const CheckboxWrap = styled(NCContent)`

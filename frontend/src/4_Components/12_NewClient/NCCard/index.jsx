@@ -1,8 +1,18 @@
 import BaseInput, {InputTitle} from "../../4_ButtonsInputs/Input";
 import BaseButton from "../../4_ButtonsInputs/Button";
-import {CheckboxWrap, FileInput, NCContent, NCContentLine, NewClientCardMain, NewClientForm} from "./styled";
+import {
+    AvatarLabel, AvatarWrap, CameraImage,
+    CheckboxWrap,
+    FileInput,
+    FileInputButton,
+    NCContent,
+    NCContentLine,
+    NewClientCardMain,
+    NewClientForm
+} from "./styled";
 import React from "react";
 import styled from "styled-components";
+import camera from "../../../5_Assets/SVG/45_camera.svg"
 
 
 const NewCoachError = styled.p`
@@ -41,10 +51,15 @@ const NCCard = (props) => {
                         <BaseInput var={props.var} name={'location'} type={'text'}
                                    title={'location'} marginLeft={2.5} marginBottom={6} width={95}/>
                     </NCContent>
-                    <NCContent>
+                    <AvatarWrap>
                         <InputTitle>Avatar</InputTitle>
-                        <FileInput {...props.var('avatar')} type='file' name='avatar'/>
-                    </NCContent>
+                        <AvatarLabel>
+                            <FileInputButton>
+                                <FileInput {...props.var('avatar')} type='file' name='avatar'/>
+                                <CameraImage src={camera}/>
+                            </FileInputButton>
+                        </AvatarLabel>
+                    </AvatarWrap>
                 </NCContentLine>
                 {props.type === 'NEW_COACH' ? <CheckboxWrap>
                     <input type={'checkbox'} {...props.var('is_superuser')} />

@@ -6,7 +6,6 @@ import {useDispatch} from "react-redux";
 import NCCard from "./NCCard";
 import {NewClientMain} from "./styled";
 import styled from "styled-components";
-import {fetchAllCoaches} from "../../2_Store/Fetches/get_all_coaches";
 
 const NewUserError = styled.p`
   margin-top:1vw;

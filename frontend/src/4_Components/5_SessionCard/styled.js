@@ -13,7 +13,7 @@ export const ContentCard = styled.div`
   
   :hover {
     cursor: pointer;
-    transform: scale(1.01);
+    transform: scale(1.009);
   }
       :active {
         transform: scale(.99);
