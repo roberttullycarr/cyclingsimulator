@@ -71,8 +71,7 @@ const CoachCard = (props) => {
                 if (props.type === 'MY_INFO') {
                     dispatch({type: 'MY_INFO', payload: response.data})
                 } else if (props.type === 'COACHES') {
-                    console.log('coaches')
-                    dispatch(fetchAllCoaches(keyWord))
+                    dispatch({type: "COACH_UPDATE", payload: response.data});
                 } else if (props.type === "CLIENTS") {
                 dispatch({type: 'CLIENT_DETAILS', payload: response.data})
         }
@@ -87,9 +86,6 @@ const CoachCard = (props) => {
     };
 
 
-
-
-console.log(props.user);
     return (
         <>
             <Container>
@@ -103,7 +99,7 @@ console.log(props.user);
                                data={props.user['full_name'] ? props.user['full_name'] : `${props.user.first_name} ${props.user.last_name}`}
                                var={register} width={100} height={50} color={props => props.theme.ELGreen} edit={edit}/>
                     {error !== '' ? <CoachError>{error}</CoachError> : <CoachError/>}
-                    <DataField label={'Email'} data={props.user.email} name={'email'}
+                    <DataField label={'Email'} data={props.user['email']} name={'email'}
                                var={register} width={100} height={50} color={props => props.theme.ELGreen} edit={edit}/>
                 </Left>
                 <Right>

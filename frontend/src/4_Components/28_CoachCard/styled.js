@@ -8,7 +8,7 @@ export const Container = styled.div`
   border: ${props => props.theme.CardBorder};
   border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  margin-bottom: 1vw;
+  margin-bottom: 2vw;
 `
 
 export const AthleteWrapper = styled.div`
@@ -67,16 +67,22 @@ export const Edit = styled.button`
   background-color: transparent;
   margin: 7% 7% 0 0;
   svg{
-    fill: ${props => props.theme.ELBlue};
     width: 100%;
     height: 100%;
+    fill: black;
   }
   
-  :hover {
-    svg{
-      fill: ${props => props.theme.MBGreen};
+      :hover {
+    transform: scale(1.10);
       cursor: pointer;
-    }
+      svg{
+        fill: ${props => props.theme.MBLinkColor};
+      }
+ 
+  :active {
+    transform: scale(1);
+    cursor: pointer;
+  }
   }
 `
 

@@ -20,9 +20,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: transparent;
-      :hover {
-        cursor: pointer;
-    }
 `
 
 export const BaseAvatar = styled.img`

@@ -41,6 +41,11 @@ const reducer = (state = initialState, action) => {
             return { ...state, specificRoute: {...state.specificRoute, newSegment}};
         case 'NEW_COACH':
             return { ...state, allCoaches: [...state.allCoaches, action.payload] };
+        case 'COACH_UPDATE':
+            const newState = state.allCoaches;
+            const index = newState.findIndex(x => x.id === action.payload.id);
+            newState.splice(index, 1, action.payload);
+            return { ...state, allCoaches: newState };
         case 'CLIENT_DETAILS':
              return {...state, clientDetails: action.payload}
         case 'CLIENT_RECENT_SESSIONS':

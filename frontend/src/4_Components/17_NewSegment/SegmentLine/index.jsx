@@ -30,6 +30,13 @@ export const SLSaveBtn = styled.div`
   justify-content: center;
   width: 5%;
   //border: 1px solid red;
+  
+  :hover {
+    transform: scale(1.01);
+  }
+  :active {
+    transform: scale(1);
+  }
 `
 
 export const Edit = styled.button`
@@ -37,9 +44,22 @@ export const Edit = styled.button`
   //border: 1px solid blue;
   border: none;
   background-color: transparent;
-  svg{
+  svg {
     width: 60%;
     height: 60%;
+    fill: black;
+  }
+    :hover {
+      transform: scale(1.10);
+      cursor: pointer;
+      svg{
+        fill: ${props => props.theme.MBLinkColor};
+      }
+ 
+  :active {
+    transform: scale(1);
+    cursor: pointer;
+  }
   }
 `
 

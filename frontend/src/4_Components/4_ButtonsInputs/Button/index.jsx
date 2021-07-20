@@ -24,8 +24,12 @@ cursor:pointer;
     opacity: 80%;
   }
     :active {
-        transform: scale(.97);
+        transform: scale(1.01);
     }
+  
+  :focus {
+    transform: scale(1);
+  }
 `
 
 const BaseButton = (props) => {

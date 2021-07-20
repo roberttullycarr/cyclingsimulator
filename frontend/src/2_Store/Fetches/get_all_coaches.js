@@ -15,5 +15,4 @@ export const fetchAllCoaches = (keyword) => async dispatch => {
     const url = `/coaches/?search=${keyword}`;
     const response = await Axios.get(url, config);
     dispatch(allCoaches(response.data));
-    console.log(response.data);
 }

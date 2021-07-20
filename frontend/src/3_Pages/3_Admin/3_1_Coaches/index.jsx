@@ -14,13 +14,16 @@ import Title from "../../../4_Components/14_Title";
 const Coaches = () => {
 
     const dispatch = useDispatch()
-    const coaches = useSelector(state => state.allCoaches)
+    const coaches = useSelector(state => state.allCoaches);
     const [keyword, setKeyword] = useState('')
     const myInfo = useSelector(state => state['myInfo']);
 
     useEffect(() => {
         dispatch(fetchAllCoaches(keyword))
     }, [dispatch, keyword])
+
+    useEffect(() => {
+    }, [coaches])
 
     return (
         <Main>

@@ -41,12 +41,12 @@ const DeleteMessage = styled.h1`
 color: ${props => props.theme.ELBlue};
   font-weight: 900;
   font-size: 1.8vw;
-  height: 50%;
+  height: 40%;
 `
 
 const ChoiceWrap = styled.div`
   width: 100%;
-  height: 50%;
+  height: 60%;
   margin-top: 1vw;
   padding: 1vw 0;
   display: flex;
@@ -77,8 +77,8 @@ const DeleteDialogue = (props) => {
         <DeleteDialogueMain>
             <DeleteMessage>Are you sure you want to delete this user?</DeleteMessage>
             <ChoiceWrap>
-                <BaseButton text={"no"} width={20} height={100}  fontSize={1.6} action={props.toggle}/>
-                <BaseButton text={"yes"} width={20} height={100} denom={90} fontSize={1.6}
+                <BaseButton text={"No"} width={20} height={100}  fontSize={1.6} action={props.toggle}/>
+                <BaseButton text={"Yes"} width={20} height={100} denom={90} fontSize={1.6}
                             action={() => DeleteUser(props.user.id)} marginLeft={10}/>
             </ChoiceWrap>
         </DeleteDialogueMain>
