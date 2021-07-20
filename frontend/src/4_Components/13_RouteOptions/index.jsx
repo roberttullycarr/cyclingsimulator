@@ -49,7 +49,7 @@ const RouteOptions = props => {
                         <Title text={'Routes'}/>
                         <RoutesInput>
                             {routes.map(route =>
-                                <label className="routes">
+                                <label>
                                     <input type='checkbox' placeholder='Route'
                                            value={route.id}
                                            {...register('routes', {required: 'Please select a route'})}/>
@@ -78,7 +78,7 @@ const RouteOptions = props => {
                             <Title text={'Bike weight in KGs'}/>
                             <BaseInput type={'number'} width={fieldWidth} height={fieldHeight} marginTop={optionMarginTop}
                                        var={register} name={'bike_weight'} message={'Please add a bike weight'}
-                                       marginBottom={optionMarginBottom} value={10}/>
+                                       marginBottom={optionMarginBottom} value={10} inputTextSize={1}/>
                             {errors.bike_weight ? <ErrorMessage>{errors.bike_weight.message}</ErrorMessage> : <ErrorMessage/>}
                         </InnerWrapper>
                         <InnerWrapper>

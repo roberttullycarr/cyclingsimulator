@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     ::-webkit-scrollbar {
       width: 8px;
+      height: 8px;
     }
 
     ::-webkit-scrollbar-track {

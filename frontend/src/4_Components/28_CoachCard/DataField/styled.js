@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const DataWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   height: 70%;
   align-items: flex-end;
 `
@@ -20,7 +20,7 @@ export const Label = styled.h2`
   font-size: 0.8vw;
   color: ${props => props.theme.DataFontColor};
   align-self: flex-end;
-  margin: 0 2% 2% 0;
+  margin: 0 2% 2% 3%;
 `
 
 export const Line = styled.div`

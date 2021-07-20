@@ -9,7 +9,6 @@ export const Form = styled.form`
   border: ${props => props.theme.CardBorder};
   border-radius: ${props => props.theme.CardBorderRadius};
   box-shadow: ${props => props.theme.BoxShadowWidget};
-
 `
 
 export const FormWrapper = styled.div`
@@ -23,7 +22,6 @@ export const FormWrapper = styled.div`
 
 export const Wrapper = styled.div`
   height: 100%;
-  //border: 1px solid red;
   width: 28%;
   display: flex;
   flex-direction: column;
@@ -53,27 +51,26 @@ export const RoutesInput = styled.div`
   padding: 2% 2%;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  
+  overflow: scroll;
+
   label{
-    height: 10%;
+    height: 12%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: row;
   }
   
-  .routes {
-    margin-bottom: 2%;
-    width: 100%;
-    display: flex;
-  }
   p{
     margin-left: 4%;
-    width: 100%;
     font-size: 1vw;
+    height: 100%;
+    min-width: 100%;
+    white-space: nowrap;
     :hover {
       cursor: pointer;
     }
   }
   input{
-    width: 8%;
     height: 100%;
   }
 `

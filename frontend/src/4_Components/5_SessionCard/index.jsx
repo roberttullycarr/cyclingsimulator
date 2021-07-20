@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import ClockIcon from "../../5_Assets/SVG/24_clock.svg";
-import HeartRateIcon from "../../5_Assets/SVG/22_heartrate.svg";
-import {ReactComponent as Power } from '../../5_Assets/SVG/21_power.svg'
-import DateIcon from "../../5_Assets/SVG/23_date.svg";
+import {ReactComponent as PowerIcon } from '../../5_Assets/SVG/21_power.svg'
+import {ReactComponent as HeartRateIcon } from '../../5_Assets/SVG/22_heartrate.svg'
+import {ReactComponent as ClockIcon } from '../../5_Assets/SVG/24_clock.svg'
+import {ReactComponent as DateIcon } from '../../5_Assets/SVG/23_date.svg'
 import Avatar from "../7_Avatar";
 import {useHistory} from "react-router-dom";
 
 const ContentCard = styled.div`
   width: 100%;
+  aspect-ratio: 20 / 1;
   background: ${props => props.theme.CardBackColor};
   box-shadow: ${props => props.theme.BoxShadowWidget};
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
-  padding: .4vw 0;
+  display: flex;
+  justify-content: space-around;
   border: ${props => props.theme.CardBorder};
   border-radius: 5px;
   margin-bottom: 1.2vw;
@@ -22,36 +22,31 @@ const ContentCard = styled.div`
     cursor: pointer;
   }
 `;
-const ImgSVG = styled.img`
-  width: 3vh;
-  filter: invert(.5);
-  fill: ${props => props.theme.MBGreen};
+
+const TopWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 16%;
 `;
-const PowerSVG = styled.div`
-  width: 1.6vh;
-  filter: invert(.5);
-  svg{
-     fill: ${props => props.theme.MBGreen};
-  }
-`;
+
+
 const WrapperDiv = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
   justify-content: center;
+  svg{
+    height: 1.8vw;
+    fill: ${props => props.theme.ELBlue};
+  }
 `;
+
 const TextCard = styled.h1`
-  margin-left: 14px;
+  margin-left: 1vw;
   font-size: 1.2vw;
-  color: ${props => props.theme.MainFontColor};
+  white-space: nowrap;
+  color: ${props => props.theme.SlightlyBlack};
 `;
-const PowerText = styled.h1`
-  color: ${props => props.theme.MainFontColor};
-  margin-left: 11px;
-  font-size: 1.2vw;
-`;
-
-
 
 
 const SessionCard = (props) => {
@@ -65,28 +60,28 @@ const SessionCard = (props) => {
 
     return (
         <ContentCard onClick={simulateSession}>
-            <WrapperDiv>
-                <Avatar width={20} marginLeft={"0"} marginRight={"0"} user={client.avatar}/>
+            <TopWrapper>
+                <Avatar width={25} user={client.avatar}/>
                 <TextCard>{client['full_name'] ? client['full_name'] : "Client"}</TextCard>
+            </TopWrapper>
+
+            <WrapperDiv>
+                <PowerIcon/>
+                <TextCard>{pat ? `${pat}w` : "Anaebolic Threshold"}</TextCard>
             </WrapperDiv>
 
             <WrapperDiv>
-                <PowerSVG><Power/></PowerSVG>
-                <PowerText>{pat ? `${pat}w` : "Anaebolic Threshold"}</PowerText>
-            </WrapperDiv>
-
-            <WrapperDiv>
-                <div><ImgSVG src={HeartRateIcon} alt="heartrate icon"/></div>
+                <HeartRateIcon/>
                 <TextCard>{heart_rate ? `${heart_rate} BPM` : "Heart Rate"}</TextCard>
             </WrapperDiv>
 
             <WrapperDiv>
-                <div><ImgSVG src={DateIcon} alt="date icon"/></div>
+                <DateIcon/>
                 <TextCard>{created ? created.substr(0, created.indexOf(' ')) : "Date"}</TextCard>
             </WrapperDiv>
 
             <WrapperDiv>
-                <div><ImgSVG src={ClockIcon} alt="clock icon"/></div>
+                <ClockIcon/>
                 <TextCard>{created ? created.substr(created.indexOf(' ')) : "Time"}</TextCard>
             </WrapperDiv>
 

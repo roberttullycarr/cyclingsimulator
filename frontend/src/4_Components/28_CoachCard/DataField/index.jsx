@@ -14,7 +14,7 @@ const DataField = (props) => {
                     </Data>}
                     {props.edit ?
                         <BaseInput var={props.var} message={props.message}
-                                             value={props.data} type={"text"} name={props.name} width={78} height={80}
+                                             value={props.data} type={"text"} name={props.name} width={75} height={80}
                                              marginBottom={1}/> : null }
                 </DataWrapper>
                 <Line/>
