@@ -6,7 +6,7 @@ const PieChartWrapper = styled.div`
   position: relative;
   width: 50%;
   aspect-ratio: 4.05 / 1;
-  height: 400px;
+  height: 25vw;
   padding: 0;
 
   .overlay {

@@ -27,11 +27,20 @@ const CoachCard = (props) => {
     const dispatch = useDispatch();
     const [edit, setEdit] = useState(false);
     const [remove, setRemove] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const myInfo = useSelector(state => state['myInfo']);
     const [keyWord] = useState('')
+    const [error, setError] = useState('');
 
-    const onEditHandler = () => {(edit === true) ? setEdit(false) : setEdit(true)};
+    const onEditHandler = () => {
+        if (edit === true) {
+            setEdit(false);
+            setError('');
+        } else {
+            setEdit(true);
+        }
+    }
+
     const onDeleteHandler = () => {(remove === true) ? setRemove(false) : setRemove(true)};
 
     const changeUserDetails = async (data) => {
@@ -56,17 +65,30 @@ const CoachCard = (props) => {
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         };
-        const response = await Axios.patch(url, newForm, config);
-        if (props.type === 'MY_INFO') {
-            dispatch({type: 'MY_INFO', payload: response.data})
-        } else if (props.type === 'COACHES') {
-            console.log('coaches')
-            dispatch(fetchAllCoaches(keyWord))
-        } else if (props.type === "CLIENTS") {
-            dispatch({type: 'CLIENT_DETAILS', payload: response.data})
+        try {
+            const response = await Axios.patch(url, newForm, config);
+            if (response.status === 200) {
+                if (props.type === 'MY_INFO') {
+                    dispatch({type: 'MY_INFO', payload: response.data})
+                } else if (props.type === 'COACHES') {
+                    console.log('coaches')
+                    dispatch(fetchAllCoaches(keyWord))
+                } else if (props.type === "CLIENTS") {
+                dispatch({type: 'CLIENT_DETAILS', payload: response.data})
+        }
+            }
+        } catch(err) {
+            if (err.response.status === 400) {
+                setError('This email address is incorrect, or already taken');
+                return null;
+            }
         }
         onEditHandler();
     };
+
+
+
+
 console.log(props.user);
     return (
         <>
@@ -80,7 +102,7 @@ console.log(props.user);
                     <DataField label={'Name'} name={'name'}
                                data={props.user['full_name'] ? props.user['full_name'] : `${props.user.first_name} ${props.user.last_name}`}
                                var={register} width={100} height={50} color={props => props.theme.ELGreen} edit={edit}/>
-                    {errors['email'] ? <CoachError>{errors['email'].message}</CoachError> : <CoachError/>}
+                    {error !== '' ? <CoachError>{error}</CoachError> : <CoachError/>}
                     <DataField label={'Email'} data={props.user.email} name={'email'}
                                var={register} width={100} height={50} color={props => props.theme.ELGreen} edit={edit}/>
                 </Left>
@@ -88,7 +110,7 @@ console.log(props.user);
                     <DataField label={'Phone Number'} data={props.user['phone_number']} name={'phone_number'}
                                message={'Phone Number must be at least 9 characters'}
                                var={register} width={100} height={50} color={props => props.theme.ELGreen} edit={edit}/>
-                     {errors['phone_number'] ? <CoachError>{errors['phone_number'].message}</CoachError> : <CoachError/>}
+                     {errors['phone_number'] && edit === true ? <CoachError>{errors['phone_number'].message}</CoachError> : <CoachError/>}
                     <DataField label={'Location'} data={props.user.location} name={'location'}
                                var={register} width={100} height={50} color={props => props.theme.ELGreen} edit={edit}/>
                 </Right>
