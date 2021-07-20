@@ -26,7 +26,7 @@ const BaseInputMain = styled.input`
   padding-left: 5%;
   font-family: "Mulish", sans-serif; //added font styles to BaseInputMain. Maybe @ placholder not needed? add fontsize option?
   font-weight: 700;
-  font-size: 1.1vw;
+  font-size: ${props => props.inputTextSize ? `${props.inputTextSize}vw`: "1.1vw"};
   ::placeholder {
     font-size: 1.1vw;
   }
@@ -48,7 +48,7 @@ const BaseInput = (props) => {
             {props.title ? <InputTitle>{props.title}</InputTitle> : null}
 
             <BaseInputMain {...props.var(props.name, {required: props.message, minLength: props.length})}
-                           placeholder={props.placeholder}
+                           placeholder={props.placeholder}  inputTextSize={props.inputTextSize}
                            type={props.type} defaultValue={props.value} step={props.step}/>
         </BaseInputWrap>
     )

@@ -5,6 +5,7 @@ const TextField = props => {
     const { name, total_time, total_kcal, total_carbs_in_grams, number_of_drinks, carbs_needed_from_food,
         slices_of_gingerbread, carbs_from_drink_in_grams, carb_energy_value } = props.data
 
+
     return (
         <>
             <h1>Overall</h1>
@@ -21,7 +22,7 @@ const TextField = props => {
                 <li>For your ride, you will need to bring approx. {number_of_drinks} 75cl bottle(s) of isotonic drink with
                     you on the climb.</li>
                 <li>An isotonic drink contains around 45 grams of carbs per 75cl bottle, so you will already receive
-                    {carbs_from_drink_in_grams} grams of carbs from your isotonic drink.</li>
+                    {(' ' + carbs_from_drink_in_grams)} grams of carbs from your isotonic drink.</li>
             </ul>
             <h1>Food</h1>
             <ul>
