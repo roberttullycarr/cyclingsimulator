@@ -34,7 +34,7 @@ const CalendarNivo = props => {
 
 
     return (
-        <ChartWrapper style={{height: '300px'}}>
+        <ChartWrapper style={{height: '20vw'}}>
             <ResponsiveCalendar
                 data={generateData()}
                 from={getCurrentYear()[0]}

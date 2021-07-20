@@ -20,6 +20,8 @@ const Select = styled.select`
   background-repeat: no-repeat;
   background-position: center right calc(0.375em + 0.1875rem);
   background-size: 1rem 1rem;
+  font-size: 1vw;
+  font-weight: ${props => props.theme.textWeightBold};
 `
 
 const Option = styled.option`
